@@ -29,6 +29,7 @@ public class addTodo implements Command {
 		vo.setDo_startTime(do_startTime);
 		vo.setDo_endDate(do_endDate);
 		vo.setDo_endTime(do_endTime);
+		System.out.println("got");
 		DAO dao = new DAO();
 		List<TodolistVO> list = dao.addTodo(vo);
 		request.setAttribute("list", list);
