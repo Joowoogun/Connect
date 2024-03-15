@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- mapper 태그 : 해당하는 영역 안쪽에 SQL구문을 작성 -->  
+<mapper namespace="com.smhrd.database.DAO">
+<!-- namespace >> Mapper 파일을 식별할 수 있는 식별자
+			   >> 해당하는 파일을 사용할 DAO랑 같은 이름을 줘야 mybatis가 알아서 찾을 수 있다.
+ -->
+ <!-- id : SQL구문 식별자! 절대 중복되면 안된다! 
+ 	  parameterType : 매개변수로 받아오는 자료형 지정 (기본자료형이 아닌 경우에만)
+ 	  resultType : sql구문을 실행후에 되돌려주는 결과값 자료형 지정
+ -->
+ 
+ <!-- resultType의 동작원리
+ 	  1. MemberVO vo = new MemberVO()
+ 	  2. vo.setuserId(userId)
+ 	  3. vo.setaddress(address)
+ 	  4. vo.setAddress(address)
+ 	  * 만약 조회한 column과 이름이 일치하는 필드명이 객체안에 존재하지 않는다면, 
+ 	  동작하지 않고, 에러가 발생!!! >> 해결할 수 있는 방법은 (1) 객체 필드명 바꾸기 (2) sql구문에서 alias부여하기
+  -->
+ 
+  <!-- Todolist 추가기능 -->
+  	<insert id="addTodo" parameterType="com.smhrd.model.TodolistVO">
+        INSERT INTO todoList (userId, todoTitle, content, do_Status, do_startDate,do_startTime,do_endDate,do_endTime)
+        VALUES (#{userId},#{todoTitle},#{content}, #{do_Status}, #{do_startDate},#{do_startTime}, #{do_endDate},#{do_endTime})
+    </insert>
+    
+    <select id="TodoAll" resultType="com.smhrd.model.TodolistVO">
+  	select todoTitle, content, do_Status, do_startDate,do_startTime,do_endDate,do_endTime
+ 	from todoList
+  	</select>
+  
+  	<delete id="todoDel" parameterType="com.smhrd.model.TodolistVO">
+      delete from todoList 
+      where content = #{content}
+   </delete>
+  
+  <select id="EmailCheck" resultType="String">
+      select email as result
+      from b_member
+      where email = #{email}
+   </select>
+</mapper>
