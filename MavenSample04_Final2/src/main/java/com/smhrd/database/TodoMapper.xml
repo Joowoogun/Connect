@@ -49,6 +49,6 @@
 	
 	<select id="todoTitle" resultType="com.smhrd.model.TodolistVO">
 		select * from todoList
-		where todoTitle = '2'
+		where todoTitle = "1"
 	</select>
 </mapper>

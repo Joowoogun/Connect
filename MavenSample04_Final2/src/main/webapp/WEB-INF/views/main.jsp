@@ -29,6 +29,7 @@
 				<a href="Logout.do">로그아웃</a>
 			</c:if>
 			<c:if test="${profile.userId != 'nknoh7' }">
+			<a href="SelectTodoAll.do">Todolist관리</a>
 				<a href="goupdate.do">개인정보 수정</a>
 				<a href="Logout.do">로그아웃</a>
 			</c:if>
