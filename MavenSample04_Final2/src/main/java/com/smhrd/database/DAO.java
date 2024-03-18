@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 public class DAO {
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
 
+	// 회원정보저장
 	public int join(MemberVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		int row = session.insert("join", vo);
@@ -16,6 +17,7 @@ public class DAO {
 		return row;
 	}
 
+	// 로그인기능
 	public MemberVO login(MemberVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		MemberVO resultVo = (MemberVO) session.selectOne("login", vo);
@@ -23,6 +25,7 @@ public class DAO {
 		return resultVo;
 	}
 
+	// 회원정보 전부 조회
 	public List<MemberVO> selectAll() {
 		SqlSession session = this.factory.openSession(true);
 		List<MemberVO> resultList = session.selectList("selectAll");
@@ -30,12 +33,14 @@ public class DAO {
 		return resultList;
 	}
 
+	// 회원정보 수정
 	public void update(MemberVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		session.update("update", vo);
 		session.close();
 	}
 
+	//Todolist 추가
 	public List<TodolistVO> addTodo(TodolistVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		List<TodolistVO> result = (List) session.selectOne("addTodo", vo);
@@ -43,6 +48,7 @@ public class DAO {
 		return result;
 	}
 
+	// Todolist 정보 불러오기 
 	public List<TodolistVO> TodoAll() {
 		SqlSession session = this.factory.openSession(true);
 		List<TodolistVO> resultList = session.selectList("TodoAll");
@@ -50,6 +56,7 @@ public class DAO {
 		return resultList;
 	}
 
+	// 유저아이디 확인 (빨강 초록으로)
 	public String userIdCheck(String userId) {
 		SqlSession session = this.factory.openSession(true);
 		String senduserId = (String) session.selectOne("userIdCheck", userId);
@@ -57,12 +64,14 @@ public class DAO {
 		return senduserId;
 	}
 
+	// todolist 삭제
 	public void todoDel(TodolistVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		session.delete("todoDel", vo);
 		session.close();
 	}
 
+	// 이메일체크하기 (빨강 초록)
 	public String EmailCheck(String email) {
 		// 1. 세션 빌려오기
 		SqlSession session = factory.openSession(true);

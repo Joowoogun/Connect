@@ -27,7 +27,6 @@
 		select todoIdx, todoTitle, content, do_Status,
 		do_startDate,do_startTime,do_endDate,do_endTime
 		from todoList
-		where todoTitle = '2'
 	</select>
 
 	<delete id="todoDel" parameterType="com.smhrd.model.TodolistVO">
