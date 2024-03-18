@@ -5,79 +5,88 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" 
+   <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" 
          integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" 
          crossorigin="anonymous" 
          referrerpolicy="no-referrer">
    </script>
    <!-- CSS 파일 링크 -->      
    <link rel="stylesheet" href="assets/css/Todolist.css" />
-		
-	</head>
-	<body>
-		<caption><h2>Todolist관리</h2></caption>
-		<a href="goaddTodo.do">일정추가</a>
-		<h1>${todoTitle}</h1>
+      
+   </head>
+   <body>
+      <caption><h2>Todolist관리</h2></caption>
+      <a href="goaddTodo.do">일정추가</a>
+      리스트제목 : <select>
+                    <option value="">개인할일</option>
+                    <option value="">A공모전</option>
+                    <option value="">B공모전</option>
+                    <option value="">C공모전</option>
+                </select>
+      <h1>${todoTitle}</h1>
     <div class="container">
-        <div class="column" id="insertmemo">
+        <div class="column" id="Todo">
             <h1>Todo</h1>
                <c:forEach items="${TodoList}" var="todo">
-               	<c:if test="${todo.do_Status=='해야 할 일'}">
-               	<div class="list-group-item" draggable="true">
-               		 <form action="todoDel.do" method="post">
-                           ${todo.content} 
+                  <c:if test="${todo.do_Status=='해야 할 일'}">
+                  <div class="list-group-item" draggable="true">
+                      <form action="todoDel.do" method="post">
+                           ${todo.content} ${todo.todoIdx}
                            <br>
                            ${todo.do_startDate} ~ ${todo.do_endDate}
                            <br>
                            ${todo.do_startTime} ~ ${todo.do_endTime}
-                           <input type="hidden" id="status" value="${todo.do_Status}">
+                           <input type="hidden" id="status" value="해야 할 일">
+                           <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
                            <input type="hidden" name="txt" value="${todo.content}">
                            <input type="submit" value="삭제">
                      </form>     
                         </div>
-               	</c:if>
+                  </c:if>
                         
              </c:forEach>                                                                         
         </div>
 
-        <div class="column">
+        <div class="column" id="InProgress">
             <h1>InProgress</h1>
                <c:forEach items="${TodoList}" var="todo">
                      <c:if test="${todo.do_Status=='진행 중'}">
-               	<div class="list-group-item" draggable="true">
+                  <div class="list-group-item" draggable="true">
                         <form action="todoDel.do" method="post">
-                           ${todo.content} 
+                           ${todo.content} ${todo.todoIdx}
                            <br>
                            ${todo.do_startDate} ~ ${todo.do_endDate}
                            <br>
                            ${todo.do_startTime} ~ ${todo.do_endTime}
-                           <input type="hidden" id="status" value="${todo.do_Status}">
+                           <input type="hidden" id="status" value="진행 중">
+                           <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
                            <input type="hidden" name="txt" value="${todo.content}">
                            <input type="submit" value="삭제">
-                     	</form>  
+                        </form>  
                         </div>
-               	</c:if>
+                  </c:if>
                 </c:forEach>                                 
         </div>
         
-        <div class="column">
+        <div class="column" id="Done">
             <h1>Done</h1>
                <c:forEach items="${TodoList}" var="todo">
                      <c:if test="${todo.do_Status=='완료'}">
-               	<div class="list-group-item" draggable="true">
+                  <div class="list-group-item" draggable="true">
                      <form action="todoDel.do" method="post">
-                           ${todo.content} 
+                           ${todo.content} ${todo.todoIdx}
                            <br>
                            ${todo.do_startDate} ~ ${todo.do_endDate}
                            <br>
                            ${todo.do_startTime} ~ ${todo.do_endTime}
-                           <input type="hidden" id="status" value="${todo.do_Status}">
+                           <input type="hidden" id="status" value="완료">
+                           <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
                            <input type="hidden" name="txt" value="${todo.content}">
                            <input type="submit" value="삭제">
                      </form>  
                         </div>
-               	</c:if>
+                  </c:if>
                 </c:forEach>               
         </div>
                  
@@ -89,39 +98,68 @@
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    <script src="assets/js/dragAble.js"></script>
    <script type="text/javascript">
-   $(".list-group-item").on("dragstart",function(){
-		// 2)input 데이터 불러오고 변수에 저장
-		let sendData = {"sendData":$("#status").val()};
-		// 3)console에 출력
-		
-			console.log(sendData);
-	// 4) 비동기 통신을 사용하여 Servlet으로 데이터 전송
-	$.ajax({
-		// 보내줄 url 
-		url : "Ajax",
-		// 보내줄 data
-		data : sendData,
-		// 전송방식 지정
-		type : 'get',
-		// 데이터타입
-		dataType:'json',
-		// 성공했을 때 실행할 함수 지정
-		success : (res) => {
-			console.log("데이터 전송 성공!");
-			console.log("받아온 데이터 >> ", res);
-		},
-		// 실패했을 때 실행할 함수 지정
-		error : () => {
-			console.log("데이터 전송 실패!");
-		}
-		
-	})
+   
+   $(".list-group-item").on("dragend",function(){
+      
+      let nowStatus = $(this).find("#status");
+      
+      let newStatus = "";
+      let columnId = $(this).parent().attr("id");
+      
+      switch (columnId) {
+       case "Todo":
+           newStatus = "해야 할 일";
+           break;
+       case "InProgress":
+           newStatus = "진행 중";
+           break;
+       case "Done":
+           newStatus = "완료";
+           break;
+       default:
+           newStatus = "알수없음";
+   }
+      
+      nowStatus.val(newStatus);
+      
+      
+      let status = $(this).find("#status").val();
+      let todoIdx = $(this).find("#todoIdx").val();
+      // 2)input 데이터 불러오고 변수에 저장
+      let sendData = {"status":newStatus
+                  ,"todoIdx":todoIdx
+                     };
+      // 3)console에 출력
+      
+         console.log(sendData);
+   // 4) 비동기 통신을 사용하여 Servlet으로 데이터 전송
+   $.ajax({
+      // 보내줄 url 
+      url : "todoAjax",
+      // 보내줄 data
+      data : sendData,
+      // 전송방식 지정
+      type : 'get',
+      // 데이터타입
+      dataType:'json',
+      // 성공했을 때 실행할 함수 지정
+      success : (res) => {
+         console.log("데이터 전송 성공!");
+         console.log("받아온 데이터 >> ", res);
+      },
+      // 실패했을 때 실행할 함수 지정
+      error : () => {
+         console.log("데이터 전송 실패!");
+      }
+      
+   })
    
    })
    
    
+   
+   
    </script>
    <!-- 스크립트 끝 -->
-	</body>
+   </body>
 </html>
-

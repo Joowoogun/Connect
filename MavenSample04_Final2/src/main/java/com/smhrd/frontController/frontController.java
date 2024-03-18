@@ -9,6 +9,7 @@ import com.smhrd.controller.SelectTodoAll;
 import com.smhrd.controller.Update;
 import com.smhrd.controller.addTodo;
 import com.smhrd.controller.todoDel;
+import com.smhrd.controller.todoTitle;
 import com.smhrd.controller.userIdCheck;
 import java.io.IOException;
 import java.util.HashMap;
@@ -35,6 +36,7 @@ public class frontController extends HttpServlet {
 		this.map.put("addTodo.do", new addTodo());
 		this.map.put("SelectTodoAll", new SelectTodoAll());
 		this.map.put("todoDel.do", new todoDel());
+		this.map.put("todoTitle", new todoTitle());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

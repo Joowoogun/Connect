@@ -64,14 +64,28 @@ public class DAO {
 	}
 
 	public String EmailCheck(String email) {
-	      // 1. 세션 빌려오기
-	      SqlSession session = factory.openSession(true);
-	      // 2. 세션 사용하기 -> select 구문 데이터 한개만 조회
-	      String result = session.selectOne("EmailCheck", email);
-	      // 3. 세션 반납하기
-	      session.close();
-	      // 4. 결과창 확인하기
-	      return result;
-	      
+		// 1. 세션 빌려오기
+		SqlSession session = factory.openSession(true);
+		// 2. 세션 사용하기 -> select 구문 데이터 한개만 조회
+		String result = session.selectOne("EmailCheck", email);
+		// 3. 세션 반납하기
+		session.close();
+		// 4. 결과창 확인하기
+		return result;
+
+	}
+
+	public void todoUpdate(TodolistVO vo) {
+		SqlSession session = factory.openSession(true);
+		session.update("todoUpdate", vo);
+		session.close();
+	}
+	
+	// 카테고리별 투두리스트 변환
+	public List<TodolistVO> TodoTitle() {
+		SqlSession session = this.factory.openSession(true);
+		List<TodolistVO> resultList = session.selectList("TodoAll");
+		session.close();
+		return resultList;
 	}
 }

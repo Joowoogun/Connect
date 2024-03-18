@@ -10,12 +10,14 @@ public class TodolistVO {
 	private String do_startTime;
 	private String do_endDate;
 	private String do_endTime;
+	private int todoIdx;
 
 	public TodolistVO() {
 	}
 
-	public TodolistVO(int conIdx, String userId, String todoTitle, String content, String do_Status,
+	public TodolistVO(int todoIdx, int conIdx, String userId, String todoTitle, String content, String do_Status,
 			String do_startDate, String do_endDate) {
+		this.todoIdx = todoIdx;
 		this.conIdx = conIdx;
 		this.userId = userId;
 		this.todoTitle = todoTitle;
@@ -23,6 +25,14 @@ public class TodolistVO {
 		this.do_Status = do_Status;
 		this.do_startDate = do_startDate;
 		this.do_endDate = do_endDate;
+	}
+
+	public int getTodoIdx() {
+		return todoIdx;
+	}
+
+	public void setTodoIdx(int todoIdx) {
+		this.todoIdx = todoIdx;
 	}
 
 	public int getConIdx() {
