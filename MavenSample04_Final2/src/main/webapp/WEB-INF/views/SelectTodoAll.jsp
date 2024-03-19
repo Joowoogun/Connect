@@ -1,107 +1,124 @@
+<%@page import="java.util.Set"%>
+<%@page import="com.smhrd.model.TodolistVO"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+   pageEncoding="utf-8"%>
 <!-- 1.request영역에 저장된 정보를 가져오시오. -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
-	integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
-	crossorigin="anonymous" referrerpolicy="no-referrer">
-	
-	
+   src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
+   integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
+   crossorigin="anonymous" referrerpolicy="no-referrer">
+   
+   
    </script>
 <!-- CSS 파일 링크 -->
 <link rel="stylesheet" href="assets/css/Todolist.css" />
-
 </head>
 <body>
-
-	
-	<caption>
-		<h2>Todolist관리</h2>
-	</caption>
-	<a href="goaddTodo.do">일정추가</a> 리스트제목 :
-
-	<select id="todoTitle">
-		<c:forEach items="${TodoList}" var="title">
-			<option>${title.todoTitle}</option>
-		</c:forEach>
-
-	</select>
-	<div class="container">
-		<div class="column" id="Todo">
-			<h1>Todo</h1>
-			<c:forEach items="${TodoList}" var="todo">
-				<c:if test="${todo.do_Status=='해야 할 일'}">
-					<div class="list-group-item" draggable="true">
-						<form action="todoDel.do" method="post">
-							${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-							${todo.do_endDate} <br> ${todo.do_startTime} ~
-							${todo.do_endTime} 
-							<input type="hidden" id="status" value="해야 할 일"> 
-							<input type="hidden" id="todoIdx" value="${todo.todoIdx}"> 
-							<input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-							<input type="hidden" name="txt" value="${todo.content}"> 
-							<input type="submit" value="삭제">
-						</form>
-					</div>
-				</c:if>
-
-			</c:forEach>
-		</div>
-
-		<div class="column" id="InProgress">
-			<h1>InProgress</h1>
-			<c:forEach items="${TodoList}" var="todo">
-				<c:if test="${todo.do_Status=='진행 중'}">
-					<div class="list-group-item" draggable="true">
-						<form action="todoDel.do" method="post">
-							${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-							${todo.do_endDate} <br> ${todo.do_startTime} ~
-							${todo.do_endTime} <input type="hidden" id="status" value="진행 중">
-							<input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-							<input type="hidden" id="todoIdx" value="${todo.todoIdx}">
-							<input type="hidden" name="txt" value="${todo.content}">
-							<input type="submit" value="삭제">
-						</form>
-					</div>
-				</c:if>
-			</c:forEach>
-		</div>
-
-		<div class="column" id="Done">
-			<h1>Done</h1>
-			<c:forEach items="${TodoList}" var="todo">
-				<c:if test="${todo.do_Status=='완료'} ">
-					<div class="list-group-item" draggable="true">
-						<form action="todoDel.do" method="post">
-							${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-							${todo.do_endDate} <br> ${todo.do_startTime} ~
-							${todo.do_endTime} <input type="hidden" id="status" value="완료">
-							<input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-							<input type="hidden" id="todoIdx" value="${todo.todoIdx}">
-							<input type="hidden" name="txt" value="${todo.content}">
-							<input type="submit" value="삭제">
-						</form>
-					</div>
-				</c:if>
-			</c:forEach>
-		</div>
-
-
-
-	</div>
-
-	<!-- 스크립트  -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="assets/js/dragAble.js"></script>
-	<script type="text/javascript">
    
-   $('.list-group-item').hide();
+
+   
+   <caption>
+      <h2>Todolist관리</h2>
+   </caption>
+   <a href="goaddTodo.do">일정추가</a> 리스트제목 :
+   
+   <select id="todoTitle">
+   
+      <c:forEach items="${TodoList}" var="title">
+         <option>${title.todoTitle}</option>
+      </c:forEach>
+
+   </select>
+   <div class="container">
+      <div class="column" id="Todo">
+         <h1>Todo</h1>
+         <c:forEach items="${TodoList}" var="todo">
+            <c:if test="${todo.do_Status == '해야 할 일' and todo.userId == todo.profileId}">
+               <div class="list-group-item" draggable="true">
+                  <form action="todoDel.do" method="post">
+                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
+                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     ${todo.do_endTime} 
+                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
+                     <input type="hidden" id="status" value="해야 할 일"> 
+                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}"> 
+                     <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="hidden" name="txt" value="${todo.content}"> 
+                     <input type="submit" value="삭제">
+                  </form>
+               </div>
+            </c:if>
+
+         </c:forEach>
+      </div>
+
+      <div class="column" id="InProgress">
+         <h1>InProgress</h1>
+         <c:forEach items="${TodoList}" var="todo">
+            <c:if test="${todo.do_Status == '진행 중' and todo.userId == todo.profileId}">         
+               <div class="list-group-item" draggable="true">
+                  <form action="todoDel.do" method="post">
+                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
+                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     ${todo.do_endTime}
+                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
+                     <input type="hidden" id="status" value="진행 중">
+                     <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="txt" value="${todo.content}">
+                     <input type="submit" value="삭제">
+                  </form>
+               </div>
+            </c:if>
+         </c:forEach>
+      </div>
+
+      <div class="column" id="Done">
+         <h1>Done</h1>
+         <c:forEach items="${TodoList}" var="todo">
+            <c:if test="${todo.do_Status == '완료' and todo.userId == todo.profileId}">
+               <div class="list-group-item" draggable="true">
+                  <form action="todoDel.do" method="post">
+                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
+                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     ${todo.do_endTime} 
+                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
+                     <input type="hidden" id="status" value="완료">
+                     <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="txt" value="${todo.content}">
+                     <input type="submit" value="삭제">
+                  </form>
+               </div>
+            </c:if>
+         </c:forEach>
+      </div>
+
+
+
+   </div>
+
+   <!-- 스크립트  -->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="assets/js/dragAble.js"></script>
+   <script type="text/javascript">
+   
+   $(document).ready(function() {
+	    // 페이지가 로드되면 실행될 코드
+	    $('.list-group-item').show(); // list-group-item 클래스를 가진 모든 요소를 표시
+
+	    // select 요소를 가져와서 첫 번째 옵션을 선택
+	    $('#todoTitle').val($('#todoTitle option:first').val());
+
+	    // select 요소가 화면에 보이도록 CSS 속성을 설정
+	    $('#todoTitle').css('display', 'block');
+	});
    
    $(".list-group-item").on("dragend",function(){
       
@@ -160,7 +177,7 @@
    
    })
    
-	
+   
 $(document).ready(function(){
     var uniqueTitles = {};
     $('#todoTitle option').each(function(){
@@ -202,7 +219,7 @@ $(document).ready(function(){
 
 
 
-	</script>
-	<!-- 스크립트 끝 -->
+   </script>
+   <!-- 스크립트 끝 -->
 </body>
 </html>

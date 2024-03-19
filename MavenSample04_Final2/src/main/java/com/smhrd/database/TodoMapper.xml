@@ -24,7 +24,7 @@
 	</insert>
 
 	<select id="TodoAll" resultType="com.smhrd.model.TodolistVO">
-		select todoIdx, todoTitle, content, do_Status,
+		select userId, todoIdx, todoTitle, content, do_Status,
 		do_startDate,do_startTime,do_endDate,do_endTime
 		from todoList
 	</select>
