@@ -20,6 +20,6 @@ public class Login implements Command {
 			session.setAttribute("profile", resultVo);
 		}
 
-		return "redirect:/gomain.do";
+		return "redirect:/goindex.do";
 	}
 }

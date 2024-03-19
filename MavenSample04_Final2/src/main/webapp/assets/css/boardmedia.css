@@ -1,0 +1,85 @@
+@media (max-width: 1000px) {
+    .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0 30px;
+        box-sizing: border-box;
+        color: black;
+    }
+	.board_list {
+        color: black;
+	
+	}
+    .board_list .ourboardnum,
+    .board_list .ourboardwriter,
+    .board_list .ourboardcount {
+        display: none;
+    }
+
+    .board_list .ourboarddate {
+        width: 40%;
+    }
+
+    .board_list .ourboardtitle {
+        text-indent: 10px;
+    }
+
+    .board_list .ourboardtop .title {
+        text-indent: 0;
+    }
+
+    .board_page a {
+        width: 26px;
+        height: 26px;
+    }
+
+    .board_page a.bt {
+        padding-top: 7px;
+    }
+    
+    .board_page a.ourboardnum {
+        padding-top: 6px;
+    }
+
+    .board_view .ourboardinfo dl {
+        width: 50%;
+        padding: 0;
+    }
+
+    .board_view .ourboardinfo dl:nth-child(-n+2) {
+        margin-bottom: 5px;
+    }
+
+    .board_view .ourboardinfo dl::before {
+        display: none;
+    }
+
+    .board_view .ourboardinfo dl dt,
+    .board_view .ourboardinfo dl dd {
+        font-size: 1.2rem;
+    }
+
+    .board_write .ourboardinfo dl {
+        width: 49%;
+    }
+
+    .board_write .ourboardinfo dl:first-child {
+        margin-right: 2%;
+    }
+
+    .board_write .ourboardtitle dt,
+    .board_write .ourboardinfo dt {
+        display: none;
+    }
+
+    .board_write .ourboardtitle dd,
+    .board_write .ourboardinfo dd {
+        width: 100%;
+    }
+
+    .board_write .ourboardtitle input[type="text"],
+    .board_write .ourboardinfo input[type="text"],
+    .board_write .ourboardinfo input[type="password"] {
+        width: 100%;
+    }
+}

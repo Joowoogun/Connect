@@ -11,12 +11,16 @@ public class DAO {
 
 	// 회원정보저장
 	public int join(MemberVO vo) {
-		SqlSession session = this.factory.openSession(true);
-		int row = session.insert("join", vo);
-		session.close();
+		int row = 0;
+		try {
+			SqlSession session = this.factory.openSession(true);
+			row = session.insert("join", vo);
+			session.close();
+		} catch (Exception e) {
+			row=0;
+	}
 		return row;
 	}
-
 	// 로그인기능
 	public MemberVO login(MemberVO vo) {
 		SqlSession session = this.factory.openSession(true);

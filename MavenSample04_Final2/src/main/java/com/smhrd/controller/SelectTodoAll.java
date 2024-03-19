@@ -26,6 +26,9 @@ public class SelectTodoAll implements Command {
 	      
 	      request.setAttribute("TodoList", TodoList);
 	      
-	      return "SelectTodoAll";
+	      return "Todo";
+	// 원하는 번호만 빼오고 싶다? 가설1) select -> where todotitle = 1, 2
+	      // 가설 2번 데이터를 불러와서 if
+	
 	}
 }

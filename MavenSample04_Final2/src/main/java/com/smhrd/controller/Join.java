@@ -20,7 +20,7 @@ public class Join implements Command {
 			request.setAttribute("userId", userId);
 			return "join_success";
 		} else {
-			return "redirect:/gomain.do";
+			return "redirect:/gopage-register.do";
 		}
 	}
 }
