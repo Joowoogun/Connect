@@ -50,7 +50,8 @@
 							<input type="hidden" id="todoIdx" value="${todo.todoIdx}">
 							<input type="hidden" name="todoTitle" value="${todo.todoTitle}">
 							<input type="hidden" name="txt" value="${todo.content}">
-							<input type="submit" value="삭제">
+							<!--   <input type="submit" value="삭제"> -->
+							<img type = "submit" src = "./images/1.jpg" > 
 						</form>
 					</div>
 				</c:if>

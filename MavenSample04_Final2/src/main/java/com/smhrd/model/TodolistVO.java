@@ -11,13 +11,16 @@ public class TodolistVO {
    private String do_endDate;
    private String do_endTime;
    private String profileId;
+   private String todoChangeTitle;
    private int todoIdx;
 
-   public TodolistVO() {
+   
+
+public TodolistVO() {
    }
 
    public TodolistVO(int todoIdx, int conIdx, String userId, String profileId, String todoTitle, String content, String do_Status,
-         String do_startDate, String do_endDate) {
+         String do_startDate, String do_endDate, String todoChangeTitle) {
       this.todoIdx = todoIdx;
       this.conIdx = conIdx;
       this.userId = userId;
@@ -27,7 +30,30 @@ public class TodolistVO {
       this.do_startDate = do_startDate;
       this.do_endDate = do_endDate;
       this.profileId = profileId;
+      this.todoChangeTitle = todoChangeTitle;
    }
+   
+   public TodolistVO(String userId, String todoTitle, String todoChangeTitle) {
+	this.userId = userId;
+	this.todoTitle = todoTitle;
+	this.todoChangeTitle = todoChangeTitle;
+}
+
+public String getProfileId() {
+		return profileId;
+	}
+
+	public void setProfileId(String profileId) {
+		this.profileId = profileId;
+	}
+
+	public String getTodoChangeTitle() {
+		return todoChangeTitle;
+	}
+
+	public void setTodoChangeTitle(String todoChangeTitle) {
+		this.todoChangeTitle = todoChangeTitle;
+	}
 
    public int getTodoIdx() {
       return todoIdx;

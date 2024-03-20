@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.Set"%>
 <%@page import="com.smhrd.model.TodolistVO"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -19,7 +20,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- 추가 링크 및 스크립트 -->
      <link rel="stylesheet" href="assets/css/Todolist.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" 
          integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" 
          crossorigin="anonymous" 
          referrerpolicy="no-referrer">
@@ -54,7 +55,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="goindex.do" class="brand-logo">
                 <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
                 <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
@@ -74,105 +75,105 @@
             Header start
         ***********************************-->
         <div class="header">
-			<div class="header-content">
-				<nav class="navbar navbar-expand">
-					<div class="collapse navbar-collapse justify-content-between">
-						<div class="header-left">
-							<div class="search_bar dropdown">
-								<span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-									<i class="mdi mdi-magnify"></i>
-								</span>
-								<div class="dropdown-menu p-0 m-0">
-									<form>
-										<input class="form-control" type="search" placeholder="Search"
-											aria-label="Search">
-									</form>
-								</div>
-							</div>
-						</div>
+         <div class="header-content">
+            <nav class="navbar navbar-expand">
+               <div class="collapse navbar-collapse justify-content-between">
+                  <div class="header-left">
+                     <div class="search_bar dropdown">
+                        <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                           <i class="mdi mdi-magnify"></i>
+                        </span>
+                        <div class="dropdown-menu p-0 m-0">
+                           <form>
+                              <input class="form-control" type="search" placeholder="Search"
+                                 aria-label="Search">
+                           </form>
+                        </div>
+                     </div>
+                  </div>
 
-						<ul class="navbar-nav header-right">
-							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
-									<!--  <div class="pulse-css"></div> -->
-							</a>
-					
-							<div>
-							<span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
-						</div>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="list-unstyled">
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-user"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Martin</strong> has added a <strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-shopping-cart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Jennifer</strong> purchased Light Dashboard 2.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="danger"><i
-												class="ti-bookmark"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Robin</strong> marked a <strong>ticket</strong> as
-														unsolved.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-heart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>David</strong> purchased Light Dashboard 1.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-image"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong> James.</strong> has added a<strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-									</ul>
-									<a class="all-notification" href="#">See all notifications
-										<i class="ti-arrow-right"></i>
-									</a>
-								</div></li>
-							<li class="nav-item dropdown header-profile"><a
-								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page-mypage.jsp" class="dropdown-item"> <i
-										class="icon-user"></i> <span class="ml-2">MyPage </span>
-									</a> 
-									<a href="./page-login.jsp" class="dropdown-item"> <i
-										class="icon-key"></i> <span class="ml-2">Logout </span>
-									</a>
-								</div></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
+                  <ul class="navbar-nav header-right">
+                     <li class="nav-item dropdown notification_dropdown"><a
+                        class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+                           <img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+                           <!--  <div class="pulse-css"></div> -->
+                     </a>
+               
+                     <div>
+                     <span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
+                  </div>
+                        <div class="dropdown-menu dropdown-menu-right">
+                           <ul class="list-unstyled">
+                              <li class="media dropdown-item"><span class="success"><i
+                                    class="ti-user"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Martin</strong> has added a <strong>customer</strong>
+                                          Successfully
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="primary"><i
+                                    class="ti-shopping-cart"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Jennifer</strong> purchased Light Dashboard 2.0.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="danger"><i
+                                    class="ti-bookmark"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Robin</strong> marked a <strong>ticket</strong> as
+                                          unsolved.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="primary"><i
+                                    class="ti-heart"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>David</strong> purchased Light Dashboard 1.0.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="success"><i
+                                    class="ti-image"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong> James.</strong> has added a<strong>customer</strong>
+                                          Successfully
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                           </ul>
+                           <a class="all-notification" href="#">See all notifications
+                              <i class="ti-arrow-right"></i>
+                           </a>
+                        </div></li>
+                     <li class="nav-item dropdown header-profile"><a
+                        class="nav-link" href="#" role="button" data-toggle="dropdown">
+                           <i class="mdi mdi-account"></i>
+                     </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                           <a href="./page-mypage.jsp" class="dropdown-item"> <i
+                              class="icon-user"></i> <span class="ml-2">MyPage </span>
+                           </a> 
+                           <a href="./page-login.jsp" class="dropdown-item"> <i
+                              class="icon-key"></i> <span class="ml-2">Logout </span>
+                           </a>
+                        </div></li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </div>
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -184,16 +185,23 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                    <li class="nav-label first">MENU</li>
-                    <li><a href="index.jsp" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CONTEST</span></a></li>
-                    <li><a href="QuickView.jsp" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">QUICK VIEW</span></a></li>
-                    <li><a href="Calendar.jsp" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="Todo.jsp" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">TO DO</span></a></li>
-                    <li><a href="Document.jsp" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">DOCUMENT</span></a></li>
+                    <<li><a href="goindex.do" aria-expanded="false"><img
+                     src="assets/images/contesttab.png" width="18px" height="18px"
+                     style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
+               <li><a href="goQuickView.do" aria-expanded="false"><img
+                     src="assets/images/quickviewtab.png" width="18px" height="18px"
+                     style="margin-right: 5px;"><span class="nav-text">QUICK
+                        VIEW</span></a></li>
+               <li><a href="goCalendar.do" aria-expanded="false"><img
+                     src="assets/images/calendartab.png" width="18px" height="18px"
+                     style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+               <li><a href="SelectTodoAll.do" aria-expanded="false"><img
+                     src="assets/images/todotab.png" width="18px" height="18px"
+                     style="margin-right: 5px;"><span class="nav-text">TO
+                        DO</span></a></li>
+               <li><a href="goDocument.do" aria-expanded="false"><img
+                     src="assets/images/documenttab.png" width="18px" height="18px"
+                     style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                                 </ul>
                             </li>  
                             <li><a href="./page-lock-screen.jsp">Lock Screen</a></li> -->
@@ -207,39 +215,48 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-
+      
         <!--**********************************
             Content body start
         ***********************************-->
      <div class="content-body">
             <!-- row -->
             <div class="all_title">
-                    <strong>TODO-LIST2</strong>
+               <strong>
+                 <form action="todoChageTitle.do" method="post">
+                     <input id="showHide" name="title" type="text" placeholder="${TodoTitle}">
+                     <input id="firstHide" name="titleName" type="hidden" value="${TodoTitle}">
+                   <input type="hidden" type="submit" value="나는 투명이다~">
+                 </form>
+               </strong>
             </div>
             <div>
-            
+           <span>
            <progress
-      			class="progress"
-      			id="progress"
-      			value="50"
-      			min="0"
-     			max="100"
-    		></progress> 
-    		<div class = "ourSelect">
- 			<select>
-				<c:forEach items="${TodoList}" var="title">
-         			<option>${title.todoTitle}</option>
-     			</c:forEach>
-			</select>
-		   </div>
+               class="progress"
+               id="progress"
+               value="0"
+               min="0"
+              max="100"
+          ></progress>
+          </span> 
+          <div class = "ourSelect">
+          
+          
+          <select id="todoTitle" onchange="changeValue()">
+            <c:forEach items="${TodoOption}" var="title">
+                  <option>${title}</option>
+              </c:forEach>
+         </select>
+         </div>
             </div>
  
-		<br>
- 		<div>
- 		
- 		
-		<a href="goaddTodo.do">일정추가</a>
-		<h1>${todoTitle}</h1>
+      <br>
+       <div>
+       
+       
+      <a href="goaddTodo.do">일정추가</a>
+      <h1>${todoTitle}</h1>
     <div class="container">
       <div class="column" id="Todo">
          <h1>Todo</h1>
@@ -308,9 +325,9 @@
 
 
    </div>
- 		
- 		</div>
- 		
+       
+       </div>
+       
         </div>
         <!--**********************************
             Content body end
@@ -376,16 +393,17 @@
    <script src="assets/js/dragAble.js"></script>
    <script>
    $(document).ready(function() {
-	    // 페이지가 로드되면 실행될 코드
-	    $('.list-group-item').show(); // list-group-item 클래스를 가진 모든 요소를 표시
+       // 페이지가 로드되면 실행될 코드
+       $('.list-group-item').show(); // list-group-item 클래스를 가진 모든 요소를 표시
 
-	    // select 요소를 가져와서 첫 번째 옵션을 선택
-	    $('#todoTitle').val($('#todoTitle option:first').val());
+       // select 요소를 가져와서 첫 번째 옵션을 선택
+       $('#todoTitle').val($('#todoTitle option:first').val());
 
-	    // select 요소가 화면에 보이도록 CSS 속성을 설정
-	    $('#todoTitle').css('display', 'block');
-	});
+       // select 요소가 화면에 보이도록 CSS 속성을 설정
+       $('#todoTitle').css('display', 'block');
+   });
   
+   // 드래그할때마다 DB에 현황을 전달하여 업데이트 하는 기능
   $(".list-group-item").on("dragend",function(){
      
      let nowStatus = $(this).find("#status");
@@ -443,19 +461,6 @@
   
   })
   
-  
-$(document).ready(function(){
-   var uniqueTitles = {};
-   $('#todoTitle option').each(function(){
-       uniqueTitles[$(this).text()] = true;
-   });
-
-   $('#todoTitle').empty(); // 기존 옵션 제거
-
-   $.each(uniqueTitles, function(title, value){
-       $('#todoTitle').append($('<option>').text(title));
-   });
-});
 
 
 $(document).ready(function(){
@@ -482,6 +487,32 @@ $(document).ready(function(){
        });
    });
 });
+// 잘모르겠음 뭐엿지
+$(document).ready(function() {
+    $('div.column .list-group-item').each(function() {
+        var todoTitle = $(this).find('input[name="todoTitle"]').val();
+        var firstHide = $('#firstHide').val();
+        console.log(firstHide)
+        if (todoTitle !== firstHide) {
+            $(this).hide();
+        }
+    });
+});
+
+// option 선택시 보여지는 제목, 변경할때 보내는 내부의 값을 변경
+function changeValue() {
+    var selectElement = document.getElementById("todoTitle");
+    var selectedText = selectElement.options[selectElement.selectedIndex].text;
+    console.log(selectedText);
+    // firstHide 요소의 value 값을 선택된 옵션의 값으로 변경
+    document.getElementById("firstHide").value = selectedText;
+    // 사용자에게 보여지는 걸 변경
+    document.getElementById("showHide").placeholder = selectedText;
+}
+
+
+
+
    </script>
    <!-- 스크립트 끝 -->
 

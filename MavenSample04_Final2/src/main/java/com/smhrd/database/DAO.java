@@ -1,6 +1,8 @@
 package com.smhrd.database;
 
 import com.smhrd.model.MemberVO;
+import com.smhrd.model.ScrapListVO;
+import com.smhrd.model.ContestVO;
 import com.smhrd.model.TodolistVO;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
@@ -98,6 +100,39 @@ public class DAO {
 	public List<TodolistVO> TodoTitle() {
 		SqlSession session = this.factory.openSession(true);
 		List<TodolistVO> resultList = session.selectList("TodoAll");
+		session.close();
+		return resultList;
+	}
+	
+	public List<ContestVO> ClickContestInfo() {
+		SqlSession session = this.factory.openSession(true);
+		List<ContestVO> resultList = session.selectList("ClickContestInfo");
+		session.close();
+		return resultList;
+	}
+	
+	   public void changeTodoTitle(TodolistVO vo) {
+		      SqlSession session = factory.openSession(true);
+		      session.update("changeTodoTitle", vo);
+		      session.close();
+		   }
+	   
+	public List<ScrapListVO> addScrap(ScrapListVO vo) {
+		SqlSession session = this.factory.openSession(true);
+		List<ScrapListVO> result = (List) session.selectOne("addScrap", vo);
+		session.close();
+		return result;
+	}
+	
+	public void delScrap(ScrapListVO vo) {
+		SqlSession session = factory.openSession(true);
+		session.delete("delScrap", vo);
+		session.close();
+	}
+	
+	public List<ScrapListVO> SelectScrapAll() {
+		SqlSession session = factory.openSession(true);
+		List<ScrapListVO> resultList = session.selectList("SelectScrapAll");
 		session.close();
 		return resultList;
 	}

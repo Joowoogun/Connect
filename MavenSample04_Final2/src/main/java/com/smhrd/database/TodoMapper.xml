@@ -51,4 +51,10 @@
 		select * from todoList
 		where todoTitle = "1"
 	</select>
+	
+	<update id="changeTodoTitle" parameterType="com.smhrd.model.TodolistVO">
+      update todoList
+      set todoTitle = #{todoTitle}
+      where userId = #{userId} and todoTitle = #{todoChangeTitle}
+   </update>
 </mapper>

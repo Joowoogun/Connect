@@ -1,3 +1,8 @@
+<%@page import="com.smhrd.model.ScrapListVO"%>
+<%@page import="java.util.Set"%>
+<%@page import="com.smhrd.model.TodolistVO"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -14,12 +19,14 @@
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
+	<%
+	ScrapListVO mvo = (ScrapListVO) session.getAttribute("scrapList");
+	%>
 
 
 </head>
-
 <body>
+	
 
     <!--*******************
         Preloader start
@@ -84,7 +91,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -155,7 +162,7 @@
 									<a href="./page-mypage.jsp" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
-									<a href="./page-login.jsp" class="dropdown-item"> <i
+									<a href="gopage-login.do" class="dropdown-item"> <i
 										class="icon-key"></i> <span class="ml-2">Logout </span>
 									</a>
 								</div></li>
@@ -250,7 +257,7 @@
                                 class="nav-text">QUICK VIEW</span></a></li>
                     <li><a href="Calendar.jsp" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="Todo.jsp" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="SelectTodoAll.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">TO DO</span></a></li>
                     <li><a href="Document.jsp" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">DOCUMENT</span></a></li>
@@ -279,7 +286,7 @@
                                 class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./page-register.jsp">Register</a></li>
-                            <li><a href="./page-login.jsp">Login</a></li>
+                            <li><a href="gopage-login.do">Login</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./page-error-400.jsp">Error 400</a></li>
@@ -306,7 +313,15 @@
         ***********************************-->
         <div class="content-body"  style="text-align: center;">
             <!-- row -->
-            
+            <c:forEach items="${scrapList}" var="sc">
+            <div>
+            ${sc.conName}
+            <br>
+            ${sc.conStartDate}
+            <br>
+            ${sc.conEndDate}
+            </div>
+            </c:forEach>
             <img src = "assets/images/Scrapex01.png" width = "1600px" height = "820px" >
             
         </div>

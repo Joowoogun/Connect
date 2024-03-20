@@ -85,7 +85,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -156,7 +156,7 @@
 									<a href="./page-mypage.jsp" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
-									<a href="./page-login.jsp" class="dropdown-item"> <i
+									<a href="gopage-login.do" class="dropdown-item"> <i
 										class="icon-key"></i> <span class="ml-2">Logout </span>
 									</a>
 								</div></li>
@@ -280,7 +280,7 @@
                                 class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./page-register.jsp">Register</a></li>
-                            <li><a href="./page-login.jsp">Login</a></li>
+                            <li><a href="gopage-login.do">Login</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./page-error-400.jsp">Error 400</a></li>

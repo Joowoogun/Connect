@@ -90,7 +90,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -250,7 +250,7 @@
                             <li><a href="./map-jqvmap.jsp">Jqv Map</a></li>
                         </ul>
                     </li> -->
-					<li><a href="index.jsp" aria-expanded="false"><img
+					<li><a href="goindex.do" aria-expanded="false"><img
 							src="assets/images/contesttab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
 					<li><a href="QuickView.jsp" aria-expanded="false"><img
@@ -292,7 +292,7 @@
                                 class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./page-register.jsp">Register</a></li>
-                            <li><a href="./page-login.jsp">Login</a></li>
+                            <li><a href="gopage-login.do">Login</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./page-error-400.jsp">Error 400</a></li>
@@ -339,8 +339,8 @@
 
 					</tr>
 					<tr height="300px">
-						<td><img src="assets/images/imgex01.jpg" width="270px"></td>
-						<td><img src="assets/images/imgex02.jpg" width="270px"></td>
+						<td><a href="ClickContestInfo.do?conNum=0"><img src="assets/images/imgex01.jpg" width="270px"></a></td>
+						<td><a href="ClickContestInfo.do?conNum=1"><img src="assets/images/imgex02.jpg" width="270px"></a></td>
 						<td><img src="assets/images/imgex03.jpg" width="270px"></td>
 						<td><img src="assets/images/imgex04.png" width="270px"></td>
 						<td><img src="assets/images/imgex05.jpg" width="270px"></td>
