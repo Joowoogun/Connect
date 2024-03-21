@@ -1,4 +1,9 @@
 <%@page import="com.smhrd.model.MemberVO"%>
+<%@page import="com.smhrd.model.ScrapListVO"%>
+<%@page import="java.util.Set"%>
+<%@page import="com.smhrd.model.TodolistVO"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -90,8 +95,14 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+								class="nav-link" href="" role="button"> <!-- data-toggle="dropdown" -->
+									<form action="SelectScrapAll.do" method="post">
+									<input class = "scrapright" type="image" src="assets/images/scrap.png" height="18px" width="27px">
+								<c:forEach items="${conProfile}" var="cl">
+									<input type="hidden" name="conNum" value="${cl.conIdx}">
+									<input type="hidden" name="conName" value="${cl.conName}"> 
+								</c:forEach>
+									</form>
 									<!--  <div class="pulse-css"></div> -->
 							</a>
 					
@@ -337,10 +348,19 @@
 						<td><input type="button" value="공학/과학"></td>
 
 
+					<!-- 공모전 정보수에따라 이미지 눌러서 들어갈 수 있게 함 -->
 					</tr>
 					<tr height="300px">
-						<td><a href="ClickContestInfo.do?conNum=0"><img src="assets/images/imgex01.jpg" width="270px"></a></td>
-						<td><a href="ClickContestInfo.do?conNum=1"><img src="assets/images/imgex02.jpg" width="270px"></a></td>
+					<c:forEach items="${conProfile}" var="ci">
+					<form action="ClickContestInfo.do" method="post">
+					<td>
+					<input type="image" src="assets/images/${ci.conHomepage}.jpg" width="270px">
+					<input type="hidden" name="conNum" value="${ci.conIdx}">
+					<input type="hidden" name="conName" value="${ci.conName}"> 
+					</td>
+					</form>
+					</c:forEach>
+						
 						<td><img src="assets/images/imgex03.jpg" width="270px"></td>
 						<td><img src="assets/images/imgex04.png" width="270px"></td>
 						<td><img src="assets/images/imgex05.jpg" width="270px"></td>

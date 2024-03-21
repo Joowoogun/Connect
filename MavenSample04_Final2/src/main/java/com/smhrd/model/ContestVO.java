@@ -53,8 +53,6 @@ public class ContestVO {
 	}
     
     
-    
-    
     public int getConIdx() {
 		return conIdx;
 	}

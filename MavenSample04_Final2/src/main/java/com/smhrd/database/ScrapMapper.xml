@@ -9,7 +9,7 @@
 	<insert id="addScrap"
 		parameterType="com.smhrd.model.ScrapListVO">
 		insert into scrapList (userId,conIdx,scrapDate,applyYN)
-		values(#{userId},#{conIDx},now(),N)
+		values(#{userId},#{conIdx},now(),"N")
 	</insert>
 
 	<delete id="delScrap"

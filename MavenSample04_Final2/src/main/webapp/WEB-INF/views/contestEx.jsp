@@ -15,10 +15,9 @@
 		${contest.conHomepage}<br> ${contest.conStartDate}<br> ${contest.conEndDate}<br>
 		${contest.conEndTime}<br> ${contest.conSpec}<br> ${contest.conRewardType}<br>
 		${contest.conReward}</div>
-	<form id="scrapForm" action="isScrapped.do" method="post">
     <input type="hidden" id="scrapStatus" name="scrapStatus" value="">
+    <input type="hidden" id="conIdx" name="conIdx" value="${contest.conIdx}">
     <button class="btn" type="button">스크랩</button>
-</form>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -36,7 +35,8 @@
 
             $("#scrapStatus").val(isScrapped ? "true" : "false");
 
-            let sendData = { "scrapStatus": $("#scrapStatus").val() }; // sendData에 "scrapStatus"라는 키를 사용하여 값을 설정
+            let sendData = { "scrapStatus": $("#scrapStatus").val(),
+            		"conIdx":$("#conIdx").val()}; // sendData에 "scrapStatus"라는 키를 사용하여 값을 설정
             console.log(sendData);
 
             $.ajax({

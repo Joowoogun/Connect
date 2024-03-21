@@ -313,13 +313,17 @@
         ***********************************-->
         <div class="content-body"  style="text-align: center;">
             <!-- row -->
-            <c:forEach items="${scrapList}" var="sc">
+            <c:forEach items="${contest}" var="con">
             <div>
-            ${sc.conName}
+            <form action="ClickContestInfo.do" method="post" >
+            <input type="hidden" value="${con.conName}" name="conName">
+            ${con.conName}
+			<input type="hidden" name="conNum" value="${con.conIdx}">
+			<input type="hidden" name="conName" value="${con.conName}"> 
+            <input type="submit" value="상세보기">
+            </form>
+                        <br>
             <br>
-            ${sc.conStartDate}
-            <br>
-            ${sc.conEndDate}
             </div>
             </c:forEach>
             <img src = "assets/images/Scrapex01.png" width = "1600px" height = "820px" >

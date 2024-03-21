@@ -1,6 +1,6 @@
 package com.smhrd.frontController;
 
-import com.smhrd.controller.ClickContestinfo;
+import com.smhrd.controller.ClickContestInfo;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
@@ -40,7 +40,7 @@ public class frontController extends HttpServlet {
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());
 		this.map.put("todoDel.do", new todoDel());
 		this.map.put("todoTitle.do", new todoTitle());
-		this.map.put("ClickContestInfo.do", new ClickContestinfo());
+		this.map.put("ClickContestInfo.do", new ClickContestInfo());
 		this.map.put("todoTitle.do", new todoTitle());
 	    this.map.put("todoChageTitle.do", new todoChageTitle());
 	    this.map.put("SelectScrapAll.do", new SelectScrapAll());

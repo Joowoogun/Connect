@@ -39,10 +39,12 @@ public class ScrapListVO {
 		this.applyYN = applyYN;
 	}
 
-    
-	
 
-	
+	public ScrapListVO(String userId, int conIdx) {
+		this.userId = userId;
+		this.conIdx = conIdx;
+	}
+
 
 	public String getConStartDate() {
 		return conStartDate;
