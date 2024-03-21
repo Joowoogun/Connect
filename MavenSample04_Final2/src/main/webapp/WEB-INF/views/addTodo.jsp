@@ -6,13 +6,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%
+	String[] todoTitles = request.getParameterValues("todoTitle");
+	%>
 	<h2>Add New ToDo</h2>
 	<form action="addTodo.do" method="post">
-		리스트제목 : <select name="todoTitle">
-			<option value="1">Option 1</option>
-			<option value="2">Option 2</option>
-			<option value="3">Option 3</option>
-			</select>
+	<input type="text" placeholder="제목을 입력해주세요" name="yourTitle">
+		간편선택 : <select name="todoTitle">
+		<option>직접입력</option>
+        <% for (String title : todoTitles) { %>
+            <option><%= title %></option>
+        <% } %>
+        
+    </select>
 		<br>
 		 Content:
 		<input type="text" name="content"><br> Status: <select

@@ -246,13 +246,13 @@
                             <li><a href="./map-jqvmap.jsp">Jqv Map</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="index.jsp" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="goindex.do" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">CONTEST</span></a></li>
                     <li><a href="QuickView.jsp" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">QUICK VIEW</span></a></li>
                     <li><a href="Calendar.jsp" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="Todo.jsp" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="goTodo.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">TO DO</span></a></li>
                     <li><a href="Document.jsp" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">DOCUMENT</span></a></li>

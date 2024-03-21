@@ -275,7 +275,7 @@
 							src="assets/images/todotab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">TO
 								DO</span></a></li>
-					<li><a href="Document.jsp" aria-expanded="false"><img
+					<li><a href="goDocument.do" aria-expanded="false"><img
 							src="assets/images/documenttab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 					<!--  <li class="nav-label">Forms</li> -->

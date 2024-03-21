@@ -14,6 +14,7 @@ public class addTodo implements Command {
 		MemberVO mvo = (MemberVO) session.getAttribute("profile");
 		String userId = mvo.getuserId();
 		String todoTitle = request.getParameter("todoTitle");
+		String yourTitle = request.getParameter("yourTitle");
 		String content = request.getParameter("content");
 		String do_Status = request.getParameter("do_Status");
 		String do_startDate = request.getParameter("do_startDate");
@@ -22,7 +23,11 @@ public class addTodo implements Command {
 		String do_endTime = request.getParameter("do_endTime");
 		TodolistVO vo = new TodolistVO();
 		vo.setUserId(userId);
-		vo.setTodoTitle(todoTitle);
+		if(todoTitle.equals("직접입력")) {
+			vo.setTodoTitle(yourTitle);
+		}else {
+			vo.setTodoTitle(todoTitle);
+		}
 		vo.setContent(content);
 		vo.setDo_Status(do_Status);
 		vo.setDo_startDate(do_startDate);
@@ -30,6 +35,7 @@ public class addTodo implements Command {
 		vo.setDo_endDate(do_endDate);
 		vo.setDo_endTime(do_endTime);
 		System.out.println("got");
+		System.out.println(yourTitle);
 		DAO dao = new DAO();
 		List<TodolistVO> list = dao.addTodo(vo);
 		request.setAttribute("list", list);

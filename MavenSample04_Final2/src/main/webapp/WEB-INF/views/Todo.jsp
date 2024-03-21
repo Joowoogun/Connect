@@ -13,23 +13,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ConNect</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ConNectlogo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/finalimglogo.png">
+
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <!-- 추가 링크 및 스크립트 -->
-     <link rel="stylesheet" href="assets/css/Todolist.css" />
+    <link href="assets/css/dragdrop.css" rel="stylesheet">
+    
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" 
          integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" 
          crossorigin="anonymous" 
          referrerpolicy="no-referrer">
-   </script>
+    </script>
+
+
 
 
 </head>
 
 <body>
+
+
 
     <!--*******************
         Preloader start
@@ -56,10 +61,11 @@
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
+                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="" width = "40px" height = "40px">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
-                <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
+                <img class="brand-title" src="assets/images/finalmainlogo.png" alt="" height = "40px">
             </a>
+
 
             <div class="nav-control">
                 <div class="hamburger">
@@ -204,7 +210,7 @@
                      style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                                 </ul>
                             </li>  
-                            <li><a href="./page-lock-screen.jsp">Lock Screen</a></li> -->
+                            <li><a href="gopage-lock-screen.do">Lock Screen</a></li> -->
                         </ul>
                     </li>
                 </ul>
@@ -221,51 +227,55 @@
         ***********************************-->
      <div class="content-body">
             <!-- row -->
-            <div class="all_title">
+            <div class="ourtodotitle">
                <strong>
                  <form action="todoChageTitle.do" method="post">
-                     <input id="showHide" name="title" type="text" placeholder="${TodoTitle}">
+                     <h2><input id="showHide" name="title" type="text" placeholder="${TodoTitle}"></h2>
                      <input id="firstHide" name="titleName" type="hidden" value="${TodoTitle}">
                    <input type="hidden" type="submit" value="나는 투명이다~">
                  </form>
                </strong>
             </div>
-            <div>
-           <span>
-           <progress
-               class="progress"
-               id="progress"
-               value="0"
-               min="0"
-              max="100"
-          ></progress>
-          </span> 
-          <div class = "ourSelect">
+            <div class="ourtodoSelect">
+                <progress
+                    class="progress"
+                    id="progress"
+                    value="50"
+                    min="0"
+                    max="100"
+                >
+                </progress> 
+
+          <div class = "ourselectBox">
           
           
-          <select id="todoTitle" onchange="changeValue()">
+          <select class="ourselect" id="todoTitle" onchange="changeValue()">
             <c:forEach items="${TodoOption}" var="title">
                   <option>${title}</option>
               </c:forEach>
          </select>
          </div>
-            </div>
- 
-      <br>
-       <div>
        
-       
-      <a href="goaddTodo.do">일정추가</a>
+      <form action="goaddTodo.do" method="post">
+       <c:forEach items="${TodoOption}" var="title">
+       <input type="hidden" name="todoTitle" value="${title}">
+       </c:forEach>
+       <input type="submit" value="일정추가">
+       </form>
+      
+      <img src="assets/images/todoplusimg.png" width="50px" height="50px">
+      </a>
+      </div>
       <h1>${todoTitle}</h1>
-    <div class="container">
-      <div class="column" id="Todo">
+    <div class="ourcontainer">
+      <div class="ourcolumn" id="Todo">
          <h1>Todo</h1>
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '해야 할 일' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
                   <form action="todoDel.do" method="post">
-                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
+                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
                      ${todo.do_endTime} 
                      유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
                      <input type="hidden" id="status" value="해야 할 일"> 
@@ -280,14 +290,14 @@
          </c:forEach>
       </div>
 
-      <div class="column" id="InProgress">
+      <div class="ourcolumn" id="InProgress">
          <h1>InProgress</h1>
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '진행 중' and todo.userId == todo.profileId}">         
                <div class="list-group-item" draggable="true">
                   <form action="todoDel.do" method="post">
-                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
+                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
                      ${todo.do_endTime}
                      유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
                      <input type="hidden" id="status" value="진행 중">
@@ -301,14 +311,14 @@
          </c:forEach>
       </div>
 
-      <div class="column" id="Done">
+      <div class="ourcolumn" id="Done">
          <h1>Done</h1>
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '완료' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
                   <form action="todoDel.do" method="post">
-                     ${todo.content} ${todo.todoIdx} <br> ${todo.do_startDate} ~
-                     ${todo.do_endDate} <br> ${todo.do_startTime} ~
+                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
+                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
                      ${todo.do_endTime} 
                      유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
                      <input type="hidden" id="status" value="완료">
@@ -328,7 +338,6 @@
        
        </div>
        
-        </div>
         <!--**********************************
             Content body end
         ***********************************-->
@@ -389,8 +398,7 @@
     <script src="assets/js/dashboard/dashboard-1.js"></script>
     
      <!-- 추가한  스크립트  -->
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-   <script src="assets/js/dragAble.js"></script>
+  
    <script>
    $(document).ready(function() {
        // 페이지가 로드되면 실행될 코드
@@ -474,7 +482,7 @@ $(document).ready(function(){
        $('.list-group-item').hide();
        
        // 각 컬럼에 있는 TodoList 아이템을 확인하며 선택한 옵션에 해당하는 아이템만 보여줍니다.
-       $('div.column').each(function(){
+       $('div.ourcolumn').each(function(){
            // 현재 컬럼 내의 모든 TodoList 아이템을 확인합니다.
            $(this).find('.list-group-item').each(function(){
                // TodoList 아이템의 TodoTitle 값을 가져옵니다.
@@ -489,7 +497,7 @@ $(document).ready(function(){
 });
 // 잘모르겠음 뭐엿지
 $(document).ready(function() {
-    $('div.column .list-group-item').each(function() {
+    $('div.ourcolumn .list-group-item').each(function() {
         var todoTitle = $(this).find('input[name="todoTitle"]').val();
         var firstHide = $('#firstHide').val();
         console.log(firstHide)
@@ -514,6 +522,19 @@ function changeValue() {
 
 
    </script>
+    <!-- 추가 스크립트 드래그 앤 드롭 -->
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/dragdrop.js"></script>
+   
+
+    <script>
+        var h2Element = document.querySelector('.ourcolumn h2');
+        var maxLength = 20; // 최대 글자 수
+      
+        if (h2Element.textContent.length > maxLength) {
+          h2Element.textContent = h2Element.textContent.substring(0, maxLength) + '...';
+        }
+      </script>
    <!-- 스크립트 끝 -->
 
 </body>
