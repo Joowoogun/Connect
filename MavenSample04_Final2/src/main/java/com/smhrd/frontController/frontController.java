@@ -11,6 +11,7 @@ import com.smhrd.controller.SelectTodoAll;
 import com.smhrd.controller.Update;
 import com.smhrd.controller.addTodo;
 import com.smhrd.controller.todoChageTitle;
+import com.smhrd.controller.todoContentEdit;
 import com.smhrd.controller.todoDel;
 import com.smhrd.controller.todoTitle;
 import com.smhrd.controller.userIdCheck;
@@ -44,6 +45,7 @@ public class frontController extends HttpServlet {
 		this.map.put("todoTitle.do", new todoTitle());
 	    this.map.put("todoChageTitle.do", new todoChageTitle());
 	    this.map.put("SelectScrapAll.do", new SelectScrapAll());
+	    this.map.put("todoContentEdit.do", new todoContentEdit());
 		
 	}
 

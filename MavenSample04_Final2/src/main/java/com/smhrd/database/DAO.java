@@ -136,4 +136,11 @@ public class DAO {
 		session.close();
 		return resultList;
 	}
+	
+	public void TodoContentUpdate(TodolistVO vo) {
+	      SqlSession session = factory.openSession(true);
+	       session.update("TodoContentUpdate", vo);
+	       session.close();
+	      }
+	
 }

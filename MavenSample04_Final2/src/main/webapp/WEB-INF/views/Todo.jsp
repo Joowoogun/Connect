@@ -230,13 +230,13 @@
             <div class="ourtodotitle">
                <strong>
                  <form action="todoChageTitle.do" method="post">
-                     <h2><input id="showHide" name="title" type="text" placeholder="${TodoTitle}"></h2>
+                     <h2><input id="showHide" name="title" type="text" placeholder="${TodoTitle}" style="border: none;"></h2>
                      <input id="firstHide" name="titleName" type="hidden" value="${TodoTitle}">
                    <input type="hidden" type="submit" value="나는 투명이다~">
                  </form>
                </strong>
             </div>
-            <div class="ourtodoSelect">
+            <div>
                 <progress
                     class="progress"
                     id="progress"
@@ -246,25 +246,21 @@
                 >
                 </progress> 
 
-          <div class = "ourselectBox">
-          
-          
-          <select class="ourselect" id="todoTitle" onchange="changeValue()">
+            <div class="ourtodoSelect">
+      <form action="goaddTodo.do" method="post">
+             <c:forEach items="${TodoOption}" var="title">
+                <input type="hidden" name="todoTitle" value="${title}">
+             </c:forEach>
+             <input type="image" src="assets/images/todoplusimg.png" width="50px" height="50px">
+             
+             <select class="ourSelect" id="todoTitle" onchange="changeValue()">
             <c:forEach items="${TodoOption}" var="title">
                   <option>${title}</option>
               </c:forEach>
          </select>
-         </div>
+          </form>
        
-      <form action="goaddTodo.do" method="post">
-       <c:forEach items="${TodoOption}" var="title">
-       <input type="hidden" name="todoTitle" value="${title}">
-       </c:forEach>
-       <input type="submit" value="일정추가">
-       </form>
-      
-      <img src="assets/images/todoplusimg.png" width="50px" height="50px">
-      </a>
+      </div>
       </div>
       <h1>${todoTitle}</h1>
     <div class="ourcontainer">
@@ -273,16 +269,18 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '해야 할 일' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
+                  <form action="todoContentEdit.do" method="post">
+                        <h2><input type="text" name="content" value="${todo.content}"></h2>
+                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
+                        <input type="hidden" type="submit" value="콘텐츠 수정">
+                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
+                     </form>
                   <form action="todoDel.do" method="post">
-                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
-                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
-                     ${todo.do_endTime} 
-                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
-                     <input type="hidden" id="status" value="해야 할 일"> 
-                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}"> 
+                     <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-                     <input type="hidden" name="txt" value="${todo.content}"> 
-                     <input type="submit" value="삭제">
+                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="txt" value="${todo.content}">
+                     <input type="submit" value="콘텐츠 삭제">
                   </form>
                </div>
             </c:if>
@@ -295,16 +293,18 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '진행 중' and todo.userId == todo.profileId}">         
                <div class="list-group-item" draggable="true">
+                  <form action="todoContentEdit.do" method="post">
+                        <h2><input type="text" name="content" value="${todo.content}"></h2>
+                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
+                        <input type="hidden" type="submit" value="콘텐츠 수정">
+                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
+                     </form>
                   <form action="todoDel.do" method="post">
-                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
-                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
-                     ${todo.do_endTime}
-                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
-                     <input type="hidden" id="status" value="진행 중">
+                     <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
                      <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
                      <input type="hidden" name="txt" value="${todo.content}">
-                     <input type="submit" value="삭제">
+                     <input type="submit" value="콘텐츠 삭제">
                   </form>
                </div>
             </c:if>
@@ -316,26 +316,24 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '완료' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
+                     <form action="todoContentEdit.do" method="post">
+                        <h2><input type="text" name="content" value="${todo.content}"></h2>
+                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
+                        <input type="hidden" type="submit" value="콘텐츠 수정">
+                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
+                     </form>
                   <form action="todoDel.do" method="post">
-                     <h2>${todo.content}</h2> ${todo.todoIdx} <br> <h5>${todo.do_startDate} ~
-                     ${todo.do_endDate}</h5> <br> ${todo.do_startTime} ~
-                     ${todo.do_endTime} 
-                     유저아이디 : ${todo.userId} 프로파일 : ${todo.profileId}
                      <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
                      <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
                      <input type="hidden" name="txt" value="${todo.content}">
-                     <input type="submit" value="삭제">
+                     <input type="submit" value="콘텐츠 삭제">
                   </form>
                </div>
             </c:if>
          </c:forEach>
       </div>
-
-
-
    </div>
-       
        </div>
        
         <!--**********************************

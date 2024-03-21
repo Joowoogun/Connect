@@ -22,7 +22,6 @@ public class SelectTodoAll implements Command {
       HttpSession session = request.getSession();
       MemberVO mvo = (MemberVO) session.getAttribute("profile");
       String id = mvo.getuserId();
-
       String title = null;
       String todoid = null;
       // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거
@@ -54,8 +53,14 @@ public class SelectTodoAll implements Command {
         // 내부의 데이터들 확인
       System.out.println("중복제거 + 정렬 후: " + newTitleset);
       
-      title = newTitleset.get(0);
-
+      if(newTitleset.isEmpty()) {
+    	  newTitleset.add(0, "첫번째 리스트");
+    	  title = newTitleset.get(0);
+      }else {
+    	  title = newTitleset.get(0);
+      }
+      
+      System.out.println(newTitleset.get(0));
       System.out.println("PlaceHolder에 띄울 타이틀 마지막 확인 >> " + title);
       // 전체 정보리스트
       request.setAttribute("TodoList", TodoList);

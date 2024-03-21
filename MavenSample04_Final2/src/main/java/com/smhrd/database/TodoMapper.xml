@@ -57,4 +57,10 @@
       set todoTitle = #{todoTitle}
       where userId = #{userId} and todoTitle = #{todoChangeTitle}
    </update>
+   
+   <update id="TodoContentUpdate" parameterType="com.smhrd.model.TodolistVO">
+      update todoList
+   set content = #{content}
+   where todoIdx= #{todoIdx}
+   </update>
 </mapper>
