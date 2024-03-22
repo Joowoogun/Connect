@@ -401,8 +401,8 @@
      dataType:'json',
      // 성공했을 때 실행할 함수 지정
      success : (res) => {
-        console.log("데이터 전송 성공!");
-        console.log("받아온 데이터 >> ", res);
+        console.log("드래그 연동 성공");
+        console.log("변경된 데이터 >> ", res);
      },
      // 실패했을 때 실행할 함수 지정
      error : () => {
