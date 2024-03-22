@@ -30,9 +30,9 @@
 	</select>
 
 	<delete id="todoDel" parameterType="com.smhrd.model.TodolistVO">
-		delete from todoList
-		where content = #{content}
-	</delete>
+      delete from todoList
+      where content = #{content} and todoIdx =#{todoIdx}
+   </delete>
 
 	<select id="EmailCheck" resultType="String">
 		select email as result

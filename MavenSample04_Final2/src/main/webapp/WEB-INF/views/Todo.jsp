@@ -278,7 +278,7 @@
                   <form action="todoDel.do" method="post">
                      <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
                      <input type="hidden" name="txt" value="${todo.content}">
                      <input type="submit" value="콘텐츠 삭제">
                   </form>
@@ -302,7 +302,7 @@
                   <form action="todoDel.do" method="post">
                      <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
                      <input type="hidden" name="txt" value="${todo.content}">
                      <input type="submit" value="콘텐츠 삭제">
                   </form>
@@ -325,7 +325,7 @@
                   <form action="todoDel.do" method="post">
                      <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
-                     <input type="hidden" id="todoIdx" value="${todo.todoIdx}">
+                     <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
                      <input type="hidden" name="txt" value="${todo.content}">
                      <input type="submit" value="콘텐츠 삭제">
                   </form>

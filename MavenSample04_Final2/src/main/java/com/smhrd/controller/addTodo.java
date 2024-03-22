@@ -13,8 +13,8 @@ public class addTodo implements Command {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("profile");
 		String userId = mvo.getuserId();
-		String todoTitle = request.getParameter("todoTitle");
-		String yourTitle = request.getParameter("yourTitle");
+		String todoTitle = request.getParameter("todoTitle"); 
+		String yourTitle = request.getParameter("yourTitle"); 
 		String content = request.getParameter("content");
 		String do_Status = request.getParameter("do_Status");
 		String do_startDate = request.getParameter("do_startDate");
@@ -23,7 +23,7 @@ public class addTodo implements Command {
 		String do_endTime = request.getParameter("do_endTime");
 		TodolistVO vo = new TodolistVO();
 		vo.setUserId(userId);
-		if(todoTitle.equals("직접입력")) {
+		if(todoTitle.equals("")) {
 			vo.setTodoTitle(yourTitle);
 		}else {
 			vo.setTodoTitle(todoTitle);

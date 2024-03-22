@@ -18,7 +18,7 @@ public class Join implements Command {
 		int row = dao.join(vo);
 		if (row > 0) {
 			request.setAttribute("userId", userId);
-			return "join_success";
+			return "index";
 		} else {
 			return "redirect:/gopage-register.do";
 		}

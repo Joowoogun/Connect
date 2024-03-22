@@ -54,7 +54,7 @@ public class SelectTodoAll implements Command {
       System.out.println("중복제거 + 정렬 후: " + newTitleset);
       
       if(newTitleset.isEmpty()) {
-    	  newTitleset.add(0, "첫번째 리스트");
+    	  newTitleset.add(0, null);
     	  title = newTitleset.get(0);
       }else {
     	  title = newTitleset.get(0);

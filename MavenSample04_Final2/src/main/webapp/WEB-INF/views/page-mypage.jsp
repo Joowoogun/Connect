@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ConNect</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ConNectlogo.png">
+    ClickContestInfo<link rel="icon" type="image/png" sizes="16x16" href="assets/images/finalimglogo.png"> href="assets/images/ConNectlogo.png">
     <link href="assets/css/style.css" rel="stylesheet">
 
 </head>

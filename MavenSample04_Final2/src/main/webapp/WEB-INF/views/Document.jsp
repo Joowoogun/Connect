@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ConNect</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ConNectlogo.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/finalimglogo.png">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/boardcss.css">
+    <link rel="stylesheet" href="assets/css/boardcss.css">
 
 
 
@@ -47,7 +47,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="goindex.do" class="brand-logo">
                 <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
                 <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
@@ -154,7 +154,7 @@
 									<i class="mdi mdi-account"></i>
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page-mypage.jsp" class="dropdown-item"> <i
+									<a href="gopage-mypage.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
 									<a href="gopage-login.do" class="dropdown-item"> <i
@@ -248,13 +248,13 @@
                     </li> -->
                     <li><a href="goindex.do" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">CONTEST</span></a></li>
-                    <li><a href="QuickView.jsp" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="goQuickView.do" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">QUICK VIEW</span></a></li>
-                    <li><a href="Calendar.jsp" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="goCalendar.do" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="goTodo.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="SelectTodoAll.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">TO DO</span></a></li>
-                    <li><a href="Document.jsp" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
+                    <li><a href="goDocument.do" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
                                 class="nav-text">DOCUMENT</span></a></li>
                     <!--  <li class="nav-label">Forms</li> -->
                   <!--   <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
@@ -324,21 +324,21 @@
                         </div>
                         <div>
                             <div class="ourboardnum">1</div>
-                            <div class="ourboardtitle"><a href="DocumentView.jsp">글 제목이 들어갑니다.</a></div>
+                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
                             <div class="ourboardwriter">김이름</div>
                             <div class="ourboarddate">2021.1.15</div>
                             <!-- <div class="ourboardcount">33</div> -->
                         </div>
                         <div>
                             <div class="ourboardnum">2</div>
-                            <div class="ourboardtitle"><a href="DocumentView.jsp">글 제목이 들어갑니다.</a></div>
+                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
                             <div class="ourboardwriter">김이름</div>
                             <div class="ourboarddate">2021.1.15</div>
                             <!-- <div class="ourboardcount">33</div> -->
                         </div>
                         <div>
                             <div class="ourboardnum">3</div>
-                            <div class="ourboardtitle"><a href="DocumentView.jsp">글 제목이 들어갑니다.</a></div>
+                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
                             <div class="ourboardwriter">김이름</div>
                             <div class="ourboarddate">2021.1.15</div>
                             <!-- <div class="ourboardcount">33</div> -->
@@ -352,7 +352,7 @@
                         </div>
                         <div>
                             <div class="ourboardnum">5</div>
-                            <div class="ourboardtitle"><a href="DocumentView.jsp">글 제목이 들어갑니다.</a></div>
+                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
                             <div class="ourboardwriter">김이름</div>
                             <div class="ourboarddate">2021.1.15</div>
                             <!-- <div class="ourboardcount">33</div> -->
@@ -371,7 +371,7 @@
                         <a href="#" class="bt last">>></a>
                     </div>
                     <div class="bt_wrap">
-                        <a href="DocumentWrite.jsp" class="on">등록</a>
+                        <a href="goDocumentWrite.do" class="on">등록</a>
                         <!--<a href="#">수정</a>-->
                     </div>
                 </div>

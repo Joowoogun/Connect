@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ConNect</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ConNectlogo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/finalimglogo.png">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="goindex.do" class="brand-logo">
                 <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
                 <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
@@ -251,16 +251,23 @@
                             <li><a href="./map-jqvmap.jsp">Jqv Map</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="index.jsp" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CONTEST</span></a></li>
-                    <li><a href="QuickView.jsp" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">QUICK VIEW</span></a></li>
-                    <li><a href="Calendar.jsp" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="SelectTodoAll.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">TO DO</span></a></li>
-                    <li><a href="Document.jsp" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">DOCUMENT</span></a></li>
+                    <li><a href="goindex.do" aria-expanded="false"><img
+							src="assets/images/contesttab.png" width="18px" height="18px"
+							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
+					<li><a href="goQuickView.do" aria-expanded="false"><img
+							src="assets/images/quickviewtab.png" width="18px" height="18px"
+							style="margin-right: 5px;"><span class="nav-text">QUICK
+								VIEW</span></a></li>
+					<li><a href="goCalendar.do" aria-expanded="false"><img
+							src="assets/images/calendartab.png" width="18px" height="18px"
+							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
+							src="assets/images/todotab.png" width="18px" height="18px"
+							style="margin-right: 5px;"><span class="nav-text">TO
+								DO</span></a></li>
+					<li><a href="goDocument.do" aria-expanded="false"><img
+							src="assets/images/documenttab.png" width="18px" height="18px"
+							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                     <!--  <li class="nav-label">Forms</li> -->
                   <!--   <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-form"></i><span class="nav-text">Forms</span></a>

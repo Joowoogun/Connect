@@ -8,6 +8,6 @@ public class Logout implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "redirect:/gomain.do";
+		return "redirect:/goindex.do";
 	}
 }

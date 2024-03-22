@@ -5,7 +5,6 @@ import com.smhrd.controller.Command;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
-import com.smhrd.controller.SelectAll;
 import com.smhrd.controller.SelectScrapAll;
 import com.smhrd.controller.SelectTodoAll;
 import com.smhrd.controller.Update;
@@ -32,7 +31,6 @@ public class frontController extends HttpServlet {
 	public void init() throws ServletException {
 		this.map.put("Join.do", new Join());
 		this.map.put("Login.do", new Login());
-		this.map.put("SelectAll.do", new SelectAll());
 		this.map.put("Logout.do", new Logout());
 		this.map.put("Update.do", new Update());
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());

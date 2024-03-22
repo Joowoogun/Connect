@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>ConNect</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/ConNectlogo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/finalimglogo.png">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
@@ -65,105 +65,105 @@
             Header start
         ***********************************-->
         <div class="header">
-			<div class="header-content">
-				<nav class="navbar navbar-expand">
-					<div class="collapse navbar-collapse justify-content-between">
-						<div class="header-left">
-							<div class="search_bar dropdown">
-								<span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-									<i class="mdi mdi-magnify"></i>
-								</span>
-								<div class="dropdown-menu p-0 m-0">
-									<form>
-										<input class="form-control" type="search" placeholder="Search"
-											aria-label="Search">
-									</form>
-								</div>
-							</div>
-						</div>
+         <div class="header-content">
+            <nav class="navbar navbar-expand">
+               <div class="collapse navbar-collapse justify-content-between">
+                  <div class="header-left">
+                     <div class="search_bar dropdown">
+                        <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                           <i class="mdi mdi-magnify"></i>
+                        </span>
+                        <div class="dropdown-menu p-0 m-0">
+                           <form>
+                              <input class="form-control" type="search" placeholder="Search"
+                                 aria-label="Search">
+                           </form>
+                        </div>
+                     </div>
+                  </div>
 
-						<ul class="navbar-nav header-right">
-							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
-									<!--  <div class="pulse-css"></div> -->
-							</a>
-					
-							<div>
-							<span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
-						</div>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="list-unstyled">
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-user"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Martin</strong> has added a <strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-shopping-cart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Jennifer</strong> purchased Light Dashboard 2.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="danger"><i
-												class="ti-bookmark"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Robin</strong> marked a <strong>ticket</strong> as
-														unsolved.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-heart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>David</strong> purchased Light Dashboard 1.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-image"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong> James.</strong> has added a<strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-									</ul>
-									<a class="all-notification" href="#">See all notifications
-										<i class="ti-arrow-right"></i>
-									</a>
-								</div></li>
-							<li class="nav-item dropdown header-profile"><a
-								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page-mypage.jsp" class="dropdown-item"> <i
-										class="icon-user"></i> <span class="ml-2">MyPage </span>
-									</a> 
-									<a href="gopage-login.do" class="dropdown-item"> <i
-										class="icon-key"></i> <span class="ml-2">Logout </span>
-									</a>
-								</div></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</div>
+                  <ul class="navbar-nav header-right">
+                     <li class="nav-item dropdown notification_dropdown"><a
+                        class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
+                           <img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+                           <!--  <div class="pulse-css"></div> -->
+                     </a>
+               
+                     <div>
+                     <span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
+                  </div>
+                        <div class="dropdown-menu dropdown-menu-right">
+                           <ul class="list-unstyled">
+                              <li class="media dropdown-item"><span class="success"><i
+                                    class="ti-user"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Martin</strong> has added a <strong>customer</strong>
+                                          Successfully
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="primary"><i
+                                    class="ti-shopping-cart"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Jennifer</strong> purchased Light Dashboard 2.0.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="danger"><i
+                                    class="ti-bookmark"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>Robin</strong> marked a <strong>ticket</strong> as
+                                          unsolved.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="primary"><i
+                                    class="ti-heart"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong>David</strong> purchased Light Dashboard 1.0.
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                              <li class="media dropdown-item"><span class="success"><i
+                                    class="ti-image"></i></span>
+                                 <div class="media-body">
+                                    <a href="#">
+                                       <p>
+                                          <strong> James.</strong> has added a<strong>customer</strong>
+                                          Successfully
+                                       </p>
+                                    </a>
+                                 </div> <span class="notify-time">3:20 am</span></li>
+                           </ul>
+                           <a class="all-notification" href="#">See all notifications
+                              <i class="ti-arrow-right"></i>
+                           </a>
+                        </div></li>
+                     <li class="nav-item dropdown header-profile"><a
+                        class="nav-link" href="#" role="button" data-toggle="dropdown">
+                           <i class="mdi mdi-account"></i>
+                     </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                           <a href="./page-mypage.jsp" class="dropdown-item"> <i
+                              class="icon-user"></i> <span class="ml-2">MyPage </span>
+                           </a> 
+                           <a href="gopage-login.do" class="dropdown-item"> <i
+                              class="icon-key"></i> <span class="ml-2">Logout </span>
+                           </a>
+                        </div></li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+      </div>
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -308,17 +308,17 @@
             <!-- row -->
             
          <div class = "ourSelect">
- 			<select>
-				<option>ALL</option>
-				<option>A공모전</option>
-				<option>B공모전</option>
-				<option>C공모전</option>
-			</select>
-		</div>
-		<br>
-		<div align = "center">
+          <select>
+            <option>ALL</option>
+            <option>A공모전</option>
+            <option>B공모전</option>
+            <option>C공모전</option>
+         </select>
+      </div>
+      <br>
+      <div align = "center">
           <img src=assets/images/calex01.png width = "1600px" height="800px">
-		</div>
+      </div>
             
             
             
