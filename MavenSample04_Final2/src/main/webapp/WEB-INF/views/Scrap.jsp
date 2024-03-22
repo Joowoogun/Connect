@@ -53,7 +53,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
+                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
                 <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
             </a>

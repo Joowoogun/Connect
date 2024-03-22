@@ -1,19 +1,19 @@
 package com.smhrd.frontController;
 
-import com.smhrd.controller.ClickContestInfo;
 import com.smhrd.controller.Command;
-import com.smhrd.controller.Join;
-import com.smhrd.controller.Login;
-import com.smhrd.controller.Logout;
-import com.smhrd.controller.SelectScrapAll;
-import com.smhrd.controller.SelectTodoAll;
-import com.smhrd.controller.Update;
-import com.smhrd.controller.addTodo;
-import com.smhrd.controller.todoChageTitle;
-import com.smhrd.controller.todoContentEdit;
-import com.smhrd.controller.todoDel;
-import com.smhrd.controller.todoTitle;
-import com.smhrd.controller.userIdCheck;
+import com.smhrd.controller.contest.ClickContestInfo;
+import com.smhrd.controller.login.Join;
+import com.smhrd.controller.login.Login;
+import com.smhrd.controller.login.Logout;
+import com.smhrd.controller.login.Update;
+import com.smhrd.controller.scrap.SelectScrapAll;
+import com.smhrd.controller.todo.SelectTodoAll;
+import com.smhrd.controller.todo.addTodo;
+import com.smhrd.controller.todo.todoChageTitle;
+import com.smhrd.controller.todo.todoContentEdit;
+import com.smhrd.controller.todo.todoDel;
+import com.smhrd.controller.todo.todoTitle;
+
 import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
@@ -34,7 +34,6 @@ public class frontController extends HttpServlet {
 		this.map.put("Logout.do", new Logout());
 		this.map.put("Update.do", new Update());
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());
-		this.map.put("userIdCheck.do", new userIdCheck());
 		this.map.put("addTodo.do", new addTodo());
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());
 		this.map.put("todoDel.do", new todoDel());

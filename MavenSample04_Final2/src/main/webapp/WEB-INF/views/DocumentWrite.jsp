@@ -47,7 +47,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/ConNectlogo.png" alt="">
+                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
                 <img class="logo-compact" src="assets/images/logo-text.png" alt="">
                 <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
             </a>
@@ -176,75 +176,7 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                    <li class="nav-label first">MENU</li>
-                  <!--  <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
-                         <ul aria-expanded="false">
-                            <li><a href="./index.jsp">Dashboard 1</a></li>
-                            <li><a href="./index2.jsp">Dashboard 2</a></li>
-                        </ul> 
-                    </li> -->
-                  <!--    <li class="nav-label">Apps</li> -->
-                <!--     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.jsp">Profile</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./email-compose.jsp">Compose</a></li>
-                                    <li><a href="./email-inbox.jsp">Inbox</a></li>
-                                    <li><a href="./email-read.jsp">Read</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./app-calender.jsp">Calendar</a></li>
-                        </ul>
-                    </li> -->
-                   <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-chart-bar-33"></i><span class="nav-text">Charts</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.jsp">Flot</a></li>
-                            <li><a href="./chart-morris.jsp">Morris</a></li>
-                            <li><a href="./chart-chartjs.jsp">Chartjs</a></li>
-                            <li><a href="./chart-chartist.jsp">Chartist</a></li>
-                            <li><a href="./chart-sparkline.jsp">Sparkline</a></li>
-                            <li><a href="./chart-peity.jsp">Peity</a></li>
-                        </ul>
-                    </li> -->
-              <!--   <li class="nav-label">Components</li> --> 
-              <!--  <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-world-2"></i><span class="nav-text">Bootstrap</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.jsp">Accordion</a></li>
-                            <li><a href="./ui-alert.jsp">Alert</a></li>
-                            <li><a href="./ui-badge.jsp">Badge</a></li>
-                            <li><a href="./ui-button.jsp">Button</a></li>
-                            <li><a href="./ui-modal.jsp">Modal</a></li>
-                            <li><a href="./ui-button-group.jsp">Button Group</a></li>
-                            <li><a href="./ui-list-group.jsp">List Group</a></li>
-                            <li><a href="./ui-media-object.jsp">Media Object</a></li>
-                            <li><a href="./ui-card.jsp">Cards</a></li>
-                            <li><a href="./ui-carousel.jsp">Carousel</a></li>
-                            <li><a href="./ui-dropdown.jsp">Dropdown</a></li>
-                            <li><a href="./ui-popover.jsp">Popover</a></li>
-                            <li><a href="./ui-progressbar.jsp">Progressbar</a></li>
-                            <li><a href="./ui-tab.jsp">Tab</a></li>
-                            <li><a href="./ui-typography.jsp">Typography</a></li>
-                            <li><a href="./ui-pagination.jsp">Pagination</a></li>
-                            <li><a href="./ui-grid.jsp">Grid</a></li>
-
-                        </ul>
-                    </li> -->
-
-                   <!--  <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-plug"></i><span class="nav-text">Plugins</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./uc-select2.jsp">Select 2</a></li>
-                            <li><a href="./uc-nestable.jsp">Nestedable</a></li>
-                            <li><a href="./uc-noui-slider.jsp">Noui Slider</a></li>
-                            <li><a href="./uc-sweetalert.jsp">Sweet Alert</a></li>
-                            <li><a href="./uc-toastr.jsp">Toastr</a></li>
-                            <li><a href="./map-jqvmap.jsp">Jqv Map</a></li>
-                        </ul>
-                    </li> -->
+                  
                     <li><a href="goindex.do" aria-expanded="false"><img
 							src="assets/images/contesttab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
@@ -262,42 +194,7 @@
 					<li><a href="goDocument.do" aria-expanded="false"><img
 							src="assets/images/documenttab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
-                    <!--  <li class="nav-label">Forms</li> -->
-                  <!--   <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-form"></i><span class="nav-text">Forms</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.jsp">Form Elements</a></li>
-                            <li><a href="./form-wizard.jsp">Wizard</a></li>
-                            <li><a href="./form-editor-summernote.jsp">Summernote</a></li>
-                            <li><a href="form-pickers.jsp">Pickers</a></li>
-                            <li><a href="form-validation-jquery.jsp">Jquery Validate</a></li>
-                        </ul>
-                    </li> --> 
-                   <!-- <li class="nav-label">Table</li> -->
-                 <!--    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.jsp">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.jsp">Datatable</a></li>
-                        </ul>
-                    </li>  -->
-
-                    <!-- <li class="nav-label">Extra</li> -->
-                 <!--    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.jsp">Register</a></li>
-                            <li><a href="gopage-login.do">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.jsp">Error 400</a></li>
-                                    <li><a href="./page-error-403.jsp">Error 403</a></li>
-                                    <li><a href="./page-error-404.jsp">Error 404</a></li>
-                                    <li><a href="./page-error-500.jsp">Error 500</a></li>
-                                    <li><a href="./page-error-503.jsp">Error 503</a></li>
-                                </ul>
-                            </li>  
-                            <li><a href="./page-lock-screen.jsp">Lock Screen</a></li> -->
+                    
                         </ul>
                     </li>
                 </ul>
@@ -351,8 +248,8 @@
                         </div>
                     </div>
                     <div class="bt_wrap">
-                        <a href="DocumentView.jsp" class="on">등록</a>
-                        <a href="Document.jsp">취소</a>
+                        <a href="goDocumentView.do" class="on">등록</a>
+                        <a href="goDocument.do">취소</a>
                     </div>
                 </div>
             </div>

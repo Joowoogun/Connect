@@ -1,5 +1,6 @@
-package com.smhrd.controller;
+package com.smhrd.controller.todo;
 
+import com.smhrd.controller.Command;
 import com.smhrd.database.DAO;
 import com.smhrd.model.MemberVO;
 import com.smhrd.model.TodolistVO;

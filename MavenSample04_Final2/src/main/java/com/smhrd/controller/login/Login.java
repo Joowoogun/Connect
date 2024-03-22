@@ -1,5 +1,6 @@
-package com.smhrd.controller;
+package com.smhrd.controller.login;
 
+import com.smhrd.controller.Command;
 import com.smhrd.database.DAO;
 import com.smhrd.model.ContestVO;
 import com.smhrd.model.MemberVO;

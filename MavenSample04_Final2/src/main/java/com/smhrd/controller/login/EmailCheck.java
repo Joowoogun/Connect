@@ -1,4 +1,4 @@
-package com.smhrd.controller;
+package com.smhrd.controller.login;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mysql.cj.Session;
+import com.smhrd.controller.Command;
 import com.smhrd.database.DAO;
 import com.smhrd.model.MemberVO;
 

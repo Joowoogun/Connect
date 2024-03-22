@@ -1,4 +1,4 @@
-package com.smhrd.controller;
+package com.smhrd.controller.contest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.smhrd.model.ContestVO;
+import com.smhrd.controller.Command;
 import com.smhrd.database.DAO;
 
 public class ClickContestInfo implements Command {
