@@ -17,20 +17,31 @@
 		${contest.conReward}</div>
     <input type="hidden" id="scrapStatus" name="scrapStatus" value="">
     <input type="hidden" id="conIdx" name="conIdx" value="${contest.conIdx}">
-    <button class="btn" type="button">스크랩</button>
+    <c:choose>
+    <c:when test="${scrapconNames.contains(contest.conName)}">
+        <button class="btn" type="button">스크랩취소</button>
+    </c:when>
+    <c:otherwise>
+        <button class="btn" type="button">스크랩하기</button>
+    </c:otherwise>
+</c:choose>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        let isScrapped = false; // 스크랩 상태를 저장하는 변수
-
+    	
+        let isScrapped = null; // 스크랩 상태를 저장하는 변수
+		let btntxt =  $(".btn").text();
+        
         $(".btn").on("click", function() {
             // 스크랩 상태 변경
             isScrapped = !isScrapped;
 
-            if (isScrapped) {
+            if (btntxt == "스크랩하기") {
                 alert("스크랩이 완료되었습니다.");
+                isScrapped = true;
             } else {
                 alert("스크랩이 취소되었습니다.");
+                isScrapped = false;
             }
 
             $("#scrapStatus").val(isScrapped ? "true" : "false");
@@ -47,6 +58,11 @@
                 success: (res) => {
                     console.log("데이터 전송 성공!");
                     console.log("받아온 데이터 >>", res);
+                    if($(".btn").text("스크랩취소")){
+                    	$(".btn").text("스크랩하기")
+                    }else{
+                    $(".btn").text("스크랩취소")
+                    }
                 },
                 error: () => {
                     console.log("데이터 전송 실패!");

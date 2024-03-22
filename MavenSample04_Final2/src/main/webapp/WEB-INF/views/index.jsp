@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +28,9 @@
 
 </head>
 
-	<%MemberVO mvo = (MemberVO) session.getAttribute("profile"); %>
+<%
+MemberVO mvo = (MemberVO) session.getAttribute("profile");
+%>
 <body>
 
 	<!--*******************
@@ -57,8 +59,8 @@
 		<div class="nav-header">
 			<a href="goindex.do" class="brand-logo"> <img class="logo-abbr"
 				src="assets/images/ConNectlogo.png" alt=""> <img
-				class="logo-compact" src="assets/images/logo-text.png" alt=""> <img
-				class="brand-title" src="assets/images/ConNectFont.png" alt="">
+				class="logo-compact" src="assets/images/logo-text.png" alt="">
+				<img class="brand-title" src="assets/images/ConNectFont.png" alt="">
 			</a>
 
 			<div class="nav-control">
@@ -97,18 +99,18 @@
 							<li class="nav-item dropdown notification_dropdown"><a
 								class="nav-link" href="" role="button"> <!-- data-toggle="dropdown" -->
 									<form action="SelectScrapAll.do" method="post">
-									<input class = "scrapright" type="image" src="assets/images/scrap.png" height="18px" width="27px">
-								<c:forEach items="${conProfile}" var="cl">
-									<input type="hidden" name="conNum" value="${cl.conIdx}">
-									<input type="hidden" name="conName" value="${cl.conName}"> 
-								</c:forEach>
-									</form>
-									<!--  <div class="pulse-css"></div> -->
+										<input class="scrapright" type="image"
+											src="assets/images/scrap.png" height="18px" width="27px">
+										<c:forEach items="${conProfile}" var="cl">
+											<input type="hidden" name="conNum" value="${cl.conIdx}">
+											<input type="hidden" name="conName" value="${cl.conName}">
+										</c:forEach>
+									</form> <!--  <div class="pulse-css"></div> -->
 							</a>
-					
-							<div>
-							<span style="color:#593BDB; font-weight: 700;">${profile.userId}</span>
-						</div>
+
+								<div>
+									<span style="color: #593BDB; font-weight: 700;">${profile.userId}</span>
+								</div>
 								<div class="dropdown-menu dropdown-menu-right">
 									<ul class="list-unstyled">
 										<li class="media dropdown-item"><span class="success"><i
@@ -171,8 +173,7 @@
 								<div class="dropdown-menu dropdown-menu-right">
 									<a href="gopage-mypage.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
-									</a> 
-									<a href="gopage-login.do" class="dropdown-item"> <i
+									</a> <a href="gopage-login.do" class="dropdown-item"> <i
 										class="icon-key"></i> <span class="ml-2">Logout </span>
 									</a>
 								</div></li>
@@ -348,19 +349,21 @@
 						<td><input type="button" value="공학/과학"></td>
 
 
-					<!-- 공모전 정보수에따라 이미지 눌러서 들어갈 수 있게 함 -->
+						<!-- 공모전 정보수에따라 이미지 눌러서 들어갈 수 있게 함 -->
 					</tr>
 					<tr height="300px">
-					<c:forEach items="${conProfile}" var="ci">
-					<form action="ClickContestInfo.do" method="post">
-					<td>
-					<input type="image" src="assets/images/${ci.conHomepage}.jpg" width="270px">
-					<input type="hidden" name="conNum" value="${ci.conIdx}">
-					<input type="hidden" name="conName" value="${ci.conName}"> 
-					</td>
-					</form>
-					</c:forEach>
-						
+						<c:forEach items="${conProfile}" var="ci">
+							<form action="ClickContestInfo.do" method="post">
+								<td><input type="image"
+									src="assets/images/${ci.conHomepage}.jpg" width="270px">
+									<input type="hidden" name="conNum" value="${ci.conIdx}">
+									<input type="hidden" name="conName" value="${ci.conName}">
+									<c:forEach items="${scrapProfile}" var="si" varStatus="status">
+										<input type="hidden" name="scrapconName${status.index}"
+											value="${si}">
+									</c:forEach></td>
+							</form>
+						</c:forEach>
 						<td><img src="assets/images/imgex03.jpg" width="270px"></td>
 						<td><img src="assets/images/imgex04.png" width="270px"></td>
 						<td><img src="assets/images/imgex05.jpg" width="270px"></td>

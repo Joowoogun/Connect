@@ -14,6 +14,7 @@
 	<form action="addTodo.do" method="post">
 	<input type="text" placeholder="제목을 입력해주세요" name="yourTitle">
 		간편선택 : <select name="todoTitle">
+		<option>직접입력</option>
         <% for (String title : todoTitles) { %>
             <option><%= title %></option>
         <% } %>

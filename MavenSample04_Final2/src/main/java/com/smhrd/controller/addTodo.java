@@ -23,11 +23,10 @@ public class addTodo implements Command {
 		String do_endTime = request.getParameter("do_endTime");
 		TodolistVO vo = new TodolistVO();
 		vo.setUserId(userId);
-		if(todoTitle.equals("")) {
-			vo.setTodoTitle(yourTitle);
-		}else {
-			vo.setTodoTitle(todoTitle);
+		if(todoTitle.equals("직접입력")) {
+			todoTitle = yourTitle;
 		}
+		vo.setTodoTitle(todoTitle);
 		vo.setContent(content);
 		vo.setDo_Status(do_Status);
 		vo.setDo_startDate(do_startDate);
@@ -36,9 +35,12 @@ public class addTodo implements Command {
 		vo.setDo_endTime(do_endTime);
 		System.out.println("got");
 		System.out.println(yourTitle);
+		TodolistVO todovo = new TodolistVO();
+		todovo.setTodoTitle(todoTitle);
+		request.setAttribute("addTodoTitle", todovo);
+		System.out.println("addTodo.java 출력값"+todovo.getTodoTitle());
 		DAO dao = new DAO();
-		List<TodolistVO> list = dao.addTodo(vo);
-		request.setAttribute("list", list);
+		dao.addTodo(vo);
 		return "redirect:/SelectTodoAll.do";
 	}
 }
