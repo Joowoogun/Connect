@@ -215,19 +215,12 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '해야 할 일' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
-                  <form action="todoContentEdit.do" method="post">
-                        <h2><input type="text" name="content" value="${todo.content}"></h2>
-                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
-                        <input type="hidden" type="submit" value="콘텐츠 수정">
-                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
-                     </form>
-                  <form action="todoDel.do" method="post">
-                     <input type="hidden" id="status" value="완료">
+                     <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
+                     <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
+                     <input type="hidden" id="status" value="해야 할 일">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="button" class="delBtn" value="비동기삭제">
                      <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
-                     <input type="hidden" name="txt" value="${todo.content}">
-                     <input type="submit" value="콘텐츠 삭제">
-                  </form>
                </div>
             </c:if>
 
@@ -239,19 +232,12 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '진행 중' and todo.userId == todo.profileId}">         
                <div class="list-group-item" draggable="true">
-                  <form action="todoContentEdit.do" method="post">
-                        <h2><input type="text" name="content" value="${todo.content}"></h2>
-                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
-                        <input type="hidden" type="submit" value="콘텐츠 수정">
-                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
-                     </form>
-                  <form action="todoDel.do" method="post">
-                     <input type="hidden" id="status" value="완료">
+                     <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
+                     <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
+                     <input type="hidden" id="status" value="진행 중">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="button" class="delBtn" value="비동기삭제">
                      <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
-                     <input type="hidden" name="txt" value="${todo.content}">
-                     <input type="submit" value="콘텐츠 삭제">
-                  </form>
                </div>
             </c:if>
          </c:forEach>
@@ -262,25 +248,17 @@
          <c:forEach items="${TodoList}" var="todo">
             <c:if test="${todo.do_Status == '완료' and todo.userId == todo.profileId}">
                <div class="list-group-item" draggable="true">
-                     <form action="todoContentEdit.do" method="post">
-                        <h2><input type="text" name="content" value="${todo.content}"></h2>
-                        <input type="hidden" name="todoIdx" value="${todo.todoIdx}">
-                        <input type="hidden" type="submit" value="콘텐츠 수정">
-                        <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5> 
-                     </form>
-                  <form action="todoDel.do" method="post">
+                     <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
+                     <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
                      <input type="hidden" id="status" value="완료">
                      <input type="hidden" name="todoTitle" value="${todo.todoTitle}">
+                     <input type="button" class="delBtn" value="비동기삭제">
                      <input type="hidden" name="todoId" id="todoIdx" value="${todo.todoIdx}">
-                     <input type="hidden" name="txt" value="${todo.content}">
-                     <input type="submit" value="콘텐츠 삭제">
-                  </form>
                </div>
             </c:if>
          </c:forEach>
       </div>
    </div>
-       </div>
        
         <!--**********************************
             Content body end
@@ -344,6 +322,58 @@
      <!-- 추가한  스크립트  -->
   
    <script>
+   
+// TodoEdit keyup 이벤트로 메소드 만들기
+   $('#todoContent').on("keyup",function(){
+      // 키를 누르고 땔때마다 변경되는 밸류값을 저장
+      let txt = $(this).val()
+      // 부모태그를 통해서 바깥태그의 idx 값을 가져오기
+      let idx = $(this).closest('.list-group-item').find("#todoIdx").val();
+      // 변수에 묶어서 보내기위해 담기
+      let Edit = {"content" : txt, "idx" : idx}
+      
+      $.ajax({
+           url: "todoContentEdit",
+           data: Edit,
+           type: 'get',
+           success : () =>  {
+               console.log("변경사항 적용.");
+           },
+           error : () => {
+               console.error("변경중 오류발생.");
+           }
+       })
+      
+   })
+   
+   
+   
+   // Tododel 비동기 화 작업 
+    $('.delBtn').on("click", function() {
+       // 삭제할 항목의 IDX 를 가져온다
+        let Idx = $(this).siblings("#todoIdx").val();
+        // 변수에 담아준다.
+        let delInfo = {"tododelIdx" : Idx};
+        // 콘솔에 출력하여 잘 들어가는지 확인한번해준다.
+        console.log("삭제할 컨텐츠의 인덱스 번호 >> ",delInfo);
+      // DB에서 삭제완료시 현재 보이는 태그를 삭제하기위해 변수에 담아둔다.
+        let $listItem = $(this).closest('.list-group-item');
+        
+        $.ajax({
+            url: "tododelAjax",
+            data: delInfo,
+            type: 'get',
+            success : () =>  {
+               // 성공시 변수에 담아둔 태그 삭제후 콘솔창에 결과 출력
+               $listItem.remove();
+                console.log("삭제완료.");
+            },
+            error : () => {
+                console.error("삭제중 오류발생.");
+            }
+        })
+    })
+    
    $(document).ready(function() {
        // 페이지가 로드되면 실행될 코드
        $('.list-group-item').show(); // list-group-item 클래스를 가진 모든 요소를 표시

@@ -17,26 +17,30 @@
 
 	<!-- Todolist 추가기능 -->
 	<insert id="addTodo" parameterType="com.smhrd.model.TodolistVO">
-		INSERT INTO todoList (userId, todoTitle, content, do_Status,
+		INSERT INTO todoList (userId,
+		todoTitle, content, do_Status,
 		do_startDate,do_startTime,do_endDate,do_endTime)
-		VALUES (#{userId},#{todoTitle},#{content}, #{do_Status},
+		VALUES
+		(#{userId},#{todoTitle},#{content}, #{do_Status},
 		#{do_startDate},#{do_startTime}, #{do_endDate},#{do_endTime})
 	</insert>
 
 	<select id="TodoAll" resultType="com.smhrd.model.TodolistVO">
-		select userId, todoIdx, todoTitle, content, do_Status,
+		select userId, todoIdx,
+		todoTitle, content, do_Status,
 		do_startDate,do_startTime,do_endDate,do_endTime
 		from todoList
 	</select>
 
 	<delete id="todoDel" parameterType="com.smhrd.model.TodolistVO">
-      delete from todoList
-      where content = #{content} and todoIdx =#{todoIdx}
-   </delete>
+		delete from todoList
+		where todoIdx =#{todoIdx}
+	</delete>
 
 	<select id="EmailCheck" resultType="String">
 		select email as result
-		from b_member
+		from
+		b_member
 		where email = #{email}
 	</select>
 
@@ -44,23 +48,27 @@
 		parameterType="com.smhrd.model.TodolistVO">
 		update todoList
 		set do_Status =#{do_Status}
-		where todoIdx=#{todoIdx}
+		where
+		todoIdx=#{todoIdx}
 	</update>
-	
+
 	<select id="todoTitle" resultType="com.smhrd.model.TodolistVO">
 		select * from todoList
-		where todoTitle = "1"
+		where
+		todoTitle = "1"
 	</select>
-	
-	<update id="changeTodoTitle" parameterType="com.smhrd.model.TodolistVO">
-      update todoList
-      set todoTitle = #{todoTitle}
-      where userId = #{userId} and todoTitle = #{todoChangeTitle}
-   </update>
-   
-   <update id="TodoContentUpdate" parameterType="com.smhrd.model.TodolistVO">
-      update todoList
-   set content = #{content}
-   where todoIdx= #{todoIdx}
-   </update>
+
+	<update id="changeTodoTitle"
+		parameterType="com.smhrd.model.TodolistVO">
+		update todoList
+		set todoTitle = #{todoTitle}
+		where userId = #{userId} and todoTitle = #{todoChangeTitle}
+	</update>
+
+	<update id="TodoContentUpdate"
+		parameterType="com.smhrd.model.TodolistVO">
+		update todoList
+		set content = #{content}
+		where todoIdx= #{todoIdx}
+	</update>
 </mapper>

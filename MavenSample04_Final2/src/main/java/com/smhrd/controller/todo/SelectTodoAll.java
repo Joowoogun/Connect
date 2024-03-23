@@ -33,7 +33,7 @@ public class SelectTodoAll implements Command {
     	  selectTitle = addTodoTitle.getTodoTitle();
     	  System.out.println("있어");
 	} catch (Exception e) {
-		System.out.println("없어없어없어없어없어없어없어없어없어없어없어없어없어");
+		System.out.println("없어");
 	}
       
       // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거

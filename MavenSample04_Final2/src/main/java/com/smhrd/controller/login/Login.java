@@ -20,28 +20,35 @@ public class Login implements Command {
 		MemberVO vo = new MemberVO();
 		vo.setuserId(userId);
 		vo.setPw(pw);
+		ScrapListVO svo = new ScrapListVO();
+		svo.setUserId(userId);
 		DAO dao = new DAO();
 		MemberVO resultVo = dao.login(vo);
 		List<ContestVO> resultCon = dao.ClickContestInfo();
-		List<ScrapListVO> resultScrap = dao.SelectScrapAll();
-		System.out.println("불러온 스크랩 리스트 >> " + resultScrap);
+		System.out.println(resultCon);
+		List<ScrapListVO> resultScrap = dao.SelectScrapAll(svo);
+		System.out.println("로그인할때 불러온 스크랩리스트 주소 >> "+resultScrap);
+//		System.out.println("불러온 스크랩 리스트 >> " + resultScrap);
 		System.out.println(resultScrap.get(0).getConName());
 		System.out.println(resultScrap.get(1).getConName());
 		System.out.println(resultScrap.get(2).getConName());
-		ArrayList<String> scrapconName = new ArrayList<String>();
-		for (int i = 0; i < resultScrap.size(); i++) {
-			scrapconName.add(resultScrap.get(i).getConName());
-		}
-		System.out.println("불러온 스크랩 리스의 conidx 값들 >> " + scrapconName);
+		System.out.println(resultScrap.get(0).getConIdx());
+		System.out.println(resultScrap.get(1).getConIdx());
+		System.out.println(resultScrap.get(2).getConIdx());
+		
 		
 		if (resultVo != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("profile", resultVo);
 			session.setAttribute("conProfile", resultCon);
-			session.setAttribute("scrapProfile", scrapconName);
+			session.setAttribute("scrapProfile", resultScrap);
+			// id pw 일치하면 index(공모전페이지로)
+			return "redirect:/goindex.do";
+		}else {
+			// id pw 일치하지않으면 다시 로그인페이지로
+			return "redirect:/gopage-login.do";
 		}
 		
 
-		return "redirect:/goindex.do";
 	}
 }

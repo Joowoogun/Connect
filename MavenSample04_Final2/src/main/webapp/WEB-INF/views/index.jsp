@@ -101,9 +101,11 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 									<form action="SelectScrapAll.do" method="post">
 										<input class="scrapright" type="image"
 											src="assets/images/scrap.png" height="18px" width="27px">
-										<c:forEach items="${conProfile}" var="cl">
-											<input type="hidden" name="conNum" value="${cl.conIdx}">
-											<input type="hidden" name="conName" value="${cl.conName}">
+										<c:forEach items="${scrapProfile}" var="sp">
+											<input type="hidden" name="scrapconIdx" value="${sp.conIdx}">
+											<input type="hidden" name="scrapconName" value="${sp.conName}">
+											<input type="hidden" name="scrapconStartDate" value="${sp.conStartDate}">
+											<input type="hidden" name="scrapconEndDate" value="${sp.conEndDate}">
 										</c:forEach>
 									</form> <!--  <div class="pulse-css"></div> -->
 							</a>
@@ -199,7 +201,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 							<form action="ClickContestInfo.do" method="post">
 								<td><input type="image"
 									src="assets/images/${ci.conHomepage}.jpg" width="270px">
-									<input type="hidden" name="conNum" value="${ci.conIdx}">
+									<input type="hidden" name="conIdx" value="${ci.conIdx}">
 									<input type="hidden" name="conName" value="${ci.conName}">
 									<c:forEach items="${scrapProfile}" var="si" varStatus="status">
 										<input type="hidden" name="scrapconName${status.index}"

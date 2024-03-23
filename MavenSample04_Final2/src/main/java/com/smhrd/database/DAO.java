@@ -130,10 +130,10 @@ public class DAO {
 		session.close();
 	}
 	
-	public List<ScrapListVO> SelectScrapAll() {
+	public List<ScrapListVO> SelectScrapAll(ScrapListVO vo) {
 		SqlSession session = factory.openSession(true);
-		List<ScrapListVO> resultList = session.selectList("SelectScrapAll");
-		session.close();
+		List<ScrapListVO> resultList = session.selectList("SelectScrapAll", vo);
+		session.close(); 
 		return resultList;
 	}
 	

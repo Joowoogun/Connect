@@ -17,34 +17,39 @@ public class SelectScrapAll implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		DAO dao = new DAO();
-	      List<ScrapListVO> scrapList = dao.SelectScrapAll();
-
+		  DAO dao = new DAO();
+		  ScrapListVO svo = new ScrapListVO();
 	      HttpSession session = request.getSession();
+	      // 로그인한 userId가져오기
 	      MemberVO mvo = (MemberVO) session.getAttribute("profile");
-	      String conName = request.getParameter("conName");
-	      int conNum = Integer.parseInt(request.getParameter("conNum"));
-	      System.out.println("SelectScarpAll >> "+conName);
-	      System.out.println("SelectScarpAll >> "+conNum);
+	      // selectscrapall할때 사용할 userId 설정 (로그인된걸로)
+	      svo.setUserId(mvo.getuserId());
+	      // userId가 일치하는 스크랩리스트 가지고오기
+	      List<ScrapListVO> scrapList = dao.SelectScrapAll(svo);
+	      // 공모전 제목 가지고오기
+	      System.out.println("스크랩리스트 눌렀을때 null뜨냐? >> "+scrapList);
+	      // 공모전 conIdx 가지고오기
+	      int scrapconIdx = Integer.parseInt(request.getParameter("scrapconIdx"));
+	      System.out.println("SelectScarpAll >> "+scrapconIdx);
 	      List<ContestVO> ClickContestInfo = dao.ClickContestInfo();
+	      
 	      for (int i = 0; i < ClickContestInfo.size(); i++) {
 	    	  System.out.println((i+1)+"몇 번째 >> "+ClickContestInfo.get(i).getConName());
 	      }
 	      
 	      request.setAttribute("contest", ClickContestInfo);
 	      
-	      String id = mvo.getuserId();
-	         // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거
-	         for (int i = 0; i < scrapList.size()-1; i++) {
-	            if (!scrapList.get(i).getUserId().equals(id)) {
-	               scrapList.remove(i);
-	               i--;
-	         }
-	      }
+//	      String id = mvo.getuserId();
+//	         // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거
+//	         for (int i = 0; i < scrapList.size()-1; i++) {
+//	            if (!scrapList.get(i).getUserId().equals(id)) {
+//	               scrapList.remove(i);
+//	               i--;
+//	         }
+//	      }
 	          System.out.println("보내지는 리스트 수 >> " + scrapList.size());
 		
 		request.setAttribute("scrapList", scrapList);
-		
 		return "Scrap";
 	}
 

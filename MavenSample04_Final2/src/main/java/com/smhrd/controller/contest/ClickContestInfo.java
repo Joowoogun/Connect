@@ -13,12 +13,16 @@ public class ClickContestInfo implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-
+		
+		// conIdx가 index에 2개존재
+		// index에서 conIdx는 contestinfo로부터 가지고온것
+		// scrap에서 conIdx는 scrapList로부터 가지고온것
+		// index에서 공모전을 클릭하든 scrap에서 공모전을 클릭하든 알아서 정보가 들어가게한것
 		DAO dao = new DAO();
 		String conName = request.getParameter("conName");
 		System.out.println(conName);
-		int conNum = Integer.parseInt(request.getParameter("conNum"));
-		System.out.println(conNum);
+		int conIdx = Integer.parseInt(request.getParameter("conIdx"));
+		System.out.println(conIdx);
 		List<String> conNamesList = new ArrayList<>();
 		for (int i = 0; ; i++) {
 		    String conNames = request.getParameter("scrapconName" + i);
@@ -29,12 +33,10 @@ public class ClickContestInfo implements Command {
 		}
 		System.out.println("conNamesList >> "+conNamesList);
 		List<ContestVO> ClickContestInfo = dao.ClickContestInfo();
-		// 공모전 정보중 첫번째 인덱스에 저장된 값을 가지고옴
-		conNum = Integer.parseInt(request.getParameter("conNum"));
-		System.out.println(conNum);
-		request.setAttribute("contest", ClickContestInfo.get(conNum-1));
+		System.out.println(conIdx);
+		request.setAttribute("contest", ClickContestInfo.get(conIdx-1));
 		request.setAttribute("scrapconNames", conNamesList);
-		System.out.println("쿠크냐 아브냐 >> " + ClickContestInfo.get(conNum-1));
+		System.out.println("쿠크냐 아브냐 >> " + ClickContestInfo.get(conIdx-1));
 		return "contestEx";
 		
 	}

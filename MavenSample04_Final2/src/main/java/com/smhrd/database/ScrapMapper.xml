@@ -18,13 +18,13 @@
 		where conIdx = #{conIdx}
 	</delete>
 
-	<select id="SelectScrapAll"
-		resultType="com.smhrd.model.ScrapListVO">
-		SELECT cm.userId, c.conName, c.conStartDate, c.conEndDate
+	<select id="SelectScrapAll" parameterType="com.smhrd.model.ScrapListVO" resultType="com.smhrd.model.ScrapListVO">
+		SELECT cm.userId, c.conName,c.conIdx, c.conStartDate, c.conEndDate
 		FROM contestInfo c
 		JOIN scrapList sl ON c.conIdx = sl.conIdx
 		JOIN c_member cm ON sl.userId = cm.userId
-		GROUP BY cm.userId, c.conName, c.conStartDate, c.conEndDate;
+		where cm.userId = #{userId}
+		GROUP BY cm.userId, c.conName,c.conIdx, c.conStartDate, c.conEndDate;
 	</select>
 
 

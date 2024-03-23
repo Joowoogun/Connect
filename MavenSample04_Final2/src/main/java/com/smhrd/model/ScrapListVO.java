@@ -24,6 +24,10 @@ public class ScrapListVO {
     // 등록 일자 
     private String scrapDate;
 
+    public ScrapListVO() {
+	}
+    
+    
     public ScrapListVO(String userId, String conName, String conStartDate, String conEndDate) {
 		this.userId = userId;
 		this.conName = conName;
