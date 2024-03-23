@@ -29,13 +29,6 @@ public class Login implements Command {
 		List<ScrapListVO> resultScrap = dao.SelectScrapAll(svo);
 		System.out.println("로그인할때 불러온 스크랩리스트 주소 >> "+resultScrap);
 //		System.out.println("불러온 스크랩 리스트 >> " + resultScrap);
-		System.out.println(resultScrap.get(0).getConName());
-		System.out.println(resultScrap.get(1).getConName());
-		System.out.println(resultScrap.get(2).getConName());
-		System.out.println(resultScrap.get(0).getConIdx());
-		System.out.println(resultScrap.get(1).getConIdx());
-		System.out.println(resultScrap.get(2).getConIdx());
-		
 		
 		if (resultVo != null) {
 			HttpSession session = request.getSession();

@@ -150,7 +150,7 @@
             <div>
             <form action="ClickContestInfo.do" method="post" >
             <input type="hidden" value="${sl.conName}" name="conName">
-            ${sl.conName}
+            ${sl.conName} ${sl.conStartDate} ${sl.conEndDate}
 			<input type="hidden" name="conIdx" value="${sl.conIdx}">
 			<input type="hidden" name="conName" value="${sl.conName}"> 
             <input type="submit" value="상세보기">

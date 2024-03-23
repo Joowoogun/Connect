@@ -29,8 +29,6 @@ public class SelectScrapAll implements Command {
 	      // 공모전 제목 가지고오기
 	      System.out.println("스크랩리스트 눌렀을때 null뜨냐? >> "+scrapList);
 	      // 공모전 conIdx 가지고오기
-	      int scrapconIdx = Integer.parseInt(request.getParameter("scrapconIdx"));
-	      System.out.println("SelectScarpAll >> "+scrapconIdx);
 	      List<ContestVO> ClickContestInfo = dao.ClickContestInfo();
 	      
 	      for (int i = 0; i < ClickContestInfo.size(); i++) {
