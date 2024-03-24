@@ -1,5 +1,6 @@
 package com.smhrd.controller.scrap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,8 +36,13 @@ public class SelectScrapAll implements Command {
 	    	  System.out.println((i+1)+"몇 번째 >> "+ClickContestInfo.get(i).getConName());
 	      }
 	      
-	      request.setAttribute("contest", ClickContestInfo);
+	      List<String> scrapconNamesList = new ArrayList<String>();
+			for (int i = 0; i < scrapList.size(); i++) {
+				scrapconNamesList.add(i, scrapList.get(i).getConName());
+			}
 	      
+	      request.setAttribute("contest", ClickContestInfo);
+	      request.setAttribute("scrapconNamesList", scrapconNamesList);
 //	      String id = mvo.getuserId();
 //	         // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거
 //	         for (int i = 0; i < scrapList.size()-1; i++) {

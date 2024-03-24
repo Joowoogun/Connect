@@ -7,8 +7,6 @@ import com.smhrd.model.TodolistVO;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -19,15 +17,20 @@ public class SelectTodoAll implements Command {
    public String execute(HttpServletRequest request, HttpServletResponse response) {
 
       DAO dao = new DAO();
-      List<TodolistVO> TodoList = dao.TodoAll();
       HttpSession session = request.getSession();
+      // 로그인한 userId가져오기
+      MemberVO mvo = (MemberVO) session.getAttribute("profile");
+      // tvo에 userId를 넣어 todolsit userId를 통해서 가지고오기
+      TodolistVO tvo = new TodolistVO();
+      tvo.setUserId(mvo.getuserId());
+      List<TodolistVO> TodoList = dao.TodoAll(tvo);
+      System.out.println("userid를 통해 가지고온 todolist >>"+TodoList.get(0).getTodoIdx());
+      
       // 일정추가를 눌렀을때 가져올 투두타이틀
       TodolistVO addTodoTitle = (TodolistVO) request.getAttribute("addTodoTitle");
       // userId 같은거 가지고올려고 로그인할때 세션에 저장된 id불러오기
-      MemberVO mvo = (MemberVO) session.getAttribute("profile");
       String id = mvo.getuserId();
       String title = null;
-      String todoid = null;
       String selectTitle = null;
       try {
     	  selectTitle = addTodoTitle.getTodoTitle();
@@ -35,19 +38,6 @@ public class SelectTodoAll implements Command {
 	} catch (Exception e) {
 		System.out.println("없어");
 	}
-      
-      // 셀렉트 할때 본인의 아이디의 것만 남겨놓고 리스트에서 제거
-      for (int i = 0; i < TodoList.size(); i++) {
-         if (!TodoList.get(i).getUserId().equals(id)) {
-            TodoList.remove(i);
-            i--;
-         }
-      }
-      // Todo에서 .equals 값으로 사용할 아이디를 추가로 넣어줌
-      System.out.println("mvo id >> " + id);
-      for (int i = 0; i < TodoList.size(); i++) {
-         TodoList.get(i).setprofileId(id);
-      }
 
       // Placeholder에 출력할 타이틀 이름 + 비교할 타이틀 이름이다.
       ArrayList<String> Titleset = new ArrayList<>();

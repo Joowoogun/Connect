@@ -25,16 +25,22 @@
 		#{do_startDate},#{do_startTime}, #{do_endDate},#{do_endTime})
 	</insert>
 
-	<select id="TodoAll" resultType="com.smhrd.model.TodolistVO">
+	<select id="TodoAll" parameterType="com.smhrd.model.TodolistVO" resultType="com.smhrd.model.TodolistVO">
 		select userId, todoIdx,
 		todoTitle, content, do_Status,
 		do_startDate,do_startTime,do_endDate,do_endTime
 		from todoList
+		where userId=#{userId}
 	</select>
 
 	<delete id="todoDel" parameterType="com.smhrd.model.TodolistVO">
 		delete from todoList
 		where todoIdx =#{todoIdx}
+	</delete>
+	
+	<delete id="todoDelScrap" parameterType="com.smhrd.model.TodolistVO">
+		delete from todoList
+		where todoTitle = #{todoTitle}
 	</delete>
 
 	<select id="EmailCheck" resultType="String">

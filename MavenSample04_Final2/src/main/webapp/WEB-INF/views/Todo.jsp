@@ -177,7 +177,7 @@
                <strong>
                  <form action="todoChageTitle.do" method="post">
                      <h2><input id="showHide" name="title" type="text" placeholder="${TodoTitle}" style="border: none;"></h2>
-                     <input id="firstHide" name="titleName" type="hidden" value="${TodoTitle}">
+                     <input id="firstTitle" name="titleName" type="hidden" value="${TodoTitle}">
                    <input type="hidden" type="submit" value="나는 투명이다~">
                  </form>
                </strong>
@@ -213,7 +213,7 @@
       <div class="ourcolumn" id="Todo">
          <h1>Todo</h1>
          <c:forEach items="${TodoList}" var="todo">
-            <c:if test="${todo.do_Status == '해야 할 일' and todo.userId == todo.profileId}">
+            <c:if test="${todo.do_Status == '해야 할 일'}">
                <div class="list-group-item" draggable="true">
                      <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
                      <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
@@ -230,7 +230,7 @@
       <div class="ourcolumn" id="InProgress">
          <h1>InProgress</h1>
          <c:forEach items="${TodoList}" var="todo">
-            <c:if test="${todo.do_Status == '진행 중' and todo.userId == todo.profileId}">         
+            <c:if test="${todo.do_Status == '진행 중'}">         
                <div class="list-group-item" draggable="true">
                      <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
                      <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
@@ -246,7 +246,7 @@
       <div class="ourcolumn" id="Done">
          <h1>Done</h1>
          <c:forEach items="${TodoList}" var="todo">
-            <c:if test="${todo.do_Status == '완료' and todo.userId == todo.profileId}">
+            <c:if test="${todo.do_Status == '완료'}">
                <div class="list-group-item" draggable="true">
                      <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
                      <h5>${todo.do_startDate} ~ ${todo.do_endDate}</h5>
@@ -469,25 +469,24 @@ $(document).ready(function(){
        });
    });
 });
-// 잘모르겠음 뭐엿지
+// 처음 todolist에 나오는 todoTitle과 다른 것들 숨기기 (잘모르겠음 수정)
 $(document).ready(function() {
     $('div.ourcolumn .list-group-item').each(function() {
         var todoTitle = $(this).find('input[name="todoTitle"]').val();
-        var firstHide = $('#firstHide').val();
-        console.log(firstHide)
-        if (todoTitle !== firstHide) {
+        var firstTitle = $('#firstTitle').val();
+        console.log(firstTitle)
+        if (todoTitle !== firstTitle) {
             $(this).hide();
         }
     });
 });
-
 // option 선택시 보여지는 제목, 변경할때 보내는 내부의 값을 변경
 function changeValue() {
     var selectElement = document.getElementById("todoTitle");
     var selectedText = selectElement.options[selectElement.selectedIndex].text;
     console.log(selectedText);
-    // firstHide 요소의 value 값을 선택된 옵션의 값으로 변경
-    document.getElementById("firstHide").value = selectedText;
+    // firstTitle 요소의 value 값을 선택된 옵션의 값으로 변경
+    document.getElementById("firstTitle").value = selectedText;
     // 사용자에게 보여지는 걸 변경
     document.getElementById("showHide").placeholder = selectedText;
 }

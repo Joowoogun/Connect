@@ -55,9 +55,10 @@ public class DAO {
 	}
 
 	// Todolist 정보 불러오기 
-	public List<TodolistVO> TodoAll() {
+	// 2024 03 24 수정 todolist userId 연동
+	public List<TodolistVO> TodoAll(TodolistVO vo) {
 		SqlSession session = this.factory.openSession(true);
-		List<TodolistVO> resultList = session.selectList("TodoAll");
+		List<TodolistVO> resultList = session.selectList("TodoAll",vo);
 		session.close();
 		return resultList;
 	}
@@ -74,6 +75,12 @@ public class DAO {
 	public void todoDel(TodolistVO vo) {
 		SqlSession session = this.factory.openSession(true);
 		session.delete("todoDel", vo);
+		session.close();
+	}
+	
+	public void todoDelScrap(TodolistVO vo) {
+		SqlSession session = this.factory.openSession(true);
+		session.delete("todoDelScrap", vo);
 		session.close();
 	}
 

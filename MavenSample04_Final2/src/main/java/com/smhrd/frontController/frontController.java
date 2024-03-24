@@ -11,7 +11,6 @@ import com.smhrd.controller.todo.SelectTodoAll;
 import com.smhrd.controller.todo.addTodo;
 import com.smhrd.controller.todo.todoChageTitle;
 import com.smhrd.controller.todo.todoContentEdit;
-import com.smhrd.controller.todo.todoDel;
 import com.smhrd.controller.todo.todoTitle;
 
 import java.io.IOException;
@@ -36,7 +35,6 @@ public class frontController extends HttpServlet {
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());
 		this.map.put("addTodo.do", new addTodo());
 		this.map.put("SelectTodoAll.do", new SelectTodoAll());
-		this.map.put("todoDel.do", new todoDel());
 		this.map.put("todoTitle.do", new todoTitle());
 		this.map.put("ClickContestInfo.do", new ClickContestInfo());
 		this.map.put("todoTitle.do", new todoTitle());

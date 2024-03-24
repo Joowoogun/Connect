@@ -5,6 +5,7 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.ContestVO;
 import com.smhrd.model.MemberVO;
 import com.smhrd.model.ScrapListVO;
+import com.smhrd.model.TodolistVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,10 @@ public class Login implements Command {
 		vo.setPw(pw);
 		ScrapListVO svo = new ScrapListVO();
 		svo.setUserId(userId);
+		// todolist userId를 통해서 가지고오기
 		DAO dao = new DAO();
 		MemberVO resultVo = dao.login(vo);
+		// todolist userId를 통해서 가지고오기 (2)
 		List<ContestVO> resultCon = dao.ClickContestInfo();
 		System.out.println(resultCon);
 		List<ScrapListVO> resultScrap = dao.SelectScrapAll(svo);
@@ -35,6 +38,7 @@ public class Login implements Command {
 			session.setAttribute("profile", resultVo);
 			session.setAttribute("conProfile", resultCon);
 			session.setAttribute("scrapProfile", resultScrap);
+			
 			// id pw 일치하면 index(공모전페이지로)
 			return "redirect:/goindex.do";
 		}else {

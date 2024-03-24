@@ -201,6 +201,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 							<form action="ClickContestInfo.do" method="post">
 								<td><input type="image"
 									src="assets/images/${ci.conHomepage}.jpg" width="270px">
+									<input type="hidden" name="userId" value="${profile.userId}">
 									<input type="hidden" name="conIdx" value="${ci.conIdx}">
 									<input type="hidden" name="conName" value="${ci.conName}">
 									<c:forEach items="${scrapProfile}" var="si" varStatus="status">

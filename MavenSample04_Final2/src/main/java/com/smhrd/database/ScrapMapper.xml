@@ -15,7 +15,7 @@
 	<delete id="delScrap"
 		parameterType="com.smhrd.model.ScrapListVO">
 		delete from scrapList
-		where conIdx = #{conIdx}
+		where conIdx = #{conIdx} and userId=#{userId}
 	</delete>
 
 	<select id="SelectScrapAll" parameterType="com.smhrd.model.ScrapListVO" resultType="com.smhrd.model.ScrapListVO">
