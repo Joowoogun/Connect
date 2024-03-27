@@ -10,6 +10,15 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 public class DAO {
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
+	
+
+	// 선택한 옵션의 투두리스트만 불러오기
+	   public List<TodolistVO> SelectTodoOption(TodolistVO vo){
+	      SqlSession session = this.factory.openSession(true);
+	      List<TodolistVO> resultList = session.selectList("SelectTodoOption",vo);
+	      session.close();
+	      return resultList;
+	   }
 
 	// 회원정보저장
 	public int join(MemberVO vo) {

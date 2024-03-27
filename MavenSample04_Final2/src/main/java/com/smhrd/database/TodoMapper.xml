@@ -77,4 +77,11 @@
 		set content = #{content}
 		where todoIdx= #{todoIdx}
 	</update>
+	
+	<select id="SelectTodoOption" parameterType="com.smhrd.model.TodolistVO" resultType="com.smhrd.model.TodolistVO">
+      select *
+      from todoList
+      where userId=#{userId} and todoTitle=#{todoTitle}
+   </select>
+   
 </mapper>
