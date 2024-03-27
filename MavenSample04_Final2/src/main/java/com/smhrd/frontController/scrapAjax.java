@@ -60,11 +60,9 @@ public class scrapAjax extends HttpServlet {
         if(Status.equals("true")) {
         	dao.addScrap(vo);
         	dao.addTodo(tvo);
-        	System.out.println("스크랩이 추가되었습니다.");
         }else {
         	dao.delScrap(vo);
         	dao.todoDelScrap(tvo);
-        	System.out.println("스크랩이 취소되었습니다.");
         }
         // 출력해보기
         out.print(json);

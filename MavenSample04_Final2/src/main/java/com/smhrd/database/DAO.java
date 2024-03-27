@@ -158,5 +158,11 @@ public class DAO {
 	       session.update("TodoContentUpdate", vo);
 	       session.close();
 	      }
+
+	public void calUpdate(TodolistVO vo) {
+		SqlSession session = factory.openSession(true);
+		session.update("calUpdate", vo);
+		session.close();
+	}
 	
 }

@@ -220,6 +220,7 @@
                                  <c:forEach items="${TodoOption}" var="title">
                                     <option>${title}</option>
                                  </c:forEach>
+                                 <option>직접입력</option>
                                  </select> <br> <br> Content:
                               <textarea id="addContent" rows="2" cols="50"
                                  style="resize: none;"></textarea>
@@ -384,7 +385,6 @@
       <script src="assets/js/TodoModal.js"></script>
       <script src="assets/js/TodoProgressbar.js"></script>
       
-      <script>
 
 // 보여지는 최대 글자수 설정
 var h2Element = document.querySelector('.ourcolumn h2');

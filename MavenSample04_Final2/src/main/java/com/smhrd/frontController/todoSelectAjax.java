@@ -24,7 +24,7 @@ public class todoSelectAjax extends HttpServlet {
 			throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=utf-8");
-		response.setCharacterEncoding("uft-8");
+		response.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("profile");
 		String userId = mvo.getuserId();

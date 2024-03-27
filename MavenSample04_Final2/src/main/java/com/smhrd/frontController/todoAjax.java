@@ -20,16 +20,24 @@ public class todoAjax extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
       System.out.println("요청이 들어옴");
+      String do_startDate = request.getParameter("do_startDate");
+      String do_endDate = request.getParameter("do_endDate");
       String data = request.getParameter("status");
       int data2 = Integer.parseInt(request.getParameter("todoIdx"));
-      System.out.println("데이터확인 >> " + data + data2);
+      System.out.println("데이터확인 >> " + data + data2+do_startDate+do_endDate);
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
       TodolistVO vo = new TodolistVO();
       vo.setDo_Status(data);
-      vo.setTodoIdx(data2);   
+      vo.setTodoIdx(data2);  
+      vo.setDo_startDate(do_startDate);
+      vo.setDo_endDate(do_endDate);
       DAO dao = new DAO();
-      dao.todoUpdate(vo);
+      if(do_startDate == null) {
+    	  dao.todoUpdate(vo);
+      }else {
+    	  dao.calUpdate(vo);
+      }
       
       
       
