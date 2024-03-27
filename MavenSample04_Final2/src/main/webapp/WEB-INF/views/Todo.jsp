@@ -100,7 +100,7 @@
 
                   <ul class="navbar-nav header-right">
                      <li class="nav-item dropdown notification_dropdown"><a
-                        class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+                        class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
                            <img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
                            <!--  <div class="pulse-css"></div> -->
                      </a>

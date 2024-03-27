@@ -1,6 +1,8 @@
 <%@page import="com.smhrd.model.ScrapListVO"%>
 <%@page import="java.util.Set"%>
 <%@page import="com.smhrd.model.TodolistVO"%>
+<%@page import="com.smhrd.model.MemberVO"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -19,8 +21,11 @@
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    
 	<%
 	ScrapListVO mvo = (ScrapListVO) session.getAttribute("scrapList");
+	
+	MemberVO vo = (MemberVO) session.getAttribute("profile");
 	%>
 
 
@@ -151,6 +156,7 @@
             <form action="ClickContestInfo.do" method="post" >
             <input type="hidden" value="${sl.conName}" name="conName">
             ${sl.conName} ${sl.conStartDate} ${sl.conEndDate}
+			<input type="hidden" name="userId" value="${profile.userId}">
 			<input type="hidden" name="conIdx" value="${sl.conIdx}">
 			<input type="hidden" name="conName" value="${sl.conName}"> 
             <input type="submit" value="상세보기">
@@ -227,7 +233,7 @@
 
 
     <script src="assets/js/dashboard/dashboard-1.js"></script>
-
+ 	
 </body>
 
 </html>

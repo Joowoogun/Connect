@@ -40,7 +40,7 @@
 	
 	<delete id="todoDelScrap" parameterType="com.smhrd.model.TodolistVO">
 		delete from todoList
-		where todoTitle = #{todoTitle}
+		where todoTitle = #{todoTitle} and userId = #{userId}
 	</delete>
 
 	<select id="EmailCheck" resultType="String">

@@ -13,6 +13,8 @@ import com.smhrd.controller.todo.todoChageTitle;
 import com.smhrd.controller.todo.todoContentEdit;
 import com.smhrd.controller.todo.todoTitle;
 
+import fullCalendar.fullCalendar;
+
 import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
@@ -41,6 +43,7 @@ public class frontController extends HttpServlet {
 	    this.map.put("todoChageTitle.do", new todoChageTitle());
 	    this.map.put("SelectScrapAll.do", new SelectScrapAll());
 	    this.map.put("todoContentEdit.do", new todoContentEdit());
+	    this.map.put("fullCalendar.do", new fullCalendar());
 		
 	}
 

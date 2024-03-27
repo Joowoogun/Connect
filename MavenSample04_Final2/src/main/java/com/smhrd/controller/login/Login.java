@@ -30,8 +30,6 @@ public class Login implements Command {
 		List<ContestVO> resultCon = dao.ClickContestInfo();
 		System.out.println(resultCon);
 		List<ScrapListVO> resultScrap = dao.SelectScrapAll(svo);
-		System.out.println("로그인할때 불러온 스크랩리스트 주소 >> "+resultScrap);
-//		System.out.println("불러온 스크랩 리스트 >> " + resultScrap);
 		
 		if (resultVo != null) {
 			HttpSession session = request.getSession();

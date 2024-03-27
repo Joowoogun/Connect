@@ -1,0 +1,90 @@
+/* 메인 타이틀 공모전 제목 */
+.ourcrwcontesttitle {
+  font-weight : bold;
+  color : black !important;
+  font-size : 40px;
+  background-color: #f8f9fe;
+  margin-left : 120px;
+}
+/* 전체 DIV*/
+.ourcrwviewcontent {
+    width : 1600px;
+}
+/* 전체2 DIV*/
+.ourcontentdetail {
+    
+}
+/* 전체2 DIV 플렉스 적용*/
+.ourflexcontentdetailtop {
+    display: flex;
+}
+/* 왼쪽 포스터 이미지  */
+.ourimgwrap {
+    flex: 1;
+    text-align: center; 
+    margin-left : 50px;
+    width : 600px;
+    height : 650px;
+}
+/* 오른쪽 전체 DIV */
+.ourpositonrelative {
+    flex: 1;
+    margin-left : 50px;
+    width : 800px;
+    
+}
+/* 문단 제목 */
+.ourpttit {
+    display: inline-block;
+    vertical-align: top; /* 텍스트가 문단 제목의 상단에 정렬되도록 설정 */
+    margin-right: 10px; /* 문단 제목과 텍스트 사이의 간격 조정 */
+    font-weight : 700;
+    color : black;
+    font-size : 30px;
+    word-wrap: break-word;
+    margin-top: 20px;
+    width : 200px;
+}
+/* 문단 텍스트 */
+.ourpttxt {
+    display: inline-block;
+    vertical-align: top; /* 텍스트가 문단 제목의 상단에 정렬되도록 설정 */
+    margin-right: 10px; /* 문단 제목과 텍스트 사이의 간격 조정 */
+    color : black;
+    font-size : 30px;
+    word-wrap: break-word;
+    white-space: normal;
+    margin-top: 20px;
+    width : 500px;
+    
+}
+/* ul 클래스 */
+.ourptclearfix {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row; /* 요소들을 수평으로 정렬 */
+    justify-content: flex-start; /* 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    flex-wrap: wrap; /* 너비가 부족할 경우 요소들을 다음 줄로 넘김 */
+}
+/* li 클래스 */
+.ourptclearfix li {
+    margin-right: 10px;
+}
+
+/* 하단 컨텐츠 내용 DIV */
+.ourcrwcontenttext {
+    margin-left : 60px;
+}
+
+/* 하단 컨텐츠 소제목 */
+.ourcrwcontenttextsub {
+    color : rgb(21, 21, 131);
+    font-size : 17px;
+    font-weight: 700;
+}
+
+.ourcrwcontenttextfont {
+    color : black; 
+    font-size :15px;
+}

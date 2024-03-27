@@ -25,10 +25,10 @@ public class SelectScrapAll implements Command {
 	      MemberVO mvo = (MemberVO) session.getAttribute("profile");
 	      // selectscrapall할때 사용할 userId 설정 (로그인된걸로)
 	      svo.setUserId(mvo.getuserId());
+	      System.out.println("SelectScrapAll에 로그인한 아이디가 뜨니? " + mvo.getuserId());
 	      // userId가 일치하는 스크랩리스트 가지고오기
 	      List<ScrapListVO> scrapList = dao.SelectScrapAll(svo);
 	      // 공모전 제목 가지고오기
-	      System.out.println("스크랩리스트 눌렀을때 null뜨냐? >> "+scrapList);
 	      // 공모전 conIdx 가지고오기
 	      List<ContestVO> ClickContestInfo = dao.ClickContestInfo();
 	      
@@ -51,8 +51,6 @@ public class SelectScrapAll implements Command {
 //	               i--;
 //	         }
 //	      }
-	          System.out.println("보내지는 리스트 수 >> " + scrapList.size());
-		
 		request.setAttribute("scrapList", scrapList);
 		return "Scrap";
 	}

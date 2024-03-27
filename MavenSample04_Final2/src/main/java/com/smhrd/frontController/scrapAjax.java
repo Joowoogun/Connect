@@ -31,6 +31,9 @@ public class scrapAjax extends HttpServlet {
 		String Status = request.getParameter("scrapStatus");
 		int conIdx = Integer.parseInt(request.getParameter("conIdx"));
 		String conName = request.getParameter("conName");
+		String conStartDate = request.getParameter("conStartDate");
+		String conEndDate = request.getParameter("conEndDate");
+		
 		System.out.println("Status 출력 >> "+Status);
 		PrintWriter out = response.getWriter();
 		//Status에 넣어서 데이터값 저장
@@ -39,15 +42,6 @@ public class scrapAjax extends HttpServlet {
         // 도구 사용하기
        String json = gson.toJson(Status);
        
-    // 현재 날짜와 시간 얻기
-       Date now = new Date(); // 현재 날짜와 시간을 얻음
-
-       // 날짜와 시간을 문자열로 변환
-       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-       SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-       String formattedDate = dateFormat.format(now); // 날짜 형식 지정 (YYYY-MM-DD)
-       String formattedTime = timeFormat.format(now); // 시간 형식 지정 (HH:mm:ss)
-
        // tvo 객체의 메서드를 사용하여 값을 설정
        
         DAO dao = new DAO();
@@ -58,10 +52,10 @@ public class scrapAjax extends HttpServlet {
        tvo.setTodoTitle(conName);
        tvo.setDo_Status("진행 중");
        tvo.setContent("설정한 내용");
-       tvo.setDo_startDate(formattedDate);
-       tvo.setDo_endDate(formattedDate);
-       tvo.setDo_startTime(formattedTime);
-       tvo.setDo_endTime(formattedTime);
+       tvo.setDo_startDate(conStartDate);
+       tvo.setDo_endDate(conEndDate);
+       tvo.setDo_startTime(null);
+       tvo.setDo_endTime(null);
        System.out.println(Status);
         if(Status.equals("true")) {
         	dao.addScrap(vo);

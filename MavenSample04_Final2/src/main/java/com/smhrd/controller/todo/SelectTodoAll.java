@@ -24,7 +24,11 @@ public class SelectTodoAll implements Command {
       TodolistVO tvo = new TodolistVO();
       tvo.setUserId(mvo.getuserId());
       List<TodolistVO> TodoList = dao.TodoAll(tvo);
-      System.out.println("userid를 통해 가지고온 todolist >>"+TodoList.get(0).getTodoIdx());
+      try {
+    	  System.out.println("userid를 통해 가지고온 todolist >>"+TodoList.get(0).getTodoIdx());
+	} catch (Exception e) {
+	      System.out.println("가져올 정보가 없습니다.");		
+	}
       
       // 일정추가를 눌렀을때 가져올 투두타이틀
       TodolistVO addTodoTitle = (TodolistVO) request.getAttribute("addTodoTitle");
@@ -69,10 +73,8 @@ public class SelectTodoAll implements Command {
       if(selectTitle != null) {
     	  request.setAttribute("TodoTitle", selectTitle);
     	  System.out.println(selectTitle);
-    	  System.out.println("PlaceHolder에 띄울 타이틀 마지막 확인 >> " + selectTitle);
       }else{
     	  request.setAttribute("TodoTitle", title);
-    	  System.out.println("PlaceHolder에 띄울 타이틀 마지막 확인 >> " + title);
       }
       // option으로 띄울 타이틀리스트
       request.setAttribute("TodoOption", newTitleset);
