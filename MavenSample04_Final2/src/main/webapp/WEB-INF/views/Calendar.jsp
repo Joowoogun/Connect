@@ -301,6 +301,7 @@ addcalButton.addEventListener('click', function() {
       }
   },
       eventClick: function(info) {
+    	  // url 넣으면 바꿔야함.
     	  console.log(info.event);
         if (info.event.end) { // end 데이터가 있는 이벤트를 클릭했을 때
             openModal(info.event); // 모달을 열 때 이벤트 정보를 전달합니다.
