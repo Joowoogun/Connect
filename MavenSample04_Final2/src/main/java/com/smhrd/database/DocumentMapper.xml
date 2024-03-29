@@ -6,8 +6,8 @@
 <!-- mapper 태그 : 해당하는 영역 안쪽에 SQL구문을 작성 -->
 <mapper namespace="com.smhrd.database.DAO">
 	<insert id="DocumentAdd" parameterType="com.smhrd.model.DocumentVO">
-	INSERT INTO dataManagement (userId, postTitle, dataContent, fileName)
-    VALUES (#{userId}, #{postTitle}, #{dataContent}, #{fileName})
+	INSERT INTO dataManagement (userId, postTitle, dataContent, fileName, fileData)
+    VALUES (#{userId}, #{postTitle}, #{dataContent}, #{fileName}, #{fileData})
 	</insert>
 	
 	<select id="DocumentSelect"  resultType="com.smhrd.model.DocumentVO">
@@ -17,9 +17,9 @@
 	</select>
 	
 	<select id="DocumentClick" parameterType="com.smhrd.model.DocumentVO" resultType="com.smhrd.model.DocumentVO">
-	 	select *
-    	from dataManagement
-    	where fileIdx = #{fileIdx}
+	select *
+    from dataManagement
+    where fileIdx = #{fileIdx}
 	</select>
 	
 	<update id="DocumentEdit" parameterType="com.smhrd.model.DocumentVO">
@@ -28,8 +28,24 @@
     where fileIdx=#{fileIdx}
 	</update>
 	
+	<update id="DocumentfileEdit" parameterType="com.smhrd.model.DocumentVO">
+	update dataManagement
+    set postTitle=#{postTitle}, dataContent=#{dataContent}, fileName=#{fileName}, fileData=#{fileData}
+    where fileIdx=#{fileIdx}
+	</update>
+	
 	<delete id="DocumentDelete" parameterType="com.smhrd.model.DocumentVO">
 	delete from dataManagement 
 	where fileIdx=#{fileIdx}
 	</delete>
+	
+	<update id="DocumentfileDelete" parameterType="com.smhrd.model.DocumentVO">
+	update dataManagement
+	set fileName =null, fileData=null
+	where fileIdx=#{fileIdx}	
+	</update>
+	
+	
+	
+	
 </mapper>

@@ -159,7 +159,7 @@
      <div class="content-body">
             <!-- row -->
             <div class="board_wrap">
-                <form action="documentWrite.do" method="post">
+                <form action="documentWrite.do" method="post" enctype="multipart/form-data">
                     <div class="board_title">
                         <strong>DOCUMENT WRITE</strong>
                         <p>글을 작성하는 공간.</p>
@@ -184,7 +184,7 @@
                                  <dd>
                                  	<input class="upload-name" value="첨부파일" placeholder="첨부파일">
                                 	<label for="file">파일찾기</label>
-                                    <input type="file" name="file" id="file">
+                                    <input type="file" name="file" id="file" accept=".jpg, .png, .doc, .docx, .hwp, .txt">
                                  </dd>
                             </dl>
                         </div>

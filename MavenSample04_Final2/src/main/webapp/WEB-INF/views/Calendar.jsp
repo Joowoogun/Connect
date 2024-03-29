@@ -261,13 +261,14 @@ addcalButton.addEventListener('click', function() {
           console.log("이벤트가 삭제되었습니다.");
         },
       eventMouseEnter: function(info) {
-          
-          if (info.event.end) { // end 데이터가 있는 이벤트를 클릭했을 때
-          
+          //url 들어가면 바꿔야함.
+          if (info.event.url) { // end 데이터가 있는 이벤트를 클릭했을 때
+          		console.log(info)
               // 공백
+              console.log("꺼져");
 
           } else if (info.event.title) {
-              
+              console.log("인포에뭐가들어있나~",info);
               // 마우스를 요소 위로 가져다 놓았을 때 정사각형 div를 생성하여 배치
               var square = document.createElement('div');
               square.style.width = '320px';
@@ -285,7 +286,7 @@ addcalButton.addEventListener('click', function() {
               square.style.fontSize = '13px'; // 텍스트 크기 설정
               square.style.fontWeight = '700';
               square.style.padding = '10px'; // 위쪽으로 5px의 여백 설정
-              square.innerHTML= '공모전제목 :<br>2024년 스마트인재개발원 어플 서비스 공모전<br>기간 :<br>2024년 3월 29일 ~ 2024년 4월 15일'; // 텍스트 추가 
+              square.innerHTML = "공모전 제목:<br>'" + info.event.title + "'<br>기간:<br>'" + info.event.startStr + "'~'" + info.event.endStr + "'";
               square.setAttribute('id', 'tooltip'); // div에 id 추가
               document.body.appendChild(square);
 
@@ -364,7 +365,7 @@ addcalButton.addEventListener('click', function() {
                     for (let i = 0; i < res1.length; i++) {
                         let data1 = {
                             title: res1[i].conName,
-                            start: res1[i].conEndDate,
+                            start: res1[i].conStartDate,
                             end: res1[i].conEndDate,
                             id: res1[i].conIdx,
                             display: 'list-item'
@@ -497,7 +498,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 								</span>
 								<div class="dropdown-menu p-0 m-0">
 									<form>
-										<input class="form-control" type="search" placeholder="Search"
+										<input class="form-control" type="search" placeholder="Contest Search"
 											aria-label="Search">
 									</form>
 								</div>
@@ -518,7 +519,9 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 								</li>
 							<li class="nav-item dropdown header-profile"><a
 								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
+									<img class="mdi mdi-account"
+                           src="assets/images/memberprofileimg/1.png" width="30px"
+                           height="30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<a href="./app-profile.html" class="dropdown-item"> <i
@@ -547,24 +550,25 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">MENU</li>
 
-					<!-- 사이드 카테고리 -->
-					<li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
-					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">QUICK
-								VIEW</span></a></li>
-					<li><a href="fullCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
-					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">TO
-								DO</span></a></li>
-					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+					 <!-- 사이드 카테고리 -->
+              <li><a href="goindex.do" aria-expanded="false"><img
+                     src="assets/images/contesttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
+               </li>
+               <li><a href="goQuickView.do" aria-expanded="false"><img
+                     src="assets/images/quickviewtab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">QUICK
+                        VIEW</span></a></li>
+               <li><a href="fullCalendar.do" aria-expanded="false"><img
+                     src="assets/images/calendartab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+               <li><a href="SelectTodoAll.do" aria-expanded="false"><img
+                     src="assets/images/todotab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">TO
+                        DO</span></a></li>
+               <li><a href="goDocument.do" aria-expanded="false"><img
+                     src="assets/images/documenttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 
 				</ul>
 				</li>

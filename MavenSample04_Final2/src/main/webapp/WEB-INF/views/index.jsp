@@ -114,7 +114,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                      <a class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
                            <form action="SelectScrapAll.do" method="post">
 										<input class="scrapright" type="image"
-											src="assets/images/scrap.png" height="18px" width="27px">
+											src="assets/images/allpagescrap.png" height="10px" width="10px">
 										<c:forEach items="${scrapProfile}" var="sp">
 											<input type="hidden" name="scrapconIdx" value="${sp.conIdx}">
 											<input type="hidden" name="scrapconName"
@@ -195,7 +195,9 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                         class="nav-link" href="#" role="button" data-toggle="dropdown">
                           
                          <!-- 변경한 이미지 img -->
-                        <img class="mdi mdi-account" src="./images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
+                        <img class="mdi mdi-account"
+                           src="assets/images/memberprofileimg/1.png" width="30px"
+                           height="30px" style="border-radius: 15px; margin-right: 10px;">
                          <!-- 원래 드롭다운 i태그 -->
                          <!-- <i class="mdi mdi-account"></i> -->
                         
@@ -230,22 +232,23 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 
                <!-- 사이드 카테고리 -->
               <li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
-					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">QUICK
-								VIEW</span></a></li>
-					<li><a href="fullCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
-					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">TO
-								DO</span></a></li>
-					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="18px" height="18px"
-							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+                     src="assets/images/contesttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
+               </li>
+               <li><a href="goQuickView.do" aria-expanded="false"><img
+                     src="assets/images/quickviewtab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">QUICK
+                        VIEW</span></a></li>
+               <li><a href="fullCalendar.do" aria-expanded="false"><img
+                     src="assets/images/calendartab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+               <li><a href="SelectTodoAll.do" aria-expanded="false"><img
+                     src="assets/images/todotab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">TO
+                        DO</span></a></li>
+               <li><a href="goDocument.do" aria-expanded="false"><img
+                     src="assets/images/documenttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 
             </ul>
             </li>

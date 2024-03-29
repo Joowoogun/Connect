@@ -168,7 +168,7 @@
             <!-- row -->
         
             <div class="board_wrap">
-               <form action="documentWrite.do" method="post">
+               <form action="documentWrite.do" method="post" enctype="multipart/form-data">
                 <div class="board_title">
                     <strong>DOCUMENT EDIT</strong>
                     <p>글을 수정하는 공간.</p>
@@ -186,17 +186,24 @@
                                 <dt>글쓴이</dt>
                                 <dd>${DocumentView.userId}</dd>
                             </dl>
-                            <dl>
+                            
                                 <!-- <div class="filebox">
                                     <dd><input class="upload-name" value="첨부파일" placeholder="첨부파일"></dd>
                                     <dd><label for="file">파일찾기</label></dd> 
                                     <input type="file" id="file">
                                 </div> -->
                                 <!-- 0324 파일 추가 및 삭제-->
-                                <dd><input type="file" id="file-input" multiple /></dd>
-                                <dd id="preview" style="padding-top: 10px;"></dd>
+                                <dl class="filebox">
+                                
+                                <dd>
+                                	<input class="upload-name" value="${DocumentView.fileName}" placeholder="파일을 올려주세요">
+                                	<label for="file">파일찾기</label>
+                                	<input type="file" name="file" id="file" accept=".jpg, .png, .doc, .docx, .hwp, .txt">
+                                </dd>
+                                
+                                <dd id="preview" style="padding-top: 10px;"><a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}&work=fileDelete">파일 삭제</a></dd>
+                            	</dl>
                                 <!-------------------------->
-                            </dl>
                         </div>
                         <div class="ourboardcont">
                            <textarea name="postContent" placeholder="내용 입력">

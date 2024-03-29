@@ -173,37 +173,50 @@ public class DAO {
 	}
 	
 	public void DocumentAdd(DocumentVO vo) {
-	      SqlSession session = factory.openSession(true);
-	      session.insert("DocumentAdd", vo);
-	      session.close();
-	   }
+        SqlSession session = factory.openSession(true);
+        session.insert("DocumentAdd", vo);
+        session.close();
+     }
 
-	   public List<DocumentVO> DocumentSelect(String userId) {
-	      SqlSession session = this.factory.openSession(true);
-	      List<DocumentVO> resultList = session.selectList("DocumentSelect", userId);
-	      session.close();
-	      return resultList;
-	   }
+     public List<DocumentVO> DocumentSelect(String userId) {
+        SqlSession session = this.factory.openSession(true);
+        List<DocumentVO> resultList = session.selectList("DocumentSelect", userId);
+        session.close();
+        return resultList;
+     }
 
-	   public DocumentVO DocumentClick(int fileIdx) {
-	      SqlSession session = this.factory.openSession(true);
-	      DocumentVO result = session.selectOne("DocumentClick", fileIdx);
-	      session.close();
-	      return result;
+     public DocumentVO DocumentClick(int fileIdx) {
+        SqlSession session = this.factory.openSession(true);
+        DocumentVO result = session.selectOne("DocumentClick", fileIdx);
+        session.close();
+        return result;
 
-	   }
+     }
 
-	   public void DocumentEdit(DocumentVO vo) {
-	      SqlSession session = factory.openSession(true);
-	      session.update("DocumentEdit", vo);
-	      session.close();
-	   }
-	   
-	   public void DocumentDelete(int vo) {
-	      SqlSession session = this.factory.openSession(true);
-	      session.delete("DocumentDelete", vo);
-	      session.close();
-	   }
+     public void DocumentEdit(DocumentVO vo) {
+        SqlSession session = factory.openSession(true);
+        session.update("DocumentEdit", vo);
+        session.close();
+     }
+     
+     public void DocumentfileEdit(DocumentVO vo) {
+        SqlSession session = factory.openSession(true);
+        session.update("DocumentfileEdit", vo);
+        session.close();
+     }
+     
+     
+     public void DocumentDelete(int vo) {
+        SqlSession session = this.factory.openSession(true);
+        session.delete("DocumentDelete", vo);
+        session.close();
+     }
+     // 딜리트 라고 써잇지만 실제로는 null 로 업데이트 하는 기능이다.
+     public void DocumentfileDelete(int vo) {
+        SqlSession session = this.factory.openSession(true);
+        session.update("DocumentfileDelete", vo);
+        session.close();
+     }
 
 	public void caltodoDel(TodolistVO cvo) {
 		SqlSession session = this.factory.openSession(true);

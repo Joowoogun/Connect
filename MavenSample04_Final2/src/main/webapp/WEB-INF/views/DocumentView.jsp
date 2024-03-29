@@ -193,7 +193,7 @@
                                     </c:forEach>
                                 </ul></dd> -->
                                 <dt>첨부파일</dt>
-                                <dd style="color: blue;"><a href="assets/images/1.jpg" download="1">1</a></dd>
+                                <dd style="color: blue;"><a href="documentDownload?fileIdx=${DocumentView.fileIdx}" id="DocumentDownload" download="${DocumentView.fileName}">${DocumentView.fileName}</a></dd>
                             </dl>
                         </div>
                         <div class="ourboardcont">
@@ -203,7 +203,7 @@
                     <div class="bt_wrap">
                         <a href="documentSelect.do" class="on">목록</a>
                         <a href="documentView.do?fileIdx=${DocumentView.fileIdx}&userId=${DocumentView.userId}&work=edit">수정</a>
-                        <a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}">삭제</a>
+                        <a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}&work=postDelete">삭제</a>
                     </div>
                 </div>
             </div>
@@ -279,5 +279,7 @@
     <script src="assets/js/dashboard/dashboard-1.js"></script>
  	<script src="assets/js/notice-board.js"></script>
 </body>
+
+
 
 </html>

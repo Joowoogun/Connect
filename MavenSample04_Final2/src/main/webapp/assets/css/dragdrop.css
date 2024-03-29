@@ -11,7 +11,7 @@
     flex-basis : 40%;
     background: rgb(220, 220, 220);
     min-height: 70vh;
-    padding: 10px;
+    /*  padding: 10px;  */
     border-radius: 10px;
     width: 300px;
   }
@@ -22,14 +22,27 @@
     color : #fff;
     font-weight: 700;
     text-shadow: 2px 2px 4px #888888;
+    height : 60px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
+
+.ourcolumn #ourtodocolumntitle {
+   background : #6699cc;
+}
+.ourcolumn #ourinprogresscolumntitle {
+   background : #ffea00;
+}
+.ourcolumn #ourdonecolumntitle {
+   background : #8bc34a;
+}
+
 .ourcolumn h2 {
     text-align: center;
     font-size: 27px;
     color : #000000;
     font-weight: 700;
     margin-top: 20px;
-    
     
 }
 
@@ -47,11 +60,41 @@
     padding: 20px;
     border-radius: 5px;
     cursor: pointer;
-    width : 360px;
+    width : 380px;
     height : 150px;
     margin-bottom : 20px;
-    border-left: 7px solid #5d5d5d; /* 선의 색상, 두께 및 스타일 설정 */
+    border-left: 8px solid #6699cc; /* 선의 색상, 두께 및 스타일 설정 */
     text-align: left;
     overflow: hidden;
-    
+}
+#InProgress .list-group-item {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width : 380px;
+    height : 150px;
+    margin-bottom : 20px;
+    border-left: 8px solid #ffea00; /* 선의 색상, 두께 및 스타일 설정 */
+    text-align: left;
+    overflow: hidden;
+}
+#Done .list-group-item {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width : 380px;
+    height : 150px;
+    margin-bottom : 20px;
+    border-left: 8px solid #8bc34a; /* 선의 색상, 두께 및 스타일 설정 */
+    text-align: left;
+    overflow: hidden;
+}
+
+.list-group-item #todoContent{
+   border : none;
+   width : 310px;
 }

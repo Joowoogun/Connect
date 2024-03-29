@@ -51,7 +51,7 @@ public class scrapAjax extends HttpServlet {
        tvo.setConIdx(conIdx);
        tvo.setTodoTitle(conName);
        tvo.setDo_Status("진행 중");
-       tvo.setContent("설정한 내용");
+       tvo.setContent("공모전 기간");
        tvo.setDo_startDate(conStartDate);
        tvo.setDo_endDate(conEndDate);
        tvo.setDo_startTime(null);

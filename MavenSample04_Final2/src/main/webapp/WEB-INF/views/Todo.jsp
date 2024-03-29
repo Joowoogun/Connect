@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ConNect</title>
+<title>CONNECT</title>
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16"   href="assets/images/finalimglogo.png">
 <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.min.css">
@@ -86,7 +86,7 @@
                         </span>
                         <div class="dropdown-menu p-0 m-0">
                            <form>
-                              <input class="form-control" type="search" placeholder="Search"
+                              <input class="form-control" type="search" placeholder="Contest Search"
                                  aria-label="Search">
                            </form>
                         </div>
@@ -131,7 +131,7 @@
       <div class="quixnav">
          <div class="quixnav-scroll">
             <ul class="metismenu" id="menu">
-               <li class="nav-label first">MENU</li> <
+               <li class="nav-label first">MENU</li> 
                <li><a href="goindex.do" aria-expanded="false"><img
                      src="assets/images/contesttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
@@ -152,10 +152,8 @@
                      style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
             </ul>
             </li>
-            <li><a href="gopage-lock-screen.do">Lock Screen</a></li> -->
-            </ul>
-            </li>
-            </ul>
+       
+            
          </div>
 
 
@@ -190,7 +188,7 @@
                      stroke-width="2" fill-opacity="0">
                 
                             </path>
-                            <path d="M 0,2 L 100,2" stroke="#5d5d5d" id="todoProgress"
+                            <path d="M 0,2 L 100,2" stroke="#6b51df" id="todoProgress"
                      stroke-width="4" fill-opacity="0"
                      style="stroke-dasharray: 50, 100; stroke-dashoffset: 0;">
                 
@@ -247,7 +245,7 @@
                </div>
             </div>
             <div class="ourselectBox">
-            <select class="ourSelect" id="todoTitle">
+            <select class="ourselect" id="todoTitle">
                   <c:forEach items="${TodoOption}" var="title">
                      <option>${title}</option>
                   </c:forEach>
@@ -260,7 +258,7 @@
          <h1>${todoTitle}</h1>
          <div class="ourcontainer">
             <div class="ourcolumn" id="Todo">
-               <h1>Todo</h1>
+               <h1 id="ourtodocolumntitle">Todo</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '해야 할 일' and todo.todoTitle == TodoTitle}">
                      <div class="list-group-item" draggable="true">
@@ -277,7 +275,7 @@
             </div>
 
             <div class="ourcolumn" id="InProgress">
-               <h1>InProgress</h1>
+               <h1 id="ourinprogresscolumntitle">InProgress</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '진행 중' and todo.todoTitle == TodoTitle}">
                      <div class="list-group-item" draggable="true">
@@ -293,7 +291,7 @@
             </div>
 
             <div class="ourcolumn" id="Done">
-               <h1>Done</h1>
+               <h1 id="ourdonecolumntitle">Done</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '완료' and todo.todoTitle == TodoTitle}">
                      <div class="list-group-item" draggable="true">
@@ -317,17 +315,7 @@
          <!--**********************************
             Footer start
         ***********************************-->
-         <div class="footer">
-            <div class="copyright">
-               <p>
-                  Copyright © Designed &amp; Developed by <a href="#"
-                     target="_blank">Quixkit</a> 2019
-               </p>
-               <p>
-                  Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-               </p>
-            </div>
-         </div>
+      
          <!--**********************************
             Footer end
         ***********************************-->
@@ -386,15 +374,6 @@
       <script src="assets/js/TodoProgressbar.js"></script>
       
 
-// 보여지는 최대 글자수 설정
-var h2Element = document.querySelector('.ourcolumn h2');
-var maxLength = 20; // 최대 글자 수
-
-if (h2Element.textContent.length > maxLength) {
-  h2Element.textContent = h2Element.textContent.substring(0, maxLength) + '...';
-}
-
-   </script>
 
       <!-- 스크립트 끝 -->
 </body>
