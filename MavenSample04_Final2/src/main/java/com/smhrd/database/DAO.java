@@ -3,6 +3,7 @@ package com.smhrd.database;
 import com.smhrd.model.MemberVO;
 import com.smhrd.model.ScrapListVO;
 import com.smhrd.model.ContestVO;
+import com.smhrd.model.DocumentVO;
 import com.smhrd.model.TodolistVO;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
@@ -165,4 +166,42 @@ public class DAO {
 		session.close();
 	}
 	
+	public void caltodoUpdate(TodolistVO vo) {
+		SqlSession session = factory.openSession(true);
+		session.update("caltodoUpdate", vo);
+		session.close();
+	}
+	
+	public void DocumentAdd(DocumentVO vo) {
+	      SqlSession session = factory.openSession(true);
+	      session.insert("DocumentAdd", vo);
+	      session.close();
+	   }
+
+	   public List<DocumentVO> DocumentSelect(String userId) {
+	      SqlSession session = this.factory.openSession(true);
+	      List<DocumentVO> resultList = session.selectList("DocumentSelect", userId);
+	      session.close();
+	      return resultList;
+	   }
+
+	   public DocumentVO DocumentClick(int fileIdx) {
+	      SqlSession session = this.factory.openSession(true);
+	      DocumentVO result = session.selectOne("DocumentClick", fileIdx);
+	      session.close();
+	      return result;
+
+	   }
+
+	   public void DocumentEdit(DocumentVO vo) {
+	      SqlSession session = factory.openSession(true);
+	      session.update("DocumentEdit", vo);
+	      session.close();
+	   }
+	   
+	   public void DocumentDelete(int vo) {
+	      SqlSession session = this.factory.openSession(true);
+	      session.delete("DocumentDelete", vo);
+	      session.close();
+	   }
 }

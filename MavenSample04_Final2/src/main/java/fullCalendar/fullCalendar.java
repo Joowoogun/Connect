@@ -50,7 +50,7 @@ public class fullCalendar implements Command {
 		// 캘린더에 띄울 select option (foreach 사용 todo랑 동일)
 		request.setAttribute("calTitle", sortcalTitle);
 		
-		return "fullCalendar";
+		return "Calendar";
 	}
 
 }

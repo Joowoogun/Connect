@@ -42,6 +42,6 @@ public class addTodo implements Command {
 		System.out.println("addTodo.java 출력값"+todovo.getTodoTitle());
 		DAO dao = new DAO();
 		dao.addTodo(vo);
-		return "redirect:/SelectTodoAll.do";
+		return "redirect:/fullCalendar.do";
 	}
 }

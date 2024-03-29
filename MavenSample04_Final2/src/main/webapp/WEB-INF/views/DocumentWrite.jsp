@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/boardcss.css">
+    <link rel="stylesheet" href="assets/css/boardcss.css">
+    <link rel="stylesheet" href="assets/css/boardstyle.css">
 
 
 
@@ -40,16 +41,16 @@
     <!--**********************************
         Main wrapper start
     ***********************************-->
-    <div id="main-wrapper">
+   
 
         <!--**********************************
             Nav header start
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
-                <img class="logo-compact" src="assets/images/logo-text.png" alt="">
-                <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
+                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="" width = "40px" height = "40px">
+                <img class="logo-compact" src="assets/images/finalmainlogo.png" alt="">
+                <img class="brand-title" src="assets/images/finalmainlogo.png" alt="" height = "40px">
             </a>
 
             <div class="nav-control">
@@ -76,7 +77,7 @@
 								</span>
 								<div class="dropdown-menu p-0 m-0">
 									<form>
-										<input class="form-control" type="search" placeholder="Search"
+										<input class="form-control" type="search" placeholder="Contest Search"
 											aria-label="Search">
 									</form>
 								</div>
@@ -86,74 +87,20 @@
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
 								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
 					
 							<div>
 							<span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
 						</div>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="list-unstyled">
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-user"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Martin</strong> has added a <strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-shopping-cart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Jennifer</strong> purchased Light Dashboard 2.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="danger"><i
-												class="ti-bookmark"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Robin</strong> marked a <strong>ticket</strong> as
-														unsolved.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-heart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>David</strong> purchased Light Dashboard 1.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-image"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong> James.</strong> has added a<strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-									</ul>
-									<a class="all-notification" href="#">See all notifications
-										<i class="ti-arrow-right"></i>
-									</a>
-								</div></li>
+								</li>
 							<li class="nav-item dropdown header-profile"><a
 								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
+									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page-mypage.jsp" class="dropdown-item"> <i
+									<a href="gopage-mypage.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
 									<a href="gopage-login.do" class="dropdown-item"> <i
@@ -178,21 +125,21 @@
                    <li class="nav-label first">MENU</li>
                   
                     <li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="18px" height="18px"
+							src="assets/images/contesttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
 					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="18px" height="18px"
+							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
 					<li><a href="goCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="18px" height="18px"
+							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="18px" height="18px"
+							src="assets/images/todotab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">TO
 								DO</span></a></li>
-					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="18px" height="18px"
+					<li><a href="documentSelect.do" aria-expanded="false" style="background-color: #6b51df; color: #fff"><img
+							src="assets/images/documenttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                     
                         </ul>
@@ -212,7 +159,7 @@
      <div class="content-body">
             <!-- row -->
             <div class="board_wrap">
-                
+                <form action="documentWrite.do" method="post">
                     <div class="board_title">
                         <strong>DOCUMENT WRITE</strong>
                         <p>글을 작성하는 공간.</p>
@@ -223,35 +170,35 @@
                         <div class="ourboardtitle">
                             <dl>
                                 <dt>제목</dt>
-                                <dd><input type="text" placeholder="제목 입력"></dd>
+                                <dd><input type="text" name="postTitle" placeholder="제목 입력"></dd>
                             </dl>
                         </div>
                         <div class="ourboardinfo">
-                            <dl>
-                                <dt>글쓴이</dt>
-                                <dd><input type="text" placeholder="글쓴이 입력"></dd>
-                            </dl>
-                            <dl>
-                                <!-- <dt>파일 첨부 </dt> -->
+                            	
+                           		<!-- <dt>파일 첨부 </dt> -->
                                 <!-- <dt>비밀번호</dt>
                                 <dd><input type="password" placeholder="비밀번호 입력"></dd> -->
                                 <!-- <dd><input type="file" name="reviewImg" id="reviewImageFileOpenInput" accept="image/*"></dd> -->
-                                <div class="filebox">
-                                    <dd><input class="upload-name" value="첨부파일" placeholder="첨부파일"></dd>
-                                <dd><label for="file">파일찾기</label></dd> 
-                                    <input type="file" id="file">
-                                </div>
+                            <dl class="filebox">
+                                 <dt>자료</dt>
+                                 <dd>
+                                 	<input class="upload-name" value="첨부파일" placeholder="첨부파일">
+                                	<label for="file">파일찾기</label>
+                                    <input type="file" name="file" id="file">
+                                 </dd>
                             </dl>
                         </div>
                         <div class="ourboardcont">
-                            <textarea placeholder="내용 입력"></textarea>
+                            <textarea name="postContent" placeholder="내용 입력"></textarea>
                         </div>
                     </div>
                     <div class="bt_wrap">
-                        <a href="goDocumentView.do" class="on">등록</a>
-                        <a href="goDocument.do">취소</a>
+                    	<input type="hidden" name="work" value="write"> 
+                    	<input type="image" src="assets/images/10번째.jpg">
+                        <a href="documentSelect.do">취소</a>
                     </div>
                 </div>
+                </form>
             </div>
 
 
@@ -295,7 +242,7 @@
     <script src="assets/js/dashboard/dashboard-1.js"></script>
 
     <script src="assets/js/boardfile.js"></script>
-
+	<script src="assets/js/notice-board.js"></script>
 
 </body>
 

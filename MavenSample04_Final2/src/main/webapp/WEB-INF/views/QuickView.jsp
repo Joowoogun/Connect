@@ -127,7 +127,7 @@
 							src="assets/images/quickviewtab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
@@ -166,7 +166,7 @@
  <table width = "1600px" align = "center" bgcolor = "#f5f5f5">
 
   <tr height="400px">
-    <td><a href = "goCalendar.do" ><img src = "assets/images/calex01.png" class="ourQuickView"></a></td>
+    <td><a href = "fullCalendar.do" ><img src = "assets/images/calex01.png" class="ourQuickView"></a></td>
     <td><a href = "goTodo.do" ><img src = "assets/images/todoex01.png" class="ourQuickView"></a></td>
   </tr>
 	<tr height="400px">

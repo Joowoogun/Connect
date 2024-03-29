@@ -66,6 +66,17 @@
 		where
 		todoIdx=#{todoIdx}
 	</update>
+	
+	<update id="caltodoUpdate"
+		parameterType="com.smhrd.model.TodolistVO">
+		update todoList
+		set do_startDate = #{do_startDate},
+		do_endDate = #{do_endDate},
+		content = #{content},
+		status = #{status}
+		where
+		todoIdx=#{todoIdx}
+	</update>
 
 	<select id="todoTitle" resultType="com.smhrd.model.TodolistVO">
 		select * from todoList

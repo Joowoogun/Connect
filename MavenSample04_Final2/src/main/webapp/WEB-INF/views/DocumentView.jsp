@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/boardcss.css">
+    <link rel="stylesheet" href="assets/css/boardcss.css">
+    <link rel="stylesheet" href="assets/css/boardstyle.css">
 
 
 </head>
@@ -46,9 +47,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
-                <img class="logo-compact" src="assets/images/logo-text.png" alt="">
-                <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
+                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="" width = "40px" height = "40px"> 
+                <img class="logo-compact" src="assets/images/finalmainlogo.png" alt="">
+                <img class="brand-title" src="assets/images/finalmainlogo.png" alt="" height = "40px">
             </a>
 
             <div class="nav-control">
@@ -75,7 +76,7 @@
 								</span>
 								<div class="dropdown-menu p-0 m-0">
 									<form>
-										<input class="form-control" type="search" placeholder="Search"
+										<input class="form-control" type="search" placeholder="Contest Search"
 											aria-label="Search">
 									</form>
 								</div>
@@ -85,7 +86,7 @@
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
 								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
 					
@@ -95,7 +96,7 @@
 								</li>
 							<li class="nav-item dropdown header-profile"><a
 								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
+									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<a href="gopage-mypage.do" class="dropdown-item"> <i
@@ -123,21 +124,21 @@
                    <li class="nav-label first">MENU</li>
                   
                     <li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="18px" height="18px"
+							src="assets/images/contesttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
 					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="18px" height="18px"
+							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
 					<li><a href="goCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="18px" height="18px"
+							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="18px" height="18px"
+							src="assets/images/todotab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">TO
 								DO</span></a></li>
-					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="18px" height="18px"
+					<li><a href="documentSelect.do" aria-expanded="false" style="background-color: #6b51df; color: #fff"><img
+							src="assets/images/documenttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                     
                         </ul>
@@ -162,12 +163,12 @@
             <div class="board_wrap">
                 <div class="board_title">
                     <strong>DOCUMENT VIEW</strong>
-                    <p>글을 보는 공간</p>
+                    <p>글을 보는 공간</p>	
                 </div>
                 <div class="board_view_wrap">
                     <div class="board_view">
                         <div class="ourboardtitle">
-                            글 제목이 들어갑니다.
+                            ${DocumentView.postTitle}
                         </div>
                         <div class="ourboardinfo">
                             <dl>
@@ -176,11 +177,11 @@
                             </dl>
                             <dl>
                                 <dt>글쓴이</dt>
-                                <dd>김이름</dd>
+                                <dd>${DocumentView.userId}</dd>
                             </dl>
                             <dl>
                                 <dt>작성일</dt>
-                                <dd>2021.1.16</dd>
+                                <dd>${DocumentView.writeDate}</dd>
                             </dl>
                             <dl>
                                 <!-- <dt>업로드</dt>
@@ -191,22 +192,18 @@
                                             href="${pageContext.request.contextPath}/down/test?fname=${f }">${f }</</a></li>
                                     </c:forEach>
                                 </ul></dd> -->
+                                <dt>첨부파일</dt>
+                                <dd style="color: blue;"><a href="assets/images/1.jpg" download="1">1</a></dd>
                             </dl>
                         </div>
                         <div class="ourboardcont">
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다<br>
-                            글 내용이 들어갑니다
+                            ${DocumentView.dataContent}
                         </div>
                     </div>
                     <div class="bt_wrap">
-                        <a href="Document.jsp" class="on">목록</a>
-                        <a href="DocumentEdit.jsp">수정</a>
+                        <a href="documentSelect.do" class="on">목록</a>
+                        <a href="documentView.do?fileIdx=${DocumentView.fileIdx}&userId=${DocumentView.userId}&work=edit">수정</a>
+                        <a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}">삭제</a>
                     </div>
                 </div>
             </div>
@@ -280,7 +277,7 @@
 
 
     <script src="assets/js/dashboard/dashboard-1.js"></script>
-
+ 	<script src="assets/js/notice-board.js"></script>
 </body>
 
 </html>

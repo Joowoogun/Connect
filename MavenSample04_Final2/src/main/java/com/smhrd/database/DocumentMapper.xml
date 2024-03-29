@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그 : 해당하는 영역 안쪽에 SQL구문을 작성 -->
+<mapper namespace="com.smhrd.database.DAO">
+	<insert id="DocumentAdd" parameterType="com.smhrd.model.DocumentVO">
+	INSERT INTO dataManagement (userId, postTitle, dataContent, fileName)
+    VALUES (#{userId}, #{postTitle}, #{dataContent}, #{fileName})
+	</insert>
+	
+	<select id="DocumentSelect"  resultType="com.smhrd.model.DocumentVO">
+	SELECT * 
+	FROM dataManagement
+	where userId = #{userId}
+	</select>
+	
+	<select id="DocumentClick" parameterType="com.smhrd.model.DocumentVO" resultType="com.smhrd.model.DocumentVO">
+	 	select *
+    	from dataManagement
+    	where fileIdx = #{fileIdx}
+	</select>
+	
+	<update id="DocumentEdit" parameterType="com.smhrd.model.DocumentVO">
+	update dataManagement
+    set postTitle=#{postTitle}, dataContent=#{dataContent}
+    where fileIdx=#{fileIdx}
+	</update>
+	
+	<delete id="DocumentDelete" parameterType="com.smhrd.model.DocumentVO">
+	delete from dataManagement 
+	where fileIdx=#{fileIdx}
+	</delete>
+</mapper>

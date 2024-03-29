@@ -48,10 +48,11 @@
 	  
 	  let calendar;
 	  
+	  
 	  (function(){
 	    $(function(){
 	      // calendar element 취득
-	      var calendarEl = $('#calendar')[0];
+	      var calendarEl = $('#ourfullcalendar')[0];
 	      // full-calendar 생성하기
 	      calendar = new FullCalendar.Calendar(calendarEl, {
 	        height: '700px', // calendar 높이 설정
@@ -258,6 +259,12 @@
             }
         });
     }
+
+    // 첫 번째 옵션 선택
+    $("#todoTitle").val($("#todoTitle option:first").val());
+
+    // handleSelect 함수 호출하여 초기 데이터 로드
+    handleSelect($("#todoTitle"));
 });
 
 

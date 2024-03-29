@@ -128,7 +128,7 @@
 							src="assets/images/quickviewtab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="18px" height="18px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img

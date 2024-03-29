@@ -1,5 +1,11 @@
+<%@page import="com.smhrd.model.MemberVO"%>
+<%@page import="com.smhrd.model.ScrapListVO"%>
+<%@page import="java.util.Set"%>
+<%@page import="com.smhrd.model.TodolistVO"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,10 +21,8 @@
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/boardcss.css">
-
-
-
-
+    <link rel="stylesheet" href="assets/css/boardstyle.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -49,8 +53,8 @@
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
                 <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
-                <img class="logo-compact" src="assets/images/logo-text.png" alt="">
-                <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
+                <img class="logo-compact" src="assets/images/finalmainlogo.png" alt="">
+                <img class="brand-title" src="assets/images/finalmainlogo.png" alt="" height ="40px">
             </a>
 
             <div class="nav-control">
@@ -77,7 +81,7 @@
 								</span>
 								<div class="dropdown-menu p-0 m-0">
 									<form>
-										<input class="form-control" type="search" placeholder="Search"
+										<input class="form-control" type="search" placeholder="Contest Search"
 											aria-label="Search">
 									</form>
 								</div>
@@ -87,7 +91,7 @@
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
 								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
 					
@@ -97,7 +101,7 @@
 								</li>
 							<li class="nav-item dropdown header-profile"><a
 								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
+									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<a href="gopage-mypage.do" class="dropdown-item"> <i
@@ -124,20 +128,27 @@
                 <ul class="metismenu" id="menu">
                    <li class="nav-label first">MENU</li>
                   
-                    <li><a href="goindex.do" aria-expanded="false"><img src="assets/images/contesttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CONTEST</span></a></li>
-                    <li><a href="goQuickView.do" aria-expanded="false"><img src="assets/images/quickviewtab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">QUICK VIEW</span></a></li>
-                    <li><a href="goCalendar.do" aria-expanded="false"><img src="assets/images/calendartab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">CALENDAR</span></a></li>
-                    <li><a href="SelectTodoAll.do" aria-expanded="false"><img src="assets/images/todotab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">TO DO</span></a></li>
-                    <li><a href="goDocument.do" aria-expanded="false"><img src="assets/images/documenttab.png" width="18px" height="18px" style="margin-right: 5px;"><span
-                                class="nav-text">DOCUMENT</span></a></li>
+                    <li><a href="goindex.do" aria-expanded="false"><img
+							src="assets/images/contesttab.png" width="30px" height="30px"
+							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
+					<li><a href="goQuickView.do" aria-expanded="false"><img
+							src="assets/images/quickviewtab.png" width="30px" height="30px"
+							style="margin-right: 5px;"><span class="nav-text">QUICK
+								VIEW</span></a></li>
+					<li><a href="goCalendar.do" aria-expanded="false"><img
+							src="assets/images/calendartab.png" width="30px" height="30px"
+							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
+							src="assets/images/todotab.png" width="30px" height="30px"
+							style="margin-right: 5px;"><span class="nav-text">TO
+								DO</span></a></li>
+					<li><a href="documentSelect.do" aria-expanded="false" style="background-color: #6b51df; color: #fff"><img
+							src="assets/images/documenttab.png" width="30px" height="30px"
+							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                     
                         </ul>
                     </li>
-                </ul>
+                
             </div>
 
 
@@ -158,64 +169,32 @@
                 </div>
                 <div class="board_list_wrap">
                     <div class="board_list">
-                        <div class="ourboardtop">
-                            <div class="ourboardnum">번호</div>
-                            <div class="ourboardtitle">제목</div>
-                            <div class="ourboardwriter">글쓴이</div>
-                            <div class="ourboarddate">작성일</div>
+                        <ul class="board_row title_row">
+                            <li class="ourboardnum">번호</li>
+                            <li class="ourboardtitle">제목</li>
+                            <!-- 게시글 리스트에서 파일 첨부 확인
+                                    <div class="attachment">
+                                    <a href="./images/attach.png"><img src="./images/attach.png" alt="" width="25px" height="25px"></a>
+                                </div> -->
+                            <li class="ourboardwriter">작성자</li>
+                            <li class="ourboarddate">작성일</li>
                             <!-- <div class="ourboardcount">조회</div> -->
-                        </div>
-                        <div>
-                            <div class="ourboardnum">1</div>
-                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
-                            <div class="ourboardwriter">김이름</div>
-                            <div class="ourboarddate">2021.1.15</div>
-                            <!-- <div class="ourboardcount">33</div> -->
-                        </div>
-                        <div>
-                            <div class="ourboardnum">2</div>
-                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
-                            <div class="ourboardwriter">김이름</div>
-                            <div class="ourboarddate">2021.1.15</div>
-                            <!-- <div class="ourboardcount">33</div> -->
-                        </div>
-                        <div>
-                            <div class="ourboardnum">3</div>
-                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
-                            <div class="ourboardwriter">김이름</div>
-                            <div class="ourboarddate">2021.1.15</div>
-                            <!-- <div class="ourboardcount">33</div> -->
-                        </div>
-                        <div>
-                            <div class="ourboardnum">4</div>
-                            <div class="ourboardtitle"><a href="DocumentView.jsp">글 제목이 들어갑니다.</a></div>
-                            <div class="ourboardwriter">김이름</div>
-                            <div class="ourboarddate">2021.1.15</div>
-                            <!-- <div class="ourboardcount">33</div> -->
-                        </div>
-                        <div>
-                            <div class="ourboardnum">5</div>
-                            <div class="ourboardtitle"><a href="goDocumentView.do">글 제목이 들어갑니다.</a></div>
-                            <div class="ourboardwriter">김이름</div>
-                            <div class="ourboarddate">2021.1.15</div>
-                            <!-- <div class="ourboardcount">33</div> -->
-                        </div>
+                        </ul>
+                      
+                        	<div class="postTitle">
+                            	<!-- 여기에 게시판 글들이 들어가요! -->
+                       		</div>
+                     
                     </div>
-                    <div class="board_page">
-                        <a href="#" class="bt first"><<</a>
-                        <a href="#" class="bt prev"><</a>
-                        <!-- <a href="#" class="num on">1</a> -->
-                        <a href="#" class="ourboardnum">1</a>
-                        <a href="#" class="ourboardnum">2</a>
-                        <a href="#" class="ourboardnum">3</a>
-                        <a href="#" class="ourboardnum">4</a>
-                        <a href="#" class="ourboardnum">5</a>
-                        <a href="#" class="bt next">></a>
-                        <a href="#" class="bt last">>></a>
+                    <div class="notice_boardpagination">
+                        <button class="before_move" onclick="before()"><<</button>
+                        <div class="block">
+                            <!-- 블럭 추가로 들어오는 위치 -->
+                        </div>
+                        <button class="next_move" onclick="next()">>></button>
                     </div>
                     <div class="bt_wrap">
                         <a href="goDocumentWrite.do" class="on">등록</a>
-                        <!--<a href="#">수정</a>-->
                     </div>
                 </div>
             </div>
@@ -286,8 +265,19 @@
 
 
     <script src="assets/js/dashboard/dashboard-1.js"></script>
+    <script src="assets/js/notice-board.js"></script>
 
-   
+   <script>
+                $(document).ready(function() {
+                    // 게시물 목록에서 각 게시물의 첨부파일을 가져와서 첨부파일이 있으면 보이도록 설정
+                    $(".post").each(function() {
+                        var attachmentLink = $(this).find(".attachment a").attr("href");
+                        if (attachmentLink !== undefined && attachmentLink !== "") {
+                            $(this).find(".attachment").show();
+                        }
+                    });
+                });
+    </script>
 
 
 

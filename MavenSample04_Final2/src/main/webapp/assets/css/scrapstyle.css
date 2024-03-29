@@ -24,18 +24,18 @@
     /* 기타 스타일 속성 */
 }
 
-.board_list_wrap{
+.scrap_list_wrap{
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
 /* 요소들의 너비 설정 */
-.noticeboardnum {width:200px; height:50px;}
-.noticeboardtitle {width:798px; height:50px; text-align: left !important; padding-left: 10px;}
-.noticeboardwriter {width:300px; height:50px; }
-.noticeboarddate {width:300px; height:50px; }
+.noticescrapnum {width:200px; height:50px;}
+.noticescraptitle {width:798px; height:50px; text-align: left !important; padding-left: 10px;}
+.noticescrapwriter {width:300px; height:50px; }
+.noticescrapdate {width:300px; height:50px; }
 
-.notice_boardpagination{
+.notice_scrappagination{
     display: flex;
     width: 1000px;
     margin-left: 300px;
@@ -43,7 +43,7 @@
     justify-content: space-between;
 }
 
-.board_list ul{
+.scrap_list ul{
   padding: 0;
   margin: 0;
   display:inline-block;
@@ -55,14 +55,14 @@
   가운데 정렬
   번호, 제목, 작성자, 작성일, 조회, 좋아요 와 데이터 정렬
 */
-.board_row {
+.scrap_row {
   
   width: 1700px;
   border-left:solid 1px gray;
 }
 
 /* 게시글 목록 공통 개별 요소 속성 */
-.board_list li{
+.scrap_list li{
   list-style:none;
   border-bottom:solid 1px gray; 
   float:left; 
@@ -101,7 +101,7 @@ a {
     color: inherit;
 }
 
-.board_wrap {
+.scrap_wrap {
     width: 100%;
     padding-right: 10px;
     /* padding-left: 10px; */
@@ -111,17 +111,18 @@ a {
     
 }
 
-.board_title {
+.scrap_title {
     margin-bottom: 30px;
     margin-left: 10px;
     color: black;
+    text-align: left;
 }
 
-.board_title strong {
+.scrap_title strong {
     font-size: 3rem;
 }
 
-.board_title p {
+.scrap_title p {
     margin-top: 5px;
     font-size: 1.4rem;
 }
@@ -154,7 +155,7 @@ a {
 }
 
 
-.board_list {
+.scrap_list {
     width: 100%;
     display: flex;
             justify-content: center;
@@ -164,63 +165,64 @@ a {
             flex-direction: column;
 }
 
-.board_list > div {
+.scrap_list > div {
     border-bottom: 1px solid #ddd;
     font-size: 0;
 }
 
-.board_list > div.ourboardtop {
+.scrap_list > div.ourscraptop {
     border-bottom: 1px solid #999;
 }
 
-.board_list > div:last-child {
+.scrap_list > div:last-child {
     border-bottom: 1px solid #000;
 }
 
-.board_list > div > div {
+.scrap_list > div > div {
     display: inline-block;
     padding: 15px 0;
     text-align: center;
     font-size: 1.4rem;
 }
 
-.board_list > div.ourboardtop > div {
+.scrap_list > div.ourscraptop > div {
     font-weight: 600;
 }
 
-.board_list .ourboardnum {
+.scrap_list .ourscrapnum {
     width: 10%;
+    margin-right : 100px;
 }
 
-.board_list .ourboardtitle {
-    width: 65%;
+.scrap_list .ourscraptitle {
+    width: 55%;
     text-align: left;
     padding-left: 10px;
 }
 
-.board_list .top .ourboardtitle {
+.scrap_list .top .ourscraptitle {
     text-align: center;
 }
 
-.board_list .ourboardwriter {
+.scrap_list .ourscrapwriter {
+    width: 20%;
+}
+
+.scrap_list .ourscrapdate {
+    width: 20%;
+}
+
+.scrap_list .ourscrapcount {
     width: 10%;
 }
 
-.board_list .ourboarddate {
-    width: 10%;
-}
-
-.board_list .ourboardcount {
-    width: 65%;
-}
-
-.board_page {
+.scrap_page {
     margin-top: 30px;
     text-align: center;
     font-size: 0;
 }
 
-.board_page a {
+.scrap_page a {
     display: inline-block;
     width: 32px;
     height: 32px;
@@ -231,56 +233,56 @@ a {
     line-height: 100%;
 }
 
-.board_page a.bt {
+.scrap_page a.bt {
     padding-top: 10px;
     font-size: 1.2rem;
     letter-spacing: -1px;
 }
 
-.board_page a.ourboardnum {
+.scrap_page a.ourscrapnum {
     padding-top: 9px;
     font-size: 1.4rem;
 }
 
-.board_page a.ourboardnum.on {
+.scrap_page a.ourscrapnum.on {
     border-color: #000;
     background: #000;
     color: #fff;
 }
 
-.board_page a:first-child {
+.scrap_page a:first-child {
     border-left: 1px solid #ddd;
 }
 
-.board_view {
+.scrap_view {
     width: 100%;
     border-top: 2px solid #000;
 }
 
-.board_view .ourboardtitle {
+.scrap_view .ourscraptitle {
     /* padding: 20px 15px; */
     margin: 10px;
     border-bottom: 1px dashed #ddd;
     font-size: 2rem;
 }
 
-.board_view .ourboardinfo {
+.scrap_view .ourscrapinfo {
     padding: 15px;
     border-bottom: 1px solid #999;
     font-size: 0;
 }
 
-.board_view .ourboardinfo dl {
+.scrap_view .ourscrapinfo dl {
     position: relative;
     display: inline-block;
     padding: 0 20px;
 }
 
-.board_view .ourboardinfo dl:first-child {
+.scrap_view .ourscrapinfo dl:first-child {
     padding-left: 0;
 }
 
-.board_view .ourboardinfo dl::before {
+.scrap_view .ourscrapinfo dl::before {
     content: "";
     position: absolute;
     top: 1px;
@@ -291,90 +293,91 @@ a {
     background: #ddd;
 }
 
-.board_view .ourboardinfo dl:first-child::before {
+.scrap_view .ourscrapinfo dl:first-child::before {
     display: none;
 }
 
-.board_view .ourboardinfo dl dt,
-.board_view .ourboardinfo dl dd {
+.scrap_view .ourscrapinfo dl dt,
+.scrap_view .ourscrapinfo dl dd {
     display: inline-block;
     font-size: 1.4rem;
 }
 
-.board_view .ourboardinfo dl dt {
+.scrap_view .ourscrapinfo dl dt {
 
 }
 
-.board_view .ourboardinfo dl dd {
+.scrap_view .ourscrapinfo dl dd {
     margin-left: 10px;
     color: #777;
 }
 
-.board_view .ourboardcont {
+.scrap_view .ourscrapcont {
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
     font-size: 1.4rem;
 }
 
-.board_write {
+.scrap_write {
     border-top: 2px solid #000;
 }
 
-.board_write .ourboardtitle,
-.board_write .ourboardinfo {
+.scrap_write .ourscraptitle,
+.scrap_write .ourscrapinfo {
     padding: 15px;
 }
 
-.board_write .ourboardinfo {
+.scrap_write .ourscrapinfo {
     border-top: 1px dashed #ddd;
     border-bottom: 1px solid #000;
     font-size: 0;
 }
 
-.board_write .ourboardtitle dl {
+.scrap_write .ourscraptitle dl {
     font-size: 0;
 }
 
-.board_write .ourboardinfo dl {
+.scrap_write .ourscrapinfo dl {
     display: inline-block;
+    width: 42%;
     vertical-align: middle;
 }
 
-.board_write .ourboardtitle dt,
-.board_write .ourboardtitle dd,
-.board_write .ourboardinfo dt,
-.board_write .ourboardinfo dd {
+.scrap_write .ourscraptitle dt,
+.scrap_write .ourscraptitle dd,
+.scrap_write .ourscrapinfo dt,
+.scrap_write .ourscrapinfo dd {
     display: inline-block;
     vertical-align: middle;
     font-size: 1.4rem;
 }
 
-.board_write .ourboardtitle dt,
-.board_write .ourboardinfo dt {
+.scrap_write .ourscraptitle dt,
+.scrap_write .ourscrapinfo dt {
     width: 100px;
 }
 
-.board_write .ourboardtitle dd {
+.scrap_write .ourscraptitle dd {
     width: calc(100% - 100px);
 }
 
-.board_write .ourboardtitle input[type="text"],
-.board_write .ourboardinfo input[type="text"],
-.board_write .ourboardinfo input[type="password"] {
+.scrap_write .ourscraptitle input[type="text"],
+.scrap_write .ourscrapinfo input[type="text"],
+.scrap_write .ourscrapinfo input[type="password"] {
     padding: 10px;
     box-sizing: border-box;
 }
 
-.board_write .ourboardtitle input[type="text"] {
+.scrap_write .ourscraptitle input[type="text"] {
     width: 80%;
 }
 
-.board_write .ourboardcont {
+.scrap_write .ourscrapcont {
     border-bottom: 1px solid #000;
 }
 
-.board_write .ourboardcont textarea {
+.scrap_write .ourscrapcont textarea {
     display: block;
     width: 100%;
     height: 300px;

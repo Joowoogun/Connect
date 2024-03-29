@@ -23,8 +23,6 @@
     flex: 1;
     text-align: center; 
     margin-left : 50px;
-    width : 600px;
-    height : 650px;
 }
 /* 오른쪽 전체 DIV */
 .ourpositonrelative {
@@ -74,7 +72,7 @@
 
 /* 하단 컨텐츠 내용 DIV */
 .ourcrwcontenttext {
-    margin-left : 60px;
+    margin-left : 120px;
 }
 
 /* 하단 컨텐츠 소제목 */

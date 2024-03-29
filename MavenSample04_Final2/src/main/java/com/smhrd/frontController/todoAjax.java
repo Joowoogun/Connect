@@ -23,11 +23,13 @@ public class todoAjax extends HttpServlet {
       String do_startDate = request.getParameter("do_startDate");
       String do_endDate = request.getParameter("do_endDate");
       String data = request.getParameter("status");
+      String content =request.getParameter("content");
       int data2 = Integer.parseInt(request.getParameter("todoIdx"));
       System.out.println("데이터확인 >> " + data + data2+do_startDate+do_endDate);
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
       TodolistVO vo = new TodolistVO();
+      vo.setContent(content);
       vo.setDo_Status(data);
       vo.setTodoIdx(data2);  
       vo.setDo_startDate(do_startDate);
@@ -35,8 +37,10 @@ public class todoAjax extends HttpServlet {
       DAO dao = new DAO();
       if(do_startDate == null) {
     	  dao.todoUpdate(vo);
-      }else {
+      }else if(content == null){
     	  dao.calUpdate(vo);
+      }else{
+    	  dao.caltodoUpdate(vo);
       }
       
       
