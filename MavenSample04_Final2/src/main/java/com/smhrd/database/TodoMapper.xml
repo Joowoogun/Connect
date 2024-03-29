@@ -73,10 +73,17 @@
 		set do_startDate = #{do_startDate},
 		do_endDate = #{do_endDate},
 		content = #{content},
-		status = #{status}
+		do_Status = #{do_Status},
+		do_startTime = #{do_startTime},
+		do_endTime = #{do_endTime}
 		where
-		todoIdx=#{todoIdx}
+		todoIdx=#{todoIdx} and todoTitle=#{todoTitle}
 	</update>
+	
+	<delete id="caltodoDel" parameterType="com.smhrd.model.TodolistVO">
+		delete from todoList
+		where todoIdx =#{todoIdx} and todoTitle=#{todoTitle}
+	</delete>
 
 	<select id="todoTitle" resultType="com.smhrd.model.TodolistVO">
 		select * from todoList

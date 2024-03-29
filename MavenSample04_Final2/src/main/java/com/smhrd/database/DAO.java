@@ -166,9 +166,9 @@ public class DAO {
 		session.close();
 	}
 	
-	public void caltodoUpdate(TodolistVO vo) {
+	public void caltodoUpdate(TodolistVO cvo) {
 		SqlSession session = factory.openSession(true);
-		session.update("caltodoUpdate", vo);
+		session.update("caltodoUpdate", cvo);
 		session.close();
 	}
 	
@@ -204,4 +204,10 @@ public class DAO {
 	      session.delete("DocumentDelete", vo);
 	      session.close();
 	   }
+
+	public void caltodoDel(TodolistVO cvo) {
+		SqlSession session = this.factory.openSession(true);
+	      session.delete("caltodoDel", cvo);
+	      session.close();		
+	}
 }

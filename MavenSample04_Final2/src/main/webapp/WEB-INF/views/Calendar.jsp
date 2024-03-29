@@ -165,8 +165,10 @@ addcalButton.addEventListener('click', function() {
         right: 'myCustomButton'
       },
       initialDate: '2024-03-28',
+      nextDayThreshold: '00:00:00',
       navLinks: false, // can click day/week names to navigate views
       editable: true,
+      allday: false,
       dayMaxEvents: true, // allow "more" link when too many events
       locale: 'ko',
       
@@ -330,6 +332,7 @@ addcalButton.addEventListener('click', function() {
                             start: res[i].do_startDate,
                             end: res[i].do_endDate,
                             id: res[i].todoIdx,
+                            sourceId: res[i].todoTitle,
                             display: 'block'
                         };
                         calendar.addEvent(data);
