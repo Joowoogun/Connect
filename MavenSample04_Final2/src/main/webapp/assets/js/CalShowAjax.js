@@ -99,7 +99,7 @@ function caltodoUpdateclick() {
 		do_endTime: fixdo_endTime
 	};
 	
-	let addTitle = document.getElementById("todoTitle");
+	
 
 	$.ajax({
 		url: 'calUpdateAjax', // 수정을 처리할 서버의 URL

@@ -95,7 +95,7 @@
 
                   <ul class="navbar-nav header-right">
                      <li class="nav-item dropdown notification_dropdown"><a
-                        class="nav-link" href="goScrap.do" role="button"> <img
+                        class="nav-link" href="SelectScrapAll.do" role="button"> <img
                            class="scrapright" src="assets/images/allpagescrap.png"
                            height="10px" width="10px">
                      </a>

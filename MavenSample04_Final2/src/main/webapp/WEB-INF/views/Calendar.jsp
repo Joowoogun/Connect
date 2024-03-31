@@ -262,13 +262,8 @@ addcalButton.addEventListener('click', function() {
         },
       eventMouseEnter: function(info) {
           //url 들어가면 바꿔야함.
-          if (info.event.url) { // end 데이터가 있는 이벤트를 클릭했을 때
-          		console.log(info)
-              // 공백
-              console.log("꺼져");
-
-          } else if (info.event.title) {
-              console.log("인포에뭐가들어있나~",info);
+          if (info.event._def.groupId) { // end 데이터가 있는 이벤트를 클릭했을 때
+        	  console.log("인포에뭐가들어있나~",info);
               // 마우스를 요소 위로 가져다 놓았을 때 정사각형 div를 생성하여 배치
               var square = document.createElement('div');
               square.style.width = '320px';
@@ -290,6 +285,9 @@ addcalButton.addEventListener('click', function() {
               square.setAttribute('id', 'tooltip'); // div에 id 추가
               document.body.appendChild(square);
 
+          } else if (info.event.title) {
+              
+				console.log("뭐 시발")
           }
 
   },
@@ -303,10 +301,11 @@ addcalButton.addEventListener('click', function() {
       eventClick: function(info) {
     	  // url 넣으면 바꿔야함.
     	  console.log(info.event);
-        if (info.event.end) { // end 데이터가 있는 이벤트를 클릭했을 때
-            openModal(info.event); // 모달을 열 때 이벤트 정보를 전달합니다.
-        } else if (info.event.title) { // 'Birthday Party' 이벤트를 클릭했을 때
-            window.open('https://www.naver.com/', '_blank', 'width=1200,height=800');
+        if (info.event._def.groupId) { // end 데이터가 있는 이벤트를 클릭했을 때
+        	console.log("ㅋㅋ 원래있었어 ㅋㅋ")
+        	window.open(info.event._def.groupId, '_blank', 'width=800,height=600');
+        } else if (info.event.end) { // 'Birthday Party' 이벤트를 클릭했을 때
+            openModal(info.event);
             return false;
         }
         },
@@ -369,6 +368,7 @@ addcalButton.addEventListener('click', function() {
                             start: res1[i].conStartDate,
                             end: res1[i].conEndDate,
                             id: res1[i].conIdx,
+                            groupId: res1[i].conHomepage,
                             display: 'list-item'
                         };
                         calendar.addEvent(data1);

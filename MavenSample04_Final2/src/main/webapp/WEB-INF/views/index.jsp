@@ -273,12 +273,12 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 
          <!-- 가운데 카테고리 버튼  -->
          <div class="ourbuttonframe">
-            <button class="ourcustom-btn btn-1" value="conCategory1" id="주제1">주제1</button>
-            <button class="ourcustom-btn btn-2" value="conCategory2" id="주제2">주제2</button>
-            <button class="ourcustom-btn btn-3">주제3</button>
-            <button class="ourcustom-btn btn-4">주제4</button>
-            <button class="ourcustom-btn btn-5">주제5<div class="dot"></div></button>
-            <button class="ourcustom-btn btn-6">주제6</button>
+            <button class="ourcustom-btn btn-1" value="게임/소프트웨어" id="ourfirst">게임/SW</button>
+            <button class="ourcustom-btn btn-2" value="기획/아이디어" id="oursecond">기획/아이디어</button>
+            <button class="ourcustom-btn btn-3" value="디자인" id="ourthird">디자인</button>
+            <button class="ourcustom-btn btn-4" value="문학/수기" id="ourfourth">문학/수기</button>
+            <button class="ourcustom-btn btn-5" value="미술" id="ourfifth">미술<div class="dot"></div></button>
+            <button class="ourcustom-btn btn-6" value="영상/UCC" id="oursixth">영상/UCC</button>
          </div>
 
          <!-- 카테고리 별 이미지 -->
@@ -290,7 +290,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
         <li>
             <div class="contestInfo">
                 <form action="ClickContestInfo.do" method="post">
-                    <input type="image" src="assets/images/${ci.conHomepage}.jpg" width="300px" height="300px">
+                    <input type="image" src="assets/images/${ci.conIdx}.png" width="300px" height="300px">
                     <input type="hidden" name="userId" value="${profile.userId}">
                     <input type="hidden" name="conContent" value="${ci.conContent}">
                     <input type="hidden" name="conCategory" value="${ci.conCategory}">
@@ -418,7 +418,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
     </script>  
 	
 	<script type="text/javascript">
-	$('#주제1').on("click", function(){
+	$('#ourfirst').on("click", function(){
 	    // 선택된 카테고리의 값을 가져옵니다.
 	    var selectedCategory = $(this).val();
 	    console.log("selectedCategory >>",selectedCategory);
@@ -439,7 +439,91 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 	    });
 	});
 	
-	$('#주제2').on("click", function(){
+	$('#oursecond').on("click", function(){
+	    // 선택된 카테고리의 값을 가져옵니다.
+	    var selectedCategory = $(this).val();
+	    console.log("selectedCategory >>",selectedCategory);
+	    
+	    
+	    // 각 공모전 정보를 확인하며 선택한 카테고리에 해당하는 정보만 표시합니다.
+	    $('.contestInfo').each(function(){
+	        // 공모전 카테고리 값을 가져옵니다.
+	        var conCategory = $(this).find('input[name="conCategory"]').val();
+	        console.log("conCategory >>",conCategory);
+	        
+	        // 선택한 카테고리와 공모전 카테고리를 비교하여 일치하는 경우 해당 정보를 보여줍니다.
+	        if (conCategory !== selectedCategory) {
+	        	 $(this).closest('li').hide();
+	        }else{
+	        	$(this).closest('li').show();
+	        }
+	    });
+	});
+	
+	$('#ourthird').on("click", function(){
+	    // 선택된 카테고리의 값을 가져옵니다.
+	    var selectedCategory = $(this).val();
+	    console.log("selectedCategory >>",selectedCategory);
+	    
+	    
+	    // 각 공모전 정보를 확인하며 선택한 카테고리에 해당하는 정보만 표시합니다.
+	    $('.contestInfo').each(function(){
+	        // 공모전 카테고리 값을 가져옵니다.
+	        var conCategory = $(this).find('input[name="conCategory"]').val();
+	        console.log("conCategory >>",conCategory);
+	        
+	        // 선택한 카테고리와 공모전 카테고리를 비교하여 일치하는 경우 해당 정보를 보여줍니다.
+	        if (conCategory !== selectedCategory) {
+	        	 $(this).closest('li').hide();
+	        }else{
+	        	$(this).closest('li').show();
+	        }
+	    });
+	});
+	
+	$('#ourfourth').on("click", function(){
+	    // 선택된 카테고리의 값을 가져옵니다.
+	    var selectedCategory = $(this).val();
+	    console.log("selectedCategory >>",selectedCategory);
+	    
+	    
+	    // 각 공모전 정보를 확인하며 선택한 카테고리에 해당하는 정보만 표시합니다.
+	    $('.contestInfo').each(function(){
+	        // 공모전 카테고리 값을 가져옵니다.
+	        var conCategory = $(this).find('input[name="conCategory"]').val();
+	        console.log("conCategory >>",conCategory);
+	        
+	        // 선택한 카테고리와 공모전 카테고리를 비교하여 일치하는 경우 해당 정보를 보여줍니다.
+	        if (conCategory !== selectedCategory) {
+	        	 $(this).closest('li').hide();
+	        }else{
+	        	$(this).closest('li').show();
+	        }
+	    });
+	});
+	
+	$('#ourfifth').on("click", function(){
+	    // 선택된 카테고리의 값을 가져옵니다.
+	    var selectedCategory = $(this).val();
+	    console.log("selectedCategory >>",selectedCategory);
+	    
+	    
+	    // 각 공모전 정보를 확인하며 선택한 카테고리에 해당하는 정보만 표시합니다.
+	    $('.contestInfo').each(function(){
+	        // 공모전 카테고리 값을 가져옵니다.
+	        var conCategory = $(this).find('input[name="conCategory"]').val();
+	        console.log("conCategory >>",conCategory);
+	        
+	        // 선택한 카테고리와 공모전 카테고리를 비교하여 일치하는 경우 해당 정보를 보여줍니다.
+	        if (conCategory !== selectedCategory) {
+	        	 $(this).closest('li').hide();
+	        }else{
+	        	$(this).closest('li').show();
+	        }
+	    });
+	});
+	
+	$('#oursixth').on("click", function(){
 	    // 선택된 카테고리의 값을 가져옵니다.
 	    var selectedCategory = $(this).val();
 	    console.log("selectedCategory >>",selectedCategory);

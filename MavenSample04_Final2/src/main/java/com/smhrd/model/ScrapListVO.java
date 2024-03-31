@@ -13,8 +13,18 @@ public class ScrapListVO {
     
     private String conName;
     
+    private String conHomepage;
+    
    
 
+	public String getConHomepage() {
+		return conHomepage;
+	}
+
+
+	public void setConHomepage(String conHomepage) {
+		this.conHomepage = conHomepage;
+	}
 	// 회원 아이디 
     private String userId;
 
