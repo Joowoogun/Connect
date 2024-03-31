@@ -22,7 +22,10 @@
     height: 50px; /* 버튼의 높이 */
     font-size: 1.5rem; /* 버튼 내부 텍스트 크기 */
     /* 기타 스타일 속성 */
+    border : none;
+    background-color : #F8F9FE !important;
 }
+
 
 .board_list_wrap{
     display: flex;
@@ -30,15 +33,15 @@
     margin: 10px;
 }
 /* 요소들의 너비 설정 */
-.noticeboardnum {width:200px; height:50px;}
-.noticeboardtitle {width:798px; height:50px; text-align: left !important; padding-left: 10px;}
-.noticeboardwriter {width:300px; height:50px; }
-.noticeboarddate {width:300px; height:50px; }
+.noticeboardnum {width:150px; height:50px;}
+.noticeboardtitle {width:748px; height:50px; text-align: left !important;}
+.noticeboardwriter {width:250px; height:50px; }
+.noticeboarddate {width:250px; height:50px; }
 
 .notice_boardpagination{
     display: flex;
     width: 1000px;
-    margin-left: 300px;
+    margin-left: 200px;
     margin-top: 20px;
     justify-content: space-between;
 }
@@ -46,6 +49,7 @@
 .board_list ul{
   padding: 0;
   margin: 0;
+  padding-left: 10px;
   display:inline-block;
 }
 /* 
@@ -58,16 +62,19 @@
 .board_row {
   
   width: 1700px;
+  /* 게시판 세로줄 없애기
   border-left:solid 1px gray;
+  */
 }
 
 /* 게시글 목록 공통 개별 요소 속성 */
 .board_list li{
   list-style:none;
-  border-bottom:solid 1px gray; 
+  border-bottom: solid 1px #d9d9d9; 
   float:left; 
   text-align:center;
   padding-top: 25px;
+  padding-left: 30px;
   /* padding: 0;
   margin: 0; */
 }
@@ -76,13 +83,15 @@
 .title_row > li {
   height: 90px;
   line-height: 50px;
-  background:rgb(233, 233, 233);
+  /* background:rgb(233, 233, 233); --> 게시판 타이틀 배경색 */
   font-weight: bold;
   font-size: 30px;
   text-align: center !important;
-  border-top:solid 1px rgb(0, 0, 0);
+  border-top:solid 3px #6b51df;
   /* border-left:solid 1px gray; */
+  /* 게시판 세로줄 없애기
   border-right:solid 1px gray;
+  */
 }
 
 /* 게시글 목록 데이터 개별 요소 속성 */
@@ -91,7 +100,9 @@
   line-height: 40px;
   font-weight: 400;
   font-size: 30px;
+  /* 게시판 세로줄 없애기
   border-right:solid 1px gray;
+  */
   
 }
 /* ****************************** */
@@ -106,7 +117,7 @@ a {
     padding-right: 10px;
     /* padding-left: 10px; */
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 110px;
     color: black;
     
 }
@@ -127,31 +138,74 @@ a {
 }
 
 .bt_wrap {
+    display: flex;
     margin-top: 20px;
     text-align: center;
     font-size: 0;
-    /* padding-right: 120px; */
+    padding-right: 850px;
+    align-items: stretch;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+}
+.bt_wrap input[type="submit"]{
+	padding-bottom: 20px !important;
 }
 
-.bt_wrap a {
+.bt_wrap input[type="submit"], .bt_wrap a {
     display: inline-block;
     min-width: 80px;
-    margin-left: 10px;
+    margin-left: 11px;
     padding: 10px;
-    border: 1px solid #000;
-    border-radius: 2px;
+    border-radius: 10px;
     font-size: 1.4rem;
+    padding-bottom: 10px !important;
 }
 
+/* 버튼 디자인 수정
 .bt_wrap a:first-child {
     margin-left: 0;
 }
-
 .bt_wrap a.on {
-    background: #000;
+    background: #6b51df;
     color: #fff;
     
-}
+}*/
+/* 스크랩 버튼 7 */
+  .bt_wrap input,.bt_wrap a {
+    border: none;
+    background: rgb(107, 81, 223);
+      background: linear-gradient(0deg, rgba(107, 81, 223,1) 0%, rgb(150, 130, 220) 100%);
+      color: #fff;
+      overflow: hidden;
+      font-weight: 700;
+  }
+  .bt_wrap input:hover,.bt_wrap a:hover {
+      text-decoration: none;
+      color: #fff;
+  }
+  .bt_wrap input:before,.bt_wrap a:before {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      top: -180px;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: #fff;
+  }
+  .bt_wrap input:hover,.bt_wrap a:hover{
+    opacity: .7;
+  }
+  .bt_wrap input:active,.bt_wrap a:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  }
+  
+
+  /* ---------------------------------------------------------------------- */
 
 
 .board_list {
@@ -165,7 +219,7 @@ a {
 }
 
 .board_list > div {
-    border-bottom: 1px solid #ddd;
+    
     font-size: 0;
 }
 
@@ -189,7 +243,7 @@ a {
 }
 
 .board_list .ourboardnum {
-    width: 10%;
+    width: 300px;
 }
 
 .board_list .ourboardtitle {
@@ -253,15 +307,16 @@ a {
 }
 
 .board_view {
-    width: 100%;
-    border-top: 2px solid #000;
+    width: 87%;
+    border-top: solid 3px #6b51df;
 }
 
 .board_view .ourboardtitle {
-    /* padding: 20px 15px; */
+    padding: 10px 10px;
     margin: 10px;
     border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
+    font-size: 35px;
+    font-weight : 600;
 }
 
 .board_view .ourboardinfo {
@@ -313,12 +368,15 @@ a {
 .board_view .ourboardcont {
     padding: 15px;
     border-bottom: 1px solid #000;
-    line-height: 160%;
-    font-size: 1.4rem;
+    height: 50vh;
+    font-size: 20px;
+    display : flex;
+    align-items: flex-start;
 }
 
 .board_write {
-    border-top: 2px solid #000;
+    border-top: 3px solid #6b51df;
+    width: 87%;
 }
 
 .board_write .ourboardtitle,
@@ -372,6 +430,10 @@ a {
 
 .board_write .ourboardcont {
     border-bottom: 1px solid #000;
+    height: 50vh;
+    font-size: 20px;
+    display : flex;
+    align-items: flex-start;
 }
 
 .board_write .ourboardcont textarea {
@@ -381,5 +443,33 @@ a {
     padding: 15px;
     box-sizing: border-box;
     border: 0;
-    resize: vertical;
+    resize: none;
+    background-color: #F8F9FE;
+}
+
+/* document view ourboardinfo margin-bottom 제거 */
+.ourboardinfo dl {
+	margin-bottom : 0 !important;
+}
+
+.ourboardinfo dd p button{
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.board_wrap dd input[type="text"] {
+	border:none;
+	background-color: #F8F9FE;
+}
+
+.board_write .ourboardinfo .ourfilebox{
+	margin-left: 50px;	
+}
+.ourboardinfo dl #preview {
+	position: absolute; /* 부모 요소에 대해 절대적인 위치를 설정합니다. */
+    right : 0;
+    margin-right: 150px;
+}
+.ourboardtitle dl{
+	margin-bottom: 0 !important;
 }

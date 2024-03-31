@@ -10,6 +10,6 @@ public class Logout implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "redirect:/goindex.do";
+		return "page-login";
 	}
 }

@@ -90,7 +90,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -104,7 +104,7 @@
 									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="gopage-mypage.do" class="dropdown-item"> <i
+									<a href="SelectScrapAll.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
 									<a href="gopage-login.do" class="dropdown-item"> <i
@@ -135,7 +135,7 @@
 							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
@@ -170,14 +170,14 @@
                 <div class="board_list_wrap">
                     <div class="board_list">
                         <ul class="board_row title_row">
-                            <li class="ourboardnum">번호</li>
-                            <li class="ourboardtitle">제목</li>
+                            <li class="noticeboardnum">번호</li>
+                            <li class="noticeboardtitle">제목</li>
                             <!-- 게시글 리스트에서 파일 첨부 확인
                                     <div class="attachment">
                                     <a href="./images/attach.png"><img src="./images/attach.png" alt="" width="25px" height="25px"></a>
                                 </div> -->
-                            <li class="ourboardwriter">작성자</li>
-                            <li class="ourboarddate">작성일</li>
+                            <li class="noticeboardwriter">작성자</li>
+                            <li class="noticeboarddate">작성일</li>
                             <!-- <div class="ourboardcount">조회</div> -->
                         </ul>
                       

@@ -102,8 +102,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                         </span>
                         <div class="dropdown-menu p-0 m-0">
                            <form>
-                              <input class="form-control" type="search" placeholder="Contest Search"
-                                 aria-label="Search">
+                              <input class="form-control" type="search" placeholder="Contest Search" id="ContestSerch" aria-label="Search">
                            </form>
                         </div>
                      </div>
@@ -206,10 +205,10 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 
                      </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                           <a href="gopage-mypage.do" class="dropdown-item"> <i
+                           <a href="Mypage.do?userId=${profile.userId}" class="dropdown-item"> <i
                               class="icon-user"></i> <span class="ml-2">MyPage </span>
                            </a> 
-                           <a href="gopage-login.do" class="dropdown-item"> <i
+                           <a href="Logout.do" class="dropdown-item"> <i
                               class="icon-key"></i> <span class="ml-2">Logout </span>
                            </a>
                         </div></li>
@@ -540,6 +539,31 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 	        	 $(this).closest('li').hide();
 	        }else{
 	        	$(this).closest('li').show();
+	        }
+	    });
+	});
+	
+	$(document).ready(function() {
+	    $('#ContestSerch').on('keyup', function() {
+	        var searchText = $(this).val().toLowerCase();
+
+	        $('.contestInfo').each(function() {
+	            var conName = $(this).find('input[name="conName"]').val().toLowerCase();
+	            var conContent = $(this).find('input[name="conContent"]').val().toLowerCase();
+	            var conCategory = $(this).find('input[name="conCategory"]').val().toLowerCase();
+	            var all = conName + conContent + conCategory;
+
+	            if (conName.includes(searchText) || conContent.includes(searchText) || conCategory.includes(searchText)) {
+	                $(this).closest('li').show(); // 검색어가 포함된 경우 해당 li 요소 보이기
+	            } else {
+	                $(this).closest('li').hide(); // 검색어가 포함되지 않은 경우 해당 li 요소 숨기기
+	            }
+	        });
+
+	        // 검색 결과가 없는 경우 모든 li 요소 보이도록 설정
+	        var visibleLiCount = $('.contestInfo:visible').length;
+	        if (visibleLiCount === 0) {
+	            $('.contestInfo').closest('li').show();
 	        }
 	    });
 	});

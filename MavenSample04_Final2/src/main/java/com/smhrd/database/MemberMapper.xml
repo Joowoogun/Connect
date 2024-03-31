@@ -51,5 +51,11 @@
  	where userId = #{userId}
   </select>
   
+  <select id="GetProfile" parameterType="mvo" resultType="mvo"> 
+ 	select *
+ 	from c_member
+ 	where userId = #{userId}
+</select>
+  
   
 </mapper>

@@ -2,6 +2,7 @@
 <%@page import="java.util.Set"%>
 <%@page import="com.smhrd.model.TodolistVO"%>
 <%@page import="com.smhrd.model.MemberVO"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.theme.default.min.css">
     <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/scrapstyle.css">
     
 	<%
 	ScrapListVO mvo = (ScrapListVO) session.getAttribute("scrapList");
@@ -57,9 +59,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="goindex.do" class="brand-logo">
-                <img class="logo-abbr" src="assets/images/finalimglogo.png" alt="">
-                <img class="logo-compact" src="assets/images/logo-text.png" alt="">
-                <img class="brand-title" src="assets/images/ConNectFont.png" alt="">
+                	<img class="logo-abbr" src="assets/images/finalimglogo.png" alt="" width = "40px" height = "40px"> 
+                    <img class="logo-compact" src="assets/images/finalmainlogo.png" alt=""> 
+                    <img class="brand-title" src="assets/images/finalmainlogo.png" alt="" height = "40px">
             </a>
 
             <div class="nav-control">
@@ -86,7 +88,7 @@
 								</span>
 								<div class="dropdown-menu p-0 m-0">
 									<form>
-										<input class="form-control" type="search" placeholder="Search"
+										<input class="form-control" type="search" placeholder="Contest Search"
 											aria-label="Search">
 									</form>
 								</div>
@@ -96,17 +98,40 @@
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
 								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
-									<img class = "scrapright" src="assets/images/scrap.png" height="18px" width="27px">
+									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 							</a>
-					</li>
-					</ul>
-					</div>
-					</nav>
-					</div>
-					</div>
 							<div>
 							<span style="color:#593BDB; font-weight: 700;">${profile.userId}님</span>
-						</div>
+							</div>
+                            <!-- 프로필 드롭다운 -->
+                               </li>
+                            <li class="nav-item dropdown header-profile"><a
+                               class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                 
+                                <!-- 변경한 이미지 img -->
+                               <img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
+                                <!-- 원래 드롭다운 i태그 -->
+                                <!-- <i class="mdi mdi-account"></i> -->
+                               
+       
+       
+       
+                            </a>
+                               <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="gopage-mypage.do" class="dropdown-item"> <i
+                                     class="icon-user"></i> <span class="ml-2">MyPage </span>
+                                  </a> 
+                                  <a href="gopage-login.do" class="dropdown-item"> <i
+                                     class="icon-key"></i> <span class="ml-2">Logout </span>
+                                  </a>
+                               </div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+							
 								
         <!--**********************************
             Header end ti-comment-alt
@@ -121,21 +146,21 @@
                    <li class="nav-label first">MENU</li>
                   
                     <li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="18px" height="18px"
+							src="assets/images/contesttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
 					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="18px" height="18px"
+							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
 					<li><a href="fullCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="18px" height="18px"
+							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="18px" height="18px"
+							src="assets/images/todotab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">TO
 								DO</span></a></li>
 					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="18px" height="18px"
+							src="assets/images/documenttab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
                     
                         </ul>
@@ -150,23 +175,37 @@
         ***********************************-->
         <div class="content-body"  style="text-align: center;">
             <!-- row -->
-            <c:forEach items="${scrapList}" var="sl">
-            <div>
-            <form action="ClickContestInfo.do" method="post" >
-            <input type="hidden" value="${sl.conName}" name="conName">
-            ${sl.conName} ${sl.conStartDate} ${sl.conEndDate}
-			<input type="hidden" name="userId" value="${profile.userId}">
-			<input type="hidden" name="conIdx" value="${sl.conIdx}">
-			<input type="hidden" name="conName" value="${sl.conName}"> 
-            <input type="submit" value="상세보기">
-            </form>
-                        <br>
-            <br>
+            <div class="scrap_wrap">
+               <div class="scrap_title">
+                    <strong>My Scrap</strong>
+                     <!-- <p>공지사항을 빠르고 정확하게 안내해드립니다.</p> -->
+              </div>
+           <div class="scrap_list_wrap">
+         	<div class="scrap_list">
+            	<div class="ourscraptop">
+                    <div class="ourscrapnum">카테고리</div>
+                    <div class="ourscraptitle">공고 제목</div>
+                    <div class="ourscrapdate">기간</div>
+                </div>
+            	<c:forEach items="${scrapList}" var="sl">
+            		<div class="myscraprow">
+                <form action="ClickContestInfo.do" method="post" style="display: flex; align-items: center;">
+                    <div class="ourscrapnum" style="margin-right: 10px;">${sl.conCategory}</div>
+                    <div class="ourscraptitle" style="margin-right: 10px;"><a href="gocrawling.do">${sl.conName}</a></div>
+                    <div class="ourscrapdate" style="margin-right: 10px;">${sl.conStartDate} ~ ${sl.conEndDate}</div>
+                    <input type="hidden" value="${sl.conName}" name="conName">
+                    <input type="hidden" name="userId" value="${profile.userId}">
+                    <input type="hidden" name="conIdx" value="${sl.conIdx}">
+                    <input type="hidden" name="conName" value="${sl.conName}">
+                    <input type="submit" value="상세보기">
+                </form>
             </div>
-            </c:forEach>
-            <img src = "assets/images/Scrapex01.png" width = "1600px" height = "820px" >
-            
+            	</c:forEach>
+            </div>
         </div>
+       </div>
+      </div>
+      
         <!--**********************************
             Content body end
         ***********************************-->

@@ -223,4 +223,12 @@ public class DAO {
 	      session.delete("caltodoDel", cvo);
 	      session.close();		
 	}
+	
+	public MemberVO GetProfile(MemberVO vo) {
+        SqlSession session = this.factory.openSession(true);
+        MemberVO resultVo = (MemberVO) session.selectOne("GetProfile", vo);
+        session.close();
+        return resultVo;
+    }
+	
 }

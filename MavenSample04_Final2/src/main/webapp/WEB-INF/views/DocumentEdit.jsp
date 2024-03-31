@@ -85,7 +85,7 @@
 
                   <ul class="navbar-nav header-right">
                      <li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -109,7 +109,7 @@
 
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="gopage-mypage.do" class="dropdown-item"> <i
+                        <a href="SelectScrapAll.do" class="dropdown-item"> <i
                            class="icon-user"></i> <span class="ml-2">MyPage </span>
                         </a> 
                         <a href="gopage-login.do" class="dropdown-item"> <i
@@ -141,7 +141,7 @@
 							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
@@ -186,37 +186,26 @@
                                 <dt>글쓴이</dt>
                                 <dd>${DocumentView.userId}</dd>
                             </dl>
-                            
-                                <!-- <div class="filebox">
-                                    <dd><input class="upload-name" value="첨부파일" placeholder="첨부파일"></dd>
-                                    <dd><label for="file">파일찾기</label></dd> 
-                                    <input type="file" id="file">
-                                </div> -->
-                                <!-- 0324 파일 추가 및 삭제-->
-                                <dl class="filebox">
+                            	<dl class="ourfilebox">
+                                	<dd>
+                                		<input class="upload-name" value="${DocumentView.fileName}" placeholder="파일을 올려주세요">
+                                		<input type="file" name="file" id="file" accept=".jpg, .png, .doc, .docx, .hwp, .txt">
+                                	</dd>
                                 
-                                <dd>
-                                	<input class="upload-name" value="${DocumentView.fileName}" placeholder="파일을 올려주세요">
-                                	<label for="file">파일찾기</label>
-                                	<input type="file" name="file" id="file" accept=".jpg, .png, .doc, .docx, .hwp, .txt">
-                                </dd>
-                                
-                                <dd id="preview" style="padding-top: 10px;"><a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}&work=fileDelete">파일 삭제</a></dd>
+                                	<dd id="preview"><a href="documentDelete.do?fileIdx=${DocumentView.fileIdx}&work=fileDelete">파일 삭제</a></dd>
                             	</dl>
                                 <!-------------------------->
                         </div>
                         <div class="ourboardcont">
-                           <textarea name="postContent" placeholder="내용 입력">
-                           		${DocumentView.dataContent}
-                           </textarea>
+                           <textarea name="postContent" placeholder="내용 입력">${DocumentView.dataContent}</textarea>
                         </div>
                     </div>
                     <div class="bt_wrap">
                      <input type ="hidden" name="fileIdx" value="${DocumentView.fileIdx}">
                      <input type="hidden" name="work" value="edit">
-                      <input type="image" src="assets/images/10번째.jpg">
+                    	<input type="submit" value="저장">
                       <a href="documentView.do?fileIdx=${DocumentView.fileIdx}">취소</a>
-                  </div>
+                    </div>
                 </div>
                </form>
             </div>

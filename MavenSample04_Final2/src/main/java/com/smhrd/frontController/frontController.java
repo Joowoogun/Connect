@@ -5,7 +5,9 @@ import com.smhrd.controller.contest.ClickContestInfo;
 import com.smhrd.controller.login.Join;
 import com.smhrd.controller.login.Login;
 import com.smhrd.controller.login.Logout;
+import com.smhrd.controller.login.Mypage;
 import com.smhrd.controller.login.Update;
+import com.smhrd.controller.login.UpdateMypage;
 import com.smhrd.controller.scrap.SelectScrapAll;
 import com.smhrd.controller.todo.SelectTodoAll;
 import com.smhrd.controller.todo.addTodo;
@@ -52,6 +54,8 @@ public class frontController extends HttpServlet {
 	    this.map.put("documentSelect.do", new documentSelect());
 	    this.map.put("documentView.do", new documentView());
 	    this.map.put("documentDelete.do", new documentDelete());
+	    this.map.put("Mypage.do", new Mypage());
+	    this.map.put("UpdateMypage.do", new UpdateMypage());
 		
 	}
 

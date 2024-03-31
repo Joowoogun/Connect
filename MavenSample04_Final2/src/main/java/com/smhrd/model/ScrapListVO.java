@@ -15,7 +15,21 @@ public class ScrapListVO {
     
     private String conHomepage;
     
+    private String conCategory;
+    
+    
+    
    
+
+	public String getConCategory() {
+		return conCategory;
+	}
+
+
+	public void setConCategory(String conCategory) {
+		this.conCategory = conCategory;
+	}
+
 
 	public String getConHomepage() {
 		return conHomepage;

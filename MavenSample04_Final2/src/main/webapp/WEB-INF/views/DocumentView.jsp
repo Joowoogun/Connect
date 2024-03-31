@@ -85,7 +85,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -99,7 +99,7 @@
 									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="gopage-mypage.do" class="dropdown-item"> <i
+									<a href="SelectScrapAll.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
 									<a href="gopage-login.do" class="dropdown-item"> <i
@@ -130,7 +130,7 @@
 							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
@@ -184,14 +184,6 @@
                                 <dd>${DocumentView.writeDate}</dd>
                             </dl>
                             <dl>
-                                <!-- <dt>업로드</dt>
-                                <dd>33</dd> -->
-                                <!-- <dd><ul>
-                                    <c:forEach var="f" items="${flist}">
-                                        <li><a
-                                            href="${pageContext.request.contextPath}/down/test?fname=${f }">${f }</</a></li>
-                                    </c:forEach>
-                                </ul></dd> -->
                                 <dt>첨부파일</dt>
                                 <dd style="color: blue;"><a href="documentDownload?fileIdx=${DocumentView.fileIdx}" id="DocumentDownload" download="${DocumentView.fileName}">${DocumentView.fileName}</a></dd>
                             </dl>

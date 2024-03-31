@@ -54,7 +54,6 @@ public class documentWrite implements Command {
 		// dvo안에 값넣기
 		DocumentVO dvo = new DocumentVO();
 		if (Work.equals("write")) {
-			// 작성쪽에선 인덱스를 같이 안보내기 때문에 인덱스가 0 이면 그냥 작성만됨;
 			// 작성 해야하는 정보들
 			dvo.setUserId(userId);
 			dvo.setFileName(PostfileName);

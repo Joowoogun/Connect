@@ -86,7 +86,7 @@
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="goScrap.do" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class = "scrapright" src="assets/images/allpagescrap.png" height="10px" width="10px">
 									<!--  <div class="pulse-css"></div> -->
 							</a>
@@ -100,7 +100,7 @@
 									<img class="mdi mdi-account" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="gopage-mypage.do" class="dropdown-item"> <i
+									<a href="SelectScrapAll.do" class="dropdown-item"> <i
 										class="icon-user"></i> <span class="ml-2">MyPage </span>
 									</a> 
 									<a href="gopage-login.do" class="dropdown-item"> <i
@@ -131,7 +131,7 @@
 							src="assets/images/quickviewtab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">QUICK
 								VIEW</span></a></li>
-					<li><a href="goCalendar.do" aria-expanded="false"><img
+					<li><a href="fullCalendar.do" aria-expanded="false"><img
 							src="assets/images/calendartab.png" width="30px" height="30px"
 							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
 					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
@@ -162,7 +162,6 @@
                 <form action="documentWrite.do" method="post" enctype="multipart/form-data">
                     <div class="board_title">
                         <strong>DOCUMENT WRITE</strong>
-                        <p>글을 작성하는 공간.</p>
                     </div>
 
                 <div class="board_write_wrap">
@@ -175,10 +174,6 @@
                         </div>
                         <div class="ourboardinfo">
                             	
-                           		<!-- <dt>파일 첨부 </dt> -->
-                                <!-- <dt>비밀번호</dt>
-                                <dd><input type="password" placeholder="비밀번호 입력"></dd> -->
-                                <!-- <dd><input type="file" name="reviewImg" id="reviewImageFileOpenInput" accept="image/*"></dd> -->
                             <dl class="filebox">
                                  <dt>자료</dt>
                                  <dd>
@@ -194,7 +189,7 @@
                     </div>
                     <div class="bt_wrap">
                     	<input type="hidden" name="work" value="write"> 
-                    	<input type="image" src="assets/images/10번째.jpg">
+                    	<input type="submit" value="저장">
                         <a href="documentSelect.do">취소</a>
                     </div>
                 </div>
