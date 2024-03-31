@@ -466,7 +466,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-			<a href="index.html" class="brand-logo"> <img class="logo-abbr"
+			<a href="goindex.do" class="brand-logo"> <img class="logo-abbr"
 				src="assets/images/finalimglogo.png" alt="" width="40px"
 				height="40px"> <img class="logo-compact"
 				src="assets/images/finalmainlogo.png" alt=""> <img
@@ -508,7 +508,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.html" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class="scrapright" src="assets/images/allpagescrap.png"
 									height="10px" width="10px"> <!--  <div class="pulse-css"></div> -->
 							</a>
@@ -525,15 +525,13 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                            height="30px" style="border-radius: 15px; margin-right: 10px;">
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./app-profile.html" class="dropdown-item"> <i
-										class="icon-user"></i> <span class="ml-2">Profile </span>
-									</a> <a href="./email-inbox.html" class="dropdown-item"> <i
-										class="icon-envelope-open"></i> <span class="ml-2">Inbox
-									</span>
-									</a> <a href="./page-login.html" class="dropdown-item"> <i
-										class="icon-key"></i> <span class="ml-2">Logout </span>
-									</a>
-								</div></li>
+                                  <a href="Mypage.do" class="dropdown-item"> <i
+                                     class="icon-user"></i> <span class="ml-2">MyPage </span>
+                                  </a> 
+                                  <a href="Logout.do" class="dropdown-item"> <i
+                                     class="icon-key"></i> <span class="ml-2">Logout </span>
+                                  </a>
+                               </div></li>
 						</ul>
 					</div>
 				</nav>
@@ -547,19 +545,15 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
             Sidebar start
         ***********************************-->
 		<div class="quixnav">
-			<div class="quixnav-scroll">
-				<ul class="metismenu" id="menu">
-					<li class="nav-label first">MENU</li>
+         <div class="quixnav-scroll">
+            <ul class="metismenu" id="menu">
+               <li class="nav-label first">MENU</li>
 
-					 <!-- 사이드 카테고리 -->
+               <!-- 사이드 카테고리 -->
               <li><a href="goindex.do" aria-expanded="false"><img
                      src="assets/images/contesttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
                </li>
-               <li><a href="goQuickView.do" aria-expanded="false"><img
-                     src="assets/images/quickviewtab.png" width="30px" height="30px"
-                     style="margin-right: 5px;"><span class="nav-text">QUICK
-                        VIEW</span></a></li>
                <li><a href="fullCalendar.do" aria-expanded="false"><img
                      src="assets/images/calendartab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
@@ -571,12 +565,11 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                      src="assets/images/documenttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 
-				</ul>
-				</li>
-			</div>
+            </ul>
+         </div>
 
 
-		</div>
+      </div>
 		<!--**********************************
             Sidebar end
         ***********************************-->

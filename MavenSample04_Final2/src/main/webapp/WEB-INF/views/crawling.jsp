@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 						<ul class="navbar-nav header-right">
 							<li class="nav-item dropdown notification_dropdown"><a
-								class="nav-link" href="Scrap.jsp" role="button"> <!-- data-toggle="dropdown" -->
+								class="nav-link" href="SelectScrapAll.do" role="button"> <!-- data-toggle="dropdown" -->
 									<img class="scrapright" src="assets/images/allpagescrap.png"
 									height="10px" width="10px"> <!--  <div class="pulse-css"></div> -->
 							</a>
@@ -156,65 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
 									<!-- 프로필 닉네임 -->
 									<span style="color: #593BDB; font-weight: 700;">${profile.userId}</span>
 								</div> <!-- 프로필 드롭다운 -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="list-unstyled">
-										<li class="media dropdown-item"><span class="success">
-
-												<!-- 변경한 이미지 img --> <!-- <img class="ti-user" src="assets/images/memberprofileimg/1.png" width = "30px" height = "30px" style="border-radius: 15px; margin-right: 10px;"> -->
-												<!-- 원래 드롭다운 i태그 --> <i class="ti-user"></i>
-
-										</span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Martin</strong> has added a <strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-shopping-cart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Jennifer</strong> purchased Light Dashboard 2.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="danger"><i
-												class="ti-bookmark"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>Robin</strong> marked a <strong>ticket</strong> as
-														unsolved.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="primary"><i
-												class="ti-heart"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong>David</strong> purchased Light Dashboard 1.0.
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-										<li class="media dropdown-item"><span class="success"><i
-												class="ti-image"></i></span>
-											<div class="media-body">
-												<a href="#">
-													<p>
-														<strong> James.</strong> has added a<strong>customer</strong>
-														Successfully
-													</p>
-												</a>
-											</div> <span class="notify-time">3:20 am</span></li>
-									</ul>
-									<a class="all-notification" href="#">See all notifications
-										<i class="ti-arrow-right"></i>
-									</a>
-								</div></li>
+								</li>
 							<li class="nav-item dropdown header-profile"><a
 								class="nav-link" href="#" role="button" data-toggle="dropdown">
 
@@ -222,18 +164,15 @@ document.addEventListener("DOMContentLoaded", function() {
 									src="assets/images/memberprofileimg/1.png" width="30px"
 									height="30px" style="border-radius: 15px; margin-right: 10px;">
 									<!-- 원래 드롭다운 i태그 --> <!-- <i class="mdi mdi-account"></i> -->
-
-
-
-
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="WEB-INF/views/gopage-mypage.do" class="dropdown-item">
-										<i class="icon-user"></i> <span class="ml-2">MyPage </span>
-									</a> <a href="WEB-INF/views/gopage-login.do" class="dropdown-item">
-										<i class="icon-key"></i> <span class="ml-2">Logout </span>
-									</a>
-								</div></li>
+                                  <a href="Mypage.do" class="dropdown-item"> <i
+                                     class="icon-user"></i> <span class="ml-2">MyPage </span>
+                                  </a> 
+                                  <a href="Logout.do" class="dropdown-item"> <i
+                                     class="icon-key"></i> <span class="ml-2">Logout </span>
+                                  </a>
+                               </div></li>
 						</ul>
 					</div>
 				</nav>
@@ -247,36 +186,31 @@ document.addEventListener("DOMContentLoaded", function() {
             Sidebar start
         ***********************************-->
 		<div class="quixnav">
-			<div class="quixnav-scroll">
-				<ul class="metismenu" id="menu">
-					<li class="nav-label first">MENU</li>
+         <div class="quixnav-scroll">
+            <ul class="metismenu" id="menu">
+               <li class="nav-label first">MENU</li>
 
-					<li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
-					</li>
-					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="30x" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">QUICK
-								VIEW</span></a></li>
-					<li><a href="fullCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
-					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="30x" height="30x"
-							style="margin-right: 5px;"><span class="nav-text">TO
-								DO</span></a></li>
-					<li><a href="goDocument.do" aria-expanded="false"><img
-							src="assets/images/documenttab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+               <!-- 사이드 카테고리 -->
+              <li><a href="goindex.do" aria-expanded="false"><img
+                     src="assets/images/contesttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
+               </li>
+               <li><a href="fullCalendar.do" aria-expanded="false"><img
+                     src="assets/images/calendartab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+               <li><a href="SelectTodoAll.do" aria-expanded="false"><img
+                     src="assets/images/todotab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">TO
+                        DO</span></a></li>
+               <li><a href="goDocument.do" aria-expanded="false"><img
+                     src="assets/images/documenttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 
-				</ul>
-				</li>
-				</ul>
-			</div>
+            </ul>
+         </div>
 
 
-		</div>
+      </div>
 		<!--**********************************
             Sidebar end
         ***********************************-->

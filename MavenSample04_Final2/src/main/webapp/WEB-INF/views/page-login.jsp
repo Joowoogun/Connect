@@ -34,22 +34,13 @@
                                             <input type="password" class="form-control" name ="pw" placeholder="비밀번호를 입력하세요">
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                                            <div class="form-group">
-                                                <div class="form-check ml-2">
-                                                    <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
-                                                    <label class="form-check-label" for="basic_checkbox_1">Remember me</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="gopage-forgot-password.do">Forgot Password?</a>
-                                            </div>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Sign me in</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>비밀번호를 잊으셨습니까?? <a class="text-primary" href="gopage-register.do">Sign up</a></p>
+                                        <p>아이디가 없으신가요? <a class="text-primary" href="gopage-register.do">Sign up</a></p>
                                     </div>
                                 </div>
                             </div>

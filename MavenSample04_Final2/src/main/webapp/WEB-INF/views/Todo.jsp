@@ -110,12 +110,13 @@
                            height="30px" style="border-radius: 15px; margin-right: 10px;">
                      </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                           <a href="gopage-mypage.do" class="dropdown-item"> <i
-                              class="icon-user"></i> <span class="ml-2">MyPage </span>
-                           </a> <a href="gopage-login.do" class="dropdown-item"> <i
-                              class="icon-key"></i> <span class="ml-2">Logout </span>
-                           </a>
-                        </div></li>
+									<a href="Mypage.do" class="dropdown-item"> <i
+										class="icon-user"></i> <span class="ml-2">MyPage </span>
+									</a> 
+									<a href="Logout.do" class="dropdown-item"> <i
+										class="icon-key"></i> <span class="ml-2">Logout </span>
+									</a>
+								</div></li>
                   </ul>
                </div>
             </nav>
@@ -131,15 +132,13 @@
       <div class="quixnav">
          <div class="quixnav-scroll">
             <ul class="metismenu" id="menu">
-               <li class="nav-label first">MENU</li> 
-               <li><a href="goindex.do" aria-expanded="false"><img
+               <li class="nav-label first">MENU</li>
+
+               <!-- 사이드 카테고리 -->
+              <li><a href="goindex.do" aria-expanded="false"><img
                      src="assets/images/contesttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
                </li>
-               <li><a href="goQuickView.do" aria-expanded="false"><img
-                     src="assets/images/quickviewtab.png" width="30px" height="30px"
-                     style="margin-right: 5px;"><span class="nav-text">QUICK
-                        VIEW</span></a></li>
                <li><a href="fullCalendar.do" aria-expanded="false"><img
                      src="assets/images/calendartab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
@@ -150,10 +149,8 @@
                <li><a href="goDocument.do" aria-expanded="false"><img
                      src="assets/images/documenttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+
             </ul>
-            </li>
-       
-            
          </div>
 
 

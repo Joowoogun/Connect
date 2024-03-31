@@ -134,25 +134,22 @@
                <li class="nav-label first">MENU</li>
 
                <!-- 사이드 카테고리 -->
-               <li><a href="goindex.do" aria-expanded="false"><img
-							src="assets/images/contesttab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a></li>
-					<li><a href="goQuickView.do" aria-expanded="false"><img
-							src="assets/images/quickviewtab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">QUICK
-								VIEW</span></a></li>
-					<li><a href="fullCalendar.do" aria-expanded="false"><img
-							src="assets/images/calendartab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
-					<li><a href="SelectTodoAll.do" aria-expanded="false"><img
-							src="assets/images/todotab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">TO
-								DO</span></a></li>
-					<li><a href="documentSelect.do" aria-expanded="false" style="background-color: #6b51df; color: #fff"><img
-							src="assets/images/documenttab.png" width="30px" height="30px"
-							style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+              <li><a href="goindex.do" aria-expanded="false"><img
+                     src="assets/images/contesttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
+               </li>
+               <li><a href="fullCalendar.do" aria-expanded="false"><img
+                     src="assets/images/calendartab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
+               <li><a href="SelectTodoAll.do" aria-expanded="false"><img
+                     src="assets/images/todotab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">TO
+                        DO</span></a></li>
+               <li><a href="goDocument.do" aria-expanded="false"><img
+                     src="assets/images/documenttab.png" width="30px" height="30px"
+                     style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
+
             </ul>
-            </li>
          </div>
 
 

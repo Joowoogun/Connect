@@ -21,6 +21,17 @@
 <link href="assets/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
    <style>
+   
+   	  .slider {
+    	 width: 100%;                                 
+    	 overflow: hidden;
+    	 position: relative;
+	  }
+      .slide {
+         float: left;
+         width: 100%;
+         position: relative;
+      }
       .ourcontestposter ul{
          margin-left :0px;   
       }
@@ -234,10 +245,6 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                      src="assets/images/contesttab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CONTEST</span></a>
                </li>
-               <li><a href="goQuickView.do" aria-expanded="false"><img
-                     src="assets/images/quickviewtab.png" width="30px" height="30px"
-                     style="margin-right: 5px;"><span class="nav-text">QUICK
-                        VIEW</span></a></li>
                <li><a href="fullCalendar.do" aria-expanded="false"><img
                      src="assets/images/calendartab.png" width="30px" height="30px"
                      style="margin-right: 5px;"><span class="nav-text">CALENDAR</span></a></li>
@@ -250,7 +257,6 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
                      style="margin-right: 5px;"><span class="nav-text">DOCUMENT</span></a></li>
 
             </ul>
-            </li>
          </div>
 
 
@@ -263,12 +269,26 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
             Content body start
         ***********************************-->
       <div class="content-body">
-         <!-- 메인 포스터 배너 넣는 div -->
+          <!-- 메인 포스터 배너 넣는 div -->
          <div align="center" >
-            <a>
-               <img src="assets/images/display.jpg" width="1600px">
-            </a>
-         </div>
+            
+        <div class="slider">
+        	<div class="slide">
+        		<a href="ClickContestInfo.do?userId=${profile.userId}&conIdx=61">
+            	<img src="assets/images/61L.png" alt="이미지 1" width="1280px" height="400px">
+            	</a>
+        	</div>
+        	<div class="slide">
+        		<a href="ClickContestInfo.do?userId=${profile.userId}&conIdx=2">
+            	<img src="assets/images/2L.png" alt="이미지 2" width="1280px" height="400px">
+            	</a>
+        	</div>
+        	<div class="slide">
+        		<a href="ClickContestInfo.do?userId=${profile.userId}&conIdx=11">
+           	 	<img src="assets/images/11L.png" alt="이미지 3" width="1280px" height="400px">
+           	 	</a>
+        	</div>
+    	</div>
 
          <!-- 가운데 카테고리 버튼  -->
          <div class="ourbuttonframe">
@@ -566,6 +586,30 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 	            $('.contestInfo').closest('li').show();
 	        }
 	    });
+	});
+	
+	let currentSlide = 0;
+	const slides = document.querySelectorAll('.slide');
+	const slideCount = slides.length;
+	 
+	function showSlide(n) {
+	    slides.forEach(slide => slide.style.display = 'none');
+	    slides[n].style.display = 'block';
+	}
+	 
+	function nextSlide() {
+	    currentSlide = (currentSlide + 1) % slideCount;
+	    showSlide(currentSlide);
+	}
+	 
+	function prevSlide() {
+	    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+	    showSlide(currentSlide);
+	}
+	 
+	document.addEventListener('DOMContentLoaded', () => {
+	    showSlide(currentSlide);
+	    setInterval(nextSlide, 4000); // 3초마다 자동 슬라이드                
 	});
 </script>
 

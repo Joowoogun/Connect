@@ -52,7 +52,7 @@
                                             <input type="email" class="form-control" name="email" placeholder="hello@example.com">
                                         </div>
                                         <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
+                                            <button type="submit" class="btn btn-primary btn-block" id="signUp">Sign me up</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
@@ -74,6 +74,11 @@
     <script src="assets/vendor/global/global.min.js"></script>
     <script src="assets/js/quixnav-init.js"></script>
     <!--endRemoveIf(production)-->
+   	<script>
+    document.getElementById("signUp").addEventListener("click", function() {
+    	alert("회원가입이 완료되었습니다.");
+    });
+</script>
 </body>
 
 </html>
