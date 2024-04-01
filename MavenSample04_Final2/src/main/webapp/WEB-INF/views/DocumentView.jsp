@@ -157,11 +157,11 @@
 
 
             <div class="board_wrap">
-                <div class="board_title">
+                <div class="board_title" style = "font-family : 'waguri';">
                     <strong>DOCUMENT VIEW</strong>
                     <p>글을 보는 공간</p>	
                 </div>
-                <div class="board_view_wrap">
+                <div class="board_view_wrap" style = "font-family : 'gmarket';">
                     <div class="board_view">
                         <div class="ourboardtitle">
                             ${DocumentView.postTitle}
@@ -205,19 +205,18 @@
         ***********************************-->
 
 
-        <!--**********************************
+       <!--**********************************
             Footer start
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
-                <p>Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a></p> 
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
             </div>
         </div>
         <!--**********************************
             Footer end
         ***********************************-->
-
         <!--**********************************
            Support ticket button start
         ***********************************-->

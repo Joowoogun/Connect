@@ -1,6 +1,6 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     console.log("notice board 들어옴");
-	
+    
     $.ajax({
         url: "documentListAjax",
         type: 'get',
@@ -8,9 +8,10 @@ $(document).ready(function() {
         success: function(res) {
             console.log("documentListAjax 성공쪽 콘솔");
             console.log(res.length);
-            for (let i = 0; i < res.length; i++) {
-                console.log(res[i].userId);
-            }
+
+            // 데이터를 최신순으로 정렬
+            res.sort((a, b) => new Date(b.writeDate) - new Date(a.writeDate));
+
             // 총 게시글 수
             let totalPage = res.length;
             // 한 페이지 당 출력되는 게시글 갯수
@@ -34,16 +35,20 @@ $(document).ready(function() {
             let data = [];
 
             // 게시글 데이터를 최신순으로 정렬하여 data에 추가한다.
-            res.sort((a, b) => new Date(b.writeDate) - new Date(a.writeDate)).forEach((item, index) => {
+            res.forEach((item, index) => {
                 let postTitle = `${item.postTitle}`;
                 let userId = `${item.userId}`;
                 let writeDate = `${item.writeDate}`;
+                let dateParts = writeDate.split(" ");
+                   // ourDate = 날짜 , ourTime 시간 부분
+                   let ourDate = dateParts[0];
+                   let ourTime = dateParts[1];
 
                 data[index] = {
-                    notice_num: index + 1, // 인덱스는 0부터 시작하지만 게시글 번호는 1부터 시작하는 경우
+                    notice_num: totalPage - index, // 파일 번호가 뒤로 갈수록 더 최신의 데이터를 가리키도록
                     title: postTitle,
                     writer: userId,
-                    date_created: writeDate,
+                    date_created: ourDate,
                     fileIdx: item.fileIdx // 파일 인덱스 추가
                 };
             });

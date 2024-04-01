@@ -291,7 +291,7 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
     	</div>
 
          <!-- 가운데 카테고리 버튼  -->
-         <div class="ourbuttonframe">
+         <div class="ourbuttonframe" style = "font-family : 'gmarket';">
             <button class="ourcustom-btn btn-1" value="게임/소프트웨어" id="ourfirst">게임/SW</button>
             <button class="ourcustom-btn btn-2" value="기획/아이디어" id="oursecond">기획/아이디어</button>
             <button class="ourcustom-btn btn-3" value="디자인" id="ourthird">디자인</button>
@@ -333,18 +333,13 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
       <!--**********************************
             Footer start
         ***********************************-->
-      <div class="footer">
-         <div class="copyright">
-            <p>
-               Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a>
-               2019
-            </p>
-            <p>
-               Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-            </p>
-         </div>
-      </div>
-      <!--**********************************
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
+        <!--**********************************
             Footer end
         ***********************************-->
 

@@ -156,11 +156,11 @@
             <!-- row -->
             <div class="board_wrap">
                 <form action="documentWrite.do" method="post" enctype="multipart/form-data">
-                    <div class="board_title">
+                    <div class="board_title" style = "font-family : 'waguri';">
                         <strong>DOCUMENT WRITE</strong>
                     </div>
 
-                <div class="board_write_wrap">
+                <div class="board_write_wrap" style = "font-family : 'gmarket';">
                     <div class="board_write">
                         <div class="ourboardtitle">
                             <dl>
@@ -197,6 +197,18 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
+    <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
 
     <!--**********************************
         Scripts

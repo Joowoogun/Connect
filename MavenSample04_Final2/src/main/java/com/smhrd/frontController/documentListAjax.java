@@ -40,7 +40,6 @@ public class documentListAjax extends HttpServlet {
 		// Ajax에서 활용하기 위해 Json 으로 변환
 		Gson gson = new Gson();
 		String json = gson.toJson(listvo);
-		System.out.println(json);
 		
 		// 보내주기
 		PrintWriter out = response.getWriter();

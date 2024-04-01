@@ -19,7 +19,7 @@ public class documentWrite implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html; charset=utf-8");
-		response.setCharacterEncoding("uft-8");
+		response.setCharacterEncoding("utf-8");
 		
 		// 세션에서 현재 로그인 되어있는 아이디 가져오기
 		HttpSession session = request.getSession();
@@ -72,13 +72,14 @@ public class documentWrite implements Command {
 			dvo.setPostTitle(PostTitle);
 			// 업데이트 메소드
 			System.out.println("filedata 확인용 "+fileData);
-			if(PostfileName==null) {
+			if(PostfileName.equals("")) {
 				// 변경할 파일 데이터가 없으면 그냥 텍스트및 제목만 업데이트
 				System.out.println("파일변경 X");
 				dao.DocumentEdit(dvo);
 			}else {
 				// 변경할 파일 데이터가 있으면 dvo에 추가로 저장하여 파일업데이트 실행.
 				System.out.println("파일변경 O");
+				System.out.println(PostfileName);
 				dvo.setFileName(PostfileName);
 				dvo.setFileData(fileData);
 				dao.DocumentfileEdit(dvo);

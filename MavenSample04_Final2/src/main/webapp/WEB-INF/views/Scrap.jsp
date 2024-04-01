@@ -176,11 +176,11 @@
         <div class="content-body"  style="text-align: center;">
             <!-- row -->
             <div class="scrap_wrap">
-               <div class="scrap_title">
-                    <strong>My Scrap</strong>
+               <div class="scrap_title" style = "font-family : 'waguri';">
+                    <strong>MY SCRAP</strong>
                      <!-- <p>공지사항을 빠르고 정확하게 안내해드립니다.</p> -->
               </div>
-           <div class="scrap_list_wrap">
+           <div class="scrap_list_wrap" style = "font-family : 'gmarket';">
          	<div class="scrap_list">
             	<div class="ourscraptop">
                     <div class="ourscrapnum">카테고리</div>
@@ -191,13 +191,12 @@
             		<div class="myscraprow">
                 <form action="ClickContestInfo.do" method="post" style="display: flex; align-items: center;">
                     <div class="ourscrapnum" style="margin-right: 10px;">${sl.conCategory}</div>
-                    <div class="ourscraptitle" style="margin-right: 10px;"><a href="gocrawling.do">${sl.conName}</a></div>
+                    <div class="ourscraptitlecontent" style="margin-right: 10px;">
+                    <a href="ClickContestInfo.do?userId=${profile.userId}&conIdx=${sl.conIdx}" class="ourscrapatag">
+                    ${sl.conName}
+                    </a>
+                    </div>
                     <div class="ourscrapdate" style="margin-right: 10px;">${sl.conStartDate} ~ ${sl.conEndDate}</div>
-                    <input type="hidden" value="${sl.conName}" name="conName">
-                    <input type="hidden" name="userId" value="${profile.userId}">
-                    <input type="hidden" name="conIdx" value="${sl.conIdx}">
-                    <input type="hidden" name="conName" value="${sl.conName}">
-                    <input type="submit" value="상세보기">
                 </form>
             </div>
             	</c:forEach>
@@ -205,6 +204,7 @@
         </div>
        </div>
       </div>
+      
       
         <!--**********************************
             Content body end
@@ -216,8 +216,8 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
-                <p>Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a></p> 
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
             </div>
         </div>
         <!--**********************************

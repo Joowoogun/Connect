@@ -164,7 +164,7 @@ addcalButton.addEventListener('click', function() {
         center: 'title',
         right: 'myCustomButton'
       },
-      initialDate: '2024-03-28',
+      initialDate: '2024-04-01',
       nextDayThreshold: '00:00:00',
       navLinks: false, // can click day/week names to navigate views
       editable: true,
@@ -281,7 +281,7 @@ addcalButton.addEventListener('click', function() {
               square.style.fontSize = '13px'; // 텍스트 크기 설정
               square.style.fontWeight = '700';
               square.style.padding = '10px'; // 위쪽으로 5px의 여백 설정
-              square.innerHTML = "공모전 제목:<br>'" + info.event.title + "'<br>기간:<br>'" + info.event.startStr + "'~'" + info.event.endStr + "'";
+              square.innerHTML = "공모전 제목:<br>'" + info.event.title + "'<br>마감 날짜:<br>'" +  info.event.startStr + "'";
               square.setAttribute('id', 'tooltip'); // div에 id 추가
               document.body.appendChild(square);
 
@@ -302,7 +302,6 @@ addcalButton.addEventListener('click', function() {
     	  // url 넣으면 바꿔야함.
     	  console.log(info.event);
         if (info.event._def.groupId) { // end 데이터가 있는 이벤트를 클릭했을 때
-        	console.log("ㅋㅋ 원래있었어 ㅋㅋ")
         	window.open(info.event._def.groupId, '_blank', 'width=800,height=600');
         } else if (info.event.end) { // 'Birthday Party' 이벤트를 클릭했을 때
             openModal(info.event);
@@ -365,7 +364,7 @@ addcalButton.addEventListener('click', function() {
                     for (let i = 0; i < res1.length; i++) {
                         let data1 = {
                             title: res1[i].conName,
-                            start: res1[i].conStartDate,
+                            start: res1[i].conEndDate,
                             end: res1[i].conEndDate,
                             id: res1[i].conIdx,
                             groupId: res1[i].conHomepage,
@@ -433,6 +432,12 @@ addcalButton.addEventListener('click', function() {
 #ourfullcalendar a {
 	color: black;
 }
+
+.ourselectBox {
+	margin-left : 1310px !important;
+	margin-bottom : 40px !important;
+}
+
 </style>
 
 </head>
@@ -580,8 +585,8 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
 		<div class="content-body">
 			<!-- row -->
 
-			<div class="ourSelect" style="margin-right: 220px;">
-				<select class="ourSelect" id="todoTitle">
+			<div class="ourselectBox" style="margin-right: 220px; font-family : 'gmarket';">
+				<select class="ourselect" id="todoTitle">
 					<c:forEach items="${calTitle}" var="ct">
 						<option>${ct}</option>
 					</c:forEach>
@@ -603,16 +608,11 @@ MemberVO mvo = (MemberVO) session.getAttribute("profile");
             Footer start
         ***********************************-->
 		<div class="footer">
-			<div class="copyright">
-				<p>
-					Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a>
-					2019
-				</p>
-				<p>
-					Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-				</p>
-			</div>
-		</div>
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
 		<!--**********************************
             Footer end
         ***********************************-->

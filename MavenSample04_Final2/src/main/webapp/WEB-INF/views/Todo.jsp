@@ -167,7 +167,7 @@
          <div class="ourtodotitle">
             <strong>
                <form action="todoChageTitle.do" method="post">
-                  <h2>
+                  <h2 style = "font-family : 'waguri';">
                      <input id="showHide" name="title" type="text"
                         placeholder="${TodoTitle}" style="border: none;">
                   </h2>
@@ -199,7 +199,7 @@
                <input type="image" src="assets/images/todoplusimg.png"
                   width="60px" height="60px" id="modalOpener">
 
-               <div class="modal fade" id="exampleModalpopover">
+               <div class="modal fade" id="exampleModalpopover" style = "font-family : 'gmarket';">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                      <div class="modal-content">
                         <div class="modal-header">
@@ -241,7 +241,7 @@
                   </div>
                </div>
             </div>
-            <div class="ourselectBox">
+            <div class="ourselectBox" style = "font-family : 'gmarket';">
             <select class="ourselect" id="todoTitle">
                   <c:forEach items="${TodoOption}" var="title">
                      <option>${title}</option>
@@ -251,11 +251,11 @@
             <!--  </form> -->
 
 
-         </div>
-         <h1>${todoTitle}</h1>
+         </div >
+         <h1 style = "font-family : 'waguri';">${todoTitle}</h1>
          <div class="ourcontainer">
-            <div class="ourcolumn" id="Todo">
-               <h1 id="ourtodocolumntitle">Todo</h1>
+            <div class="ourcolumn" id="Todo" style = "font-family : 'gmarket';">
+               <h1 id="ourtodocolumntitle" style = "font-family : 'waguri';">Todo</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '해야 할 일' and todo.todoTitle == TodoTitle}">
                      <div class="list-group-item" draggable="true">
@@ -271,11 +271,11 @@
                </c:forEach>
             </div>
 
-            <div class="ourcolumn" id="InProgress">
-               <h1 id="ourinprogresscolumntitle">InProgress</h1>
+            <div class="ourcolumn" id="InProgress" style = "font-family : 'gmarket';">
+               <h1 id="ourinprogresscolumntitle" style = "font-family : 'waguri';">InProgress</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '진행 중' and todo.todoTitle == TodoTitle}">
-                     <div class="list-group-item" draggable="true">
+                     <div class="list-group-item" draggable="true" style = "font-family : 'gmarket';">
                         <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
                         <h5>${todo.do_startDate}~${todo.do_endDate}</h5>
                         <input type="hidden" id="status" value="진행 중"> 
@@ -287,11 +287,11 @@
                </c:forEach>
             </div>
 
-            <div class="ourcolumn" id="Done">
-               <h1 id="ourdonecolumntitle">Done</h1>
+            <div class="ourcolumn" id="Done" style = "font-family : 'gmarket';">
+               <h1 id="ourdonecolumntitle" style = "font-family : 'waguri';">Done</h1>
                <c:forEach items="${TodoList}" var="todo">
                   <c:if test="${todo.do_Status == '완료' and todo.todoTitle == TodoTitle}">
-                     <div class="list-group-item" draggable="true">
+                     <div class="list-group-item" draggable="true" >
                         <h2><input type="text" name="content" id="todoContent" value="${todo.content}"></h2>
                         <h5>${todo.do_startDate}~${todo.do_endDate}</h5>
                         <input type="hidden" id="status" value="완료">
@@ -312,8 +312,13 @@
          <!--**********************************
             Footer start
         ***********************************-->
-      
-         <!--**********************************
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
+        <!--**********************************
             Footer end
         ***********************************-->
 

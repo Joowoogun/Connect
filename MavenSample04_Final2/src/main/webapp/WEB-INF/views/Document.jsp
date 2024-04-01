@@ -159,11 +159,11 @@
         <div class="content-body">
            
             <div class="board_wrap">
-                <div class="board_title">
+                <div class="board_title" style = "font-family : 'waguri';">
                     <strong>DOCUMENT</strong>
                     <!-- <p>공지사항을 빠르고 정확하게 안내해드립니다.</p> -->
                 </div>
-                <div class="board_list_wrap">
+                <div class="board_list_wrap" style = "font-family : 'gmarket';">
                     <div class="board_list">
                         <ul class="board_row title_row">
                             <li class="noticeboardnum">번호</li>
@@ -206,8 +206,8 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
-                <p>Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a></p> 
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
             </div>
         </div>
         <!--**********************************

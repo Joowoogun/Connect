@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ***********************************-->
 		<div class="content-body">
 			<!-- 크롤링 포스터 제목 -->
-			<div class="ourcrwcontesttitle">
+			<div class="ourcrwcontesttitle" style = "font-family : 'waguri';">
 
 				<span id="contestcrwtitle"> ${contest.conName} </span>
 				<hr width="97%">
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			<!-- 크롤링 포스터 + 내용 -->
 			<!-- 전체 DIV -->
-			<div class="ourcrwviewcontent">
+			<div class="ourcrwviewcontent" >
 				<!-- 전체2 DIV -->
 				<div class="ourcontentdetail">
 					<!-- 플렉스 DIV -->
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						</div>
 
 						<!-- 오른쪽 전체 DIV -->
-						<div class="ourpositonrelative">
+						<div class="ourpositonrelative" style = "font-family : 'gmarket';">
 
 
 
@@ -344,11 +344,11 @@ document.addEventListener("DOMContentLoaded", function() {
 			</div>
 
 			<!-- 공모요강 -->
-			<div class="ourcrwcontenttext">
+			<div class="ourcrwcontenttext" style = "font-family : 'gmarket';">
 				<!-- 공모전 제목 -->
 				<P>
 					<b> <span
-						style="font-size: 20px; font-weight: 700; color: black;">
+						style="font-size: 20px; font-weight: 700; color: black; margin-left : 60px;">
 							${contest.conName} </span>
 					</b>
 				</P>
@@ -379,16 +379,11 @@ document.addEventListener("DOMContentLoaded", function() {
             Footer start
         ***********************************-->
 		<div class="footer">
-			<div class="copyright">
-				<p>
-					Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a>
-					2019
-				</p>
-				<p>
-					Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-				</p>
-			</div>
-		</div>
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
 		<!--**********************************
             Footer end
         ***********************************-->

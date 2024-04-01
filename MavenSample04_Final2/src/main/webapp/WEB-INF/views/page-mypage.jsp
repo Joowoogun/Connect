@@ -170,8 +170,8 @@
 				<div class="row page-titles mx-0">
 					<div class="col-sm-6 p-md-0">
 						<div class="welcome-text">
-							<h4>MyPage</h4>
-							<p class="mb-0">회원정보를 조회 및 수정할 수 있습니다.</p>
+							<h4 style = "font-family : 'waguri';">MyPage</h4>
+							<p class="mb-0" style = "font-family : 'gmarket';">회원정보를 조회 및 수정할 수 있습니다.</p>
 						</div>
 					</div>
 					<!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -182,7 +182,7 @@
                 </div> -->
 				</div>
 				<!-- row -->
-				<div class="row">
+				<div class="row" style = "font-family : 'gmarket';">
 					<div class="col-lg-12">
 						<div class="profile">
 							<div class="profile-head">
@@ -240,7 +240,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card">
-							<div class="card-header">
+							<div class="card-header" style = "font-family : 'gmarket';">
 								<h4 class="card-title">회원 정보 수정</h4>
 							</div>
 							<div class="card-body">
@@ -325,17 +325,18 @@
 		<!--**********************************
             Footer start
         ***********************************-->
-		<div class="footer">
-			<div class="copyright">
-				<p>
-					Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a>
-					2019
-				</p>
-				<p>
-					Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-				</p>
-			</div>
-		</div>
+		<!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
 		<!--**********************************
             Footer end
         ***********************************-->

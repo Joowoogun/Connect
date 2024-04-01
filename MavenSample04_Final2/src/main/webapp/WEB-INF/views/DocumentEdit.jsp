@@ -166,11 +166,11 @@
         
             <div class="board_wrap">
                <form action="documentWrite.do" method="post" enctype="multipart/form-data">
-                <div class="board_title">
+                <div class="board_title" style = "font-family : 'waguri';">
                     <strong>DOCUMENT EDIT</strong>
                     <p>글을 수정하는 공간.</p>
                 </div>
-                <div class="board_write_wrap">
+                <div class="board_write_wrap" style = "font-family : 'gmarket';">
                     <div class="board_write">
                         <div class="ourboardtitle">
                             <dl>
@@ -185,7 +185,7 @@
                             </dl>
                             	<dl class="ourfilebox">
                                 	<dd>
-                                		<input class="upload-name" value="${DocumentView.fileName}" placeholder="파일을 올려주세요">
+                                		<input class="upload-name" placeholder="${DocumentView.fileName}">
                                 		<input type="file" name="file" id="file" accept=".jpg, .png, .doc, .docx, .hwp, .txt">
                                 	</dd>
                                 
@@ -201,7 +201,7 @@
                      <input type ="hidden" name="fileIdx" value="${DocumentView.fileIdx}">
                      <input type="hidden" name="work" value="edit">
                     	<input type="submit" value="저장">
-                      <a href="documentView.do?fileIdx=${DocumentView.fileIdx}">취소</a>
+                      <a href="documentView.do?fileIdx=${DocumentView.fileIdx}&work=view">취소</a>
                     </div>
                 </div>
                </form>
@@ -215,6 +215,18 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
+    <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by CONNECT 2024</p>
+                <p>Distributed by CONNECT</p> 
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
 
     <!--**********************************
         Scripts
