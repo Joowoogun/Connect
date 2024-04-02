@@ -10,6 +10,16 @@
 <html lang="en">
 
 <head>
+<style>
+ textarea {
+    width: 95%;
+    height: 5em;
+    resize: none;
+  }
+  .addSelect{
+  width: 85%;
+  }
+</style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -77,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div>
                 <div class="modal-body" id="ourmodalBody">
                     Title: <input type="text" placeholder="제목을 입력해주세요" id="addYourTitle" name="addYourTitle">
-                        &nbsp;
-                        간편선택 : <select class="ourSelect" name="addTodoTitle" id="addTodoTitle">
+                       <br><br>
+                        간편선택 : <select class="addSelect" name="addTodoTitle" id="addTodoTitle">
                         <option>직접입력</option>
                         <c:forEach items="${calTitle}" var="ct">
                             <option>${ct}</option>

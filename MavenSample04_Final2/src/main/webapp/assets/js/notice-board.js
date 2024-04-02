@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (j === 1) {
                             let link = document.createElement("a");
                             link.href = "documentView.do?fileIdx=" + data[i].fileIdx + "&work=view"; // 링크 수정
+                            link.className = "ourboardatag";
                             // 각 게시글의 페이지 주소로 수정 필요
                             link.textContent = post_data[j];
                             li.appendChild(link);

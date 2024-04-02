@@ -36,7 +36,8 @@ function openEditModal(eventIdx, eventTitle) {
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Schedule</h5>
                 </div>
-                <div>	
+                <div>
+                	<br>	
                 	<input type="hidden" id="eventTitle" value="${eventTitle}">
                 	<input type="hidden" id="eventId" value="${eventIdx}">
                         Content:<br>

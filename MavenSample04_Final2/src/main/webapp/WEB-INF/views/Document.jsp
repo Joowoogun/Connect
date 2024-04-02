@@ -23,6 +23,18 @@
     <link rel="stylesheet" href="assets/css/boardcss.css">
     <link rel="stylesheet" href="assets/css/boardstyle.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<style>
+	
+	.ourboardatag {
+	display: inline-block;
+    width: 700px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	padding-bottom : 10px;
+	}
+	</style>
 </head>
 
 <body>

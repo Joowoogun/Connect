@@ -24,6 +24,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js" integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="assets/js/ourprogressbarjs.js"></script>
 
+<style>
+  textarea {
+    width: 95%;
+    height: 5em;
+    resize: none;
+  }
+  .addSelect{
+  width:85%; 
+  }
+</style>
+
 </head>
 
 <body>
@@ -209,9 +220,9 @@
                            </button>
                         </div>
                         <div class="modal-body" id="ourmodalBody">
-                              Title: <input type="text" placeholder="제목을 입력해주세요" id="addYourTitle"> 
-                                       &nbsp; 간편선택 : 
-                                    <select id="addTodoTitle">
+                              타이틀 : <input type="text" placeholder="제목을 입력해주세요" id="addYourTitle"> 
+                                      <br><br>간편선택 : 
+                                    <select id="addTodoTitle" class="addSelect">
                                  <c:forEach items="${TodoOption}" var="title">
                                     <option>${title}</option>
                                  </c:forEach>
