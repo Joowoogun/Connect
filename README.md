@@ -48,7 +48,7 @@ todoList와 Calendar는 서로 연동이 됩니다.
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png)
 
 ### 4.2. 사용자 요청
-![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png)
+![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connetdongbedong.png)
 
 - **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
   - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
