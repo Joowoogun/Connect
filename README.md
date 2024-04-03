@@ -45,20 +45,21 @@ todoList와 Calendar는 서로 연동이 됩니다.
 <div markdown="1">
 
 ### 4.1. 전체 흐름
-![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connectsystemarchytect.png)
+![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png)
 
 ### 4.2. 사용자 요청
-![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connetdongbedong.png)
+![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png)
 
-- **동기 요청** :pushpin: [코드 확인](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/WEB-INF/views/Scrap.jsp)
-  - 스크랩 리스트에서 스크랩한 공모전을 클릭하여 데이터를 Controller을 통해 class 파일로 이동시키고 dao와 mapper를 통한 기능 실행후 상세정보 페이지로 이동합니다.
+- **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
+  - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
+  - URL의 모양새가 아닌 경우, 에러 메세지를 띄웁니다.
 
-- **Ajax비동기 요청** :pushpin: [코드 확인]()
+- **Axios 비동기 요청** :pushpin: [코드 확인]()
   - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
 
 ### 4.3. Controller
 
-![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connectController.png)
+![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
 
 - **요청 처리** :pushpin: [코드 확인](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/94e1b3a93c48cc3fdb51d4468de151930705faa6/Middle_project12/src/main/webapp/WEB-INF/views/BoardContent.jsp#L20)
   - Controller에서는 요청을 화면단에서 넘어온 요청을 받고, Service 계층에 로직 처리를 위임합니다.
@@ -101,15 +102,12 @@ todoList와 Calendar는 서로 연동이 됩니다.
 </br>
 
 ## 5. 핵심 트러블 슈팅
-### 5.1. 컨텐츠 필터와 페이징 처리 문제
-- 저는 이 서비스가 페이스북이나 인스타그램 처럼 가볍게, 자주 사용되길 바라는 마음으로 개발했습니다.  
-때문에 페이징 처리도 무한 스크롤을 적용했습니다.
+### 5.1. 디자인 완성 전 기능을 완성해뒀지만 사용하지못함.
+- 백그라운드 프론트 각각 나눠서 작업을 하다보니 기능이 먼저 완성된적이 있습니다.
 
-- 하지만 [무한스크롤, 페이징 혹은 “더보기” 버튼? 어떤 걸 써야할까](https://cyberx.tistory.com/82) 라는 글을 읽고 무한 스크롤의 단점들을 알게 되었고,  
-다양한 기준(카테고리, 사용자, 등록일, 인기도)의 게시물 필터 기능을 넣어서 이를 보완하고자 했습니다.
+- 하지만 완성된 디자인에서 페이징 기술이 들어간 API가 적용되어있어 기존의 코드를 사용해보려고 해도 사용할수 없었습니다.
 
-- 그런데 게시물이 필터링 된 상태에서 무한 스크롤이 동작하면,  
-필터링 된 게시물들만 DB에 요청해야 하기 때문에 아래의 **기존 코드** 처럼 각 필터별로 다른 Query를 날려야 했습니다.
+- 그래서 기존 동기식 방식이었던 코드를 아예 버리고 새로운 비동기식 코드를 작성해서 적용하게 되었습니다.
 
 <details>
 <summary><b>기존 코드</b></summary>
@@ -117,53 +115,27 @@ todoList와 Calendar는 서로 연동이 됩니다.
 
 ~~~java
 /**
- * 게시물 Top10 (기준: 댓글 수 + 좋아요 수)
- * @return 인기순 상위 10개 게시물
+ * 기존방식은 세션에 DocumentList 라는 Attribute에 저장해 </c foreach> 방식으로 출력하는식 이었다.
+ * 세션에서 가져온 아이디를 메소드를 활용하여 List<DocumentVO> 안에 담아서 보낸다.
  */
-public Page<PostResponseDto> listTopTen() {
-
-    PageRequest pageRequest = PageRequest.of(0, 10, Sort.Direction.DESC, "rankPoint", "likeCnt");
-    return postRepository.findAll(pageRequest).map(PostResponseDto::new);
-}
-
-/**
- * 게시물 필터 (Tag Name)
- * @param tagName 게시물 박스에서 클릭한 태그 이름
- * @param pageable 페이징 처리를 위한 객체
- * @return 해당 태그가 포함된 게시물 목록
- */
-public Page<PostResponseDto> listFilteredByTagName(String tagName, Pageable pageable) {
-
-    return postRepository.findAllByTagName(tagName, pageable).map(PostResponseDto::new);
-}
-
-// ... 게시물 필터 (Member) 생략 
-
-/**
- * 게시물 필터 (Date)
- * @param createdDate 게시물 박스에서 클릭한 날짜
- * @return 해당 날짜에 등록된 게시물 목록
- */
-public List<PostResponseDto> listFilteredByDate(String createdDate) {
-
-    // 등록일 00시부터 24시까지
-    LocalDateTime start = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MIN);
-    LocalDateTime end = LocalDateTime.of(LocalDate.parse(createdDate), LocalTime.MAX);
-
-    return postRepository
-                    .findAllByCreatedAtBetween(start, end)
-                    .stream()
-                    .map(PostResponseDto::new)
-                    .collect(Collectors.toList());
-    }
+public String execute(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+    MemberVO mvo = (MemberVO) session.getAttribute("profile");
+    String userId = mvo.getuserId();
+		DAO dao = new DAO();
+		List<DocumentVO> list = dao.DocumentSelect(userId);
+		request.setAttribute("DocumentList", list);
+		return "Document";
+	}
 ~~~
 
 </div>
 </details>
 
-- 이 때 카테고리(tag)로 게시물을 필터링 하는 경우,  
-각 게시물은 최대 3개까지의 카테고리(tag)를 가질 수 있어 해당 카테고리를 포함하는 모든 게시물을 질의해야 했기 때문에  
-- 아래 **개선된 코드**와 같이 QueryDSL을 사용하여 다소 복잡한 Query를 작성하면서도 페이징 처리를 할 수 있었습니다.
+- 이 방식을 활용하면 아이디별 게시글 작성 수 대로 출력은 되었으나 페이징 기능을 구현하지않은 상태였다.
+- 하지만 디자인팀에서 페이징 기능까지 구현된 api를 같이 보내서 사용해보려했지만 현재의 방법은론
+- js로 따로 빼둔 api의 내부에 값을 넣을수 없기 때문에 사용이 불가능했다.
+- 그래서 ajax내부의 succes쪽에 페이징 api를 넣고 json 값을 가져오는 방식으로 해결했다. 
 
 <details>
 <summary><b>개선된 코드</b></summary>
@@ -171,26 +143,37 @@ public List<PostResponseDto> listFilteredByDate(String createdDate) {
 
 ~~~java
 /**
- * 게시물 필터 (Tag Name)
+ * MemberVO 안에 들어간 profile = 로그인한 계정의 정보
+ * dao.DocumentSelect(userId) = dao에 있는 metod 에 userId 활용
+ * new Gson() = json 자료를 활용하기위해 import
+ * return = 비동기 통신이기 때문에 리턴값이 없음
+ * out.print(json) 통신 성공시 succes 값에 들어갈 값을 넣어줌
  */
-@Override
-public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
+  @WebServlet("/documentListAjax")
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    QueryResults<Post> results = queryFactory
-            .selectFrom(post)
-            .innerJoin(postTag)
-                .on(post.idx.eq(postTag.post.idx))
-            .innerJoin(tag)
-                .on(tag.idx.eq(postTag.tag.idx))
-            .where(tag.name.eq(tagName))
-            .orderBy(post.idx.desc())
-                .limit(pageable.getPageSize())
-                .offset(pageable.getOffset())
-            .fetchResults();
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("uft-8");
 
-    return new PageImpl<>(results.getResults(), pageable, results.getTotal());
-}
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("profile");
+		String userId = mvo.getuserId();
+
+		DAO dao = new DAO();
+		List<DocumentVO> listvo = dao.DocumentSelect(userId);
+
+		Gson gson = new Gson();
+		String json = gson.toJson(listvo);
+
+		PrintWriter out = response.getWriter();
+		out.print(json);
+		return;
+	}
 ~~~
+
+
+
 
 </div>
 </details>
