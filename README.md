@@ -1,4 +1,4 @@
-# :pushpin: goQuality
+# :pushpin: CONNECT
 > 풀캘린더 API를 활용한 공모전 정보 제공 및 업무 관리 서비스
 
 
@@ -25,19 +25,20 @@
 #### `Front-end`
   - HTML
   - CSS
-  - JS 
+  - JS
 
 </br>
 
 ## 3. ERD 설계
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20ERD.png)
-![](https://github.com/JungHyung2/gitio.io/blob/master/assets/images/portfolio/p1.jpg)
 
 
 ## 4. 핵심 기능
-이 서비스의 핵심 기능은 컨텐츠 등록 기능입니다.  
-사용자는 단지 컨텐츠의 카테고리를 선택하고, URL만 입력하면 끝입니다.  
-이 단순한 기능의 흐름을 보면, 서비스가 어떻게 동작하는지 알 수 있습니다.  
+공모전 정보 제공과 동시에 업무관리서비스(BPS)를 제공합니다.
+스크랩 기능이 존재하며 스크랩한 공모전은 todoList와 Calendar에 표시됩니다.
+todoList와 Calendar는 서로 연동이 됩니다.
+게시글 작성, 파일첨부 및 다운로드가 가능합니다.
+
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
@@ -47,7 +48,7 @@
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow1.png)
 
 ### 4.2. 사용자 요청
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_vue.png)
+![](https://github.com/2024-SMHRD-KDT-BigData-23/Connect/blob/master/MavenSample04_Final2/src/main/webapp/assets/images/connect%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png)
 
 - **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
   - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
