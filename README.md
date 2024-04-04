@@ -94,8 +94,8 @@ todoList와 Calendar는 서로 연동이 됩니다.
 
 ~~~java
 /**
- * 기존방식은 세션에 DocumentList 라는 Attribute에 저장해 </c foreach> 방식으로 출력하는식 이었다.
- * 세션에서 가져온 아이디를 메소드를 활용하여 List<DocumentVO> 안에 담아서 보낸다.
+ * 기존방식은 세션에 DocumentList 라는 Attribute에 저장해 </c foreach> 방식으로 출력하는식 이었습니다.
+ * 세션에서 가져온 아이디를 메소드를 활용하여 List<DocumentVO> 안에 담아서 보내 출력합니다.
  */
 public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -111,10 +111,10 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 </div>
 </details>
 
-- 이 방식을 활용하면 아이디별 게시글 작성 수 대로 출력은 되었으나 페이징 기능을 구현하지않은 상태였다.
-- 하지만 디자인팀에서 페이징 기능까지 구현된 api를 같이 보내서 사용해보려했지만 현재의 방법은론
-- js로 따로 빼둔 api의 내부에 값을 넣을수 없기 때문에 사용이 불가능했다.
-- 그래서 ajax내부의 succes쪽에 페이징 api를 넣고 json 값을 가져오는 방식으로 해결했다. 
+- 이 방식을 활용하면 아이디별 게시글 작성 수 대로 출력은 되었으나 페이징 기능을 구현하지않은 상태여서 보완이 필요한 시점이었습니다.
+- 완성된 디자인에서 페이징 기능이 구현된 API를 전달받아 기존기능을 살려서 활용해보려 했으나
+- js로 따로 빼둔 페이징 API의 내부에 값을 넣을수 없기 때문에 사용이 불가능하였습니다.
+- 그래서 처음부터 다시 설계하여 ajax내부의 succes쪽에 페이징 api를 넣고 json 값을 가져오는 방식으로 해결 하였습니다. 
 
 <details>
 <summary><b>개선된 코드</b></summary>
@@ -122,11 +122,11 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 
 ~~~java
 /**
- * MemberVO 안에 들어간 profile = 로그인한 계정의 정보
- * dao.DocumentSelect(userId) = dao에 있는 metod 에 userId 활용
+ * MemberVO 안에 들어간 profile = 로그인한 계정의 정보입니다.
+ * dao.DocumentSelect(userId) = dao에 있는 metod 에 userId 활용합니다.
  * new Gson() = json 자료를 활용하기위해 import
- * return = 비동기 통신이기 때문에 리턴값이 없음
- * out.print(json) 통신 성공시 succes 값에 들어갈 값을 넣어줌
+ * return = 비동기 통신이기 때문에 리턴값이 없습니다.
+ * out.print(json) 통신 성공시 succes 값에 들어갈 값을 넣어줍니다.
  */
   @WebServlet("/documentListAjax")
 	protected void service(HttpServletRequest request, HttpServletResponse response)
